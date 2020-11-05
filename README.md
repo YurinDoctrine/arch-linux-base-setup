@@ -1,2 +1,9 @@
 # arch-linux-base-setup
-a few modules went together to help who had curious with arch-linux
+
+## CLONING and RUNNING
+
+```sh
+curl https://raw.githubusercontent.com/YurinDoctrine/arch-linux-base-setup/main/arch-linux-base-setup.sh >arch-linux-base-setup.sh &&
+ chmod 755 arch-linux-base-setup.sh &&
+ ./arch-linux-base-setup.sh
+```
