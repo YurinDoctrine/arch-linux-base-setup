@@ -228,7 +228,7 @@ echo -e "\nGenaerating .xinitrc file"
 
 # Generate the .xinitrc file so we can launch Awesome from the
 # terminal using the "startx" command
-cat <<EOF >${HOME}/.xinitrc
+sudo cat <<EOF >${HOME}/.xinitrc
 #!/bin/bash
 # Disable bell
 xset -b
@@ -273,7 +273,7 @@ EOF
 echo -e "\nIncreasing file watcher count"
 
 # This prevents a "too many files" error in Visual Studio Code
-echo fs.inotify.max_user_watches=524288 | sudo tee /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
+echo -e fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
 
 # ------------------------------------------------------------------------
 
@@ -315,7 +315,8 @@ fi
 # ------------------------------------------------------------------------
 
 git clone https://github.com/ChrisTitusTech/material-awesome.git ~/.config/awesome
-echo -e 'XDG_CURRENT_DESKTOP=Unity\nQT_QPA_PLATFORMTHEME=gtk2' | sudo tee /etc/environment
+echo -e 'XDG_CURRENT_DESKTOP=Unity' | sudo tee -a /etc/environment
+echo -e 'QT_QPA_PLATFORMTHEME=gtk2' | sudo tee -a /etc/environment
 
 # ------------------------------------------------------------------------
 
