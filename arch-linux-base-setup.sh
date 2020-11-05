@@ -314,6 +314,11 @@ fi
 
 # ------------------------------------------------------------------------
 
+git clone https://github.com/ChrisTitusTech/material-awesome.git ~/.config/awesome
+echo -e 'XDG_CURRENT_DESKTOP=Unity\nQT_QPA_PLATFORMTHEME=gtk2' | sudo tee /etc/environment
+
+# ------------------------------------------------------------------------
+
 echo "
 ###############################################################################
 # All Done! Would you like to also run the author's ultra-gaming-setup-wizard? 
