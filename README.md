@@ -1,9 +1,9 @@
-# arch-linux-base-setup
+# secure-linux
 
 ## CLONING and RUNNING
 
 ```sh
-curl https://raw.githubusercontent.com/YurinDoctrine/arch-linux-base-setup/main/arch-linux-base-setup.sh >arch-linux-base-setup.sh &&
- chmod 755 arch-linux-base-setup.sh &&
- ./arch-linux-base-setup.sh
+curl https://raw.githubusercontent.com/YurinDoctrine/secure-linux/main/secure-linux.sh >secure-linux.sh &&
+ chmod 755 secure-linux.sh &&
+ ./secure-linux.sh
 ```
