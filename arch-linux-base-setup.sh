@@ -312,7 +312,7 @@ sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
 
 # Prevent stupid error beeps
 rmmod pcspkr
-echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf ;}
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
