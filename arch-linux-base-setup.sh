@@ -9,8 +9,8 @@ read -p "[PRESS ANY KEY TO CONTINUE] "
 
 # ------------------------------------------------------------------------
 
-echo "Uncomment makeflags"
-sudo sed -i 's/#MAKEFLAGS/MAKEFLAGS/g' /etc/makepkg.conf
+echo "Use all cores for compilation"
+sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
