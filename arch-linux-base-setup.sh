@@ -9,6 +9,12 @@ read -p "[PRESS ANY KEY TO CONTINUE] "
 
 # ------------------------------------------------------------------------
 
+echo "Make pacman and yay colorful and adds eye candy on the progress bar"
+grep -q "^Color" /etc/pacman.conf || sed -i "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+
+# ------------------------------------------------------------------------
+
 echo "Use all cores for compilation"
 sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
@@ -283,6 +289,13 @@ echo -e "\nDisabling Pulse .esd_auth module"
 # That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
 sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
 
+# Fix fluidsynth/pulseaudio issue.
+grep -q "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" /etc/conf.d/fluidsynth ||
+	echo "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" >> /etc/conf.d/fluidsynth
+
+# Start/restart PulseAudio.
+killall pulseaudio; sudo -u "$name" pulseaudio --start
+
 # ------------------------------------------------------------------------
 
 echo -e "\nEnabling Login Display Manager"
@@ -294,6 +307,12 @@ sudo systemctl enable --now lightdm.service
 echo -e "\nDisabling bluetooth daemon by comment it"
 
 sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
+
+# ------------------------------------------------------------------------
+
+# Prevent stupid error beeps
+rmmod pcspkr
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf ;}
 
 # ------------------------------------------------------------------------
 
@@ -346,3 +365,4 @@ final() {
     fi
 }
 final
+# ------------------------------------------------------------------------
