@@ -1,8 +1,8 @@
 #!/usr/bin/bash
 # ------------------------------------------------------------------------
 
-echo "Setting up mirrors for optimal download - GLOBAL"
 sudo pacman -S --noconfirm pacman-contrib curl
+echo "Setting up mirrors for optimal download - GLOBAL"
 sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - >/etc/pacman.d/mirrorlist
 read -p "[PRESS ANY KEY TO CONTINUE] "
@@ -24,7 +24,7 @@ echo "Setup language to en_GB and set locale"
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_COLLATE="" LC_TIME="en_GB.UTF-8"
+localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
 
 # ------------------------------------------------------------------------
 
@@ -204,7 +204,6 @@ YAYPKGS=(
     # UTILITIES -----------------------------------------------------------
     \
     'i3lock-fancy'   # Screen locker
-    'synology-drive' # Synology Drive
     'freeoffice'     # Office Alternative
 
     # MEDIA ---------------------------------------------------------------
@@ -358,7 +357,7 @@ extra() {
 }
 
 final() {
-    read -p ">: " ans
+    read -p "yes\no>: " ans
     if [[ "$ans" == "yes" ]]; then
         printf 'RUNNING...\n' && clear
         extra
