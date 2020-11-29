@@ -203,8 +203,8 @@ YAYPKGS=(
 
     # UTILITIES -----------------------------------------------------------
     \
-    'i3lock-fancy'   # Screen locker
-    'freeoffice'     # Office Alternative
+    'i3lock-fancy' # Screen locker
+    'freeoffice'   # Office Alternative
 
     # MEDIA ---------------------------------------------------------------
     \
@@ -290,10 +290,11 @@ sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esoun
 
 # Fix fluidsynth/pulseaudio issue.
 grep -q "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" /etc/conf.d/fluidsynth ||
-	echo "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" >> /etc/conf.d/fluidsynth
+    echo "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" >>/etc/conf.d/fluidsynth
 
 # Start/restart PulseAudio.
-killall pulseaudio; sudo -u "$name" pulseaudio --start
+killall pulseaudio
+sudo -u "$name" pulseaudio --start
 
 # ------------------------------------------------------------------------
 
@@ -311,7 +312,7 @@ sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
 
 # Prevent stupid error beeps
 rmmod pcspkr
-echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+echo "blacklist pcspkr" >/etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
