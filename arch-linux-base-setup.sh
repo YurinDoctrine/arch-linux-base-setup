@@ -288,10 +288,6 @@ echo -e "\nDisabling Pulse .esd_auth module"
 # That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
 sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
 
-# Fix fluidsynth/pulseaudio issue.
-grep -q "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" /etc/conf.d/fluidsynth ||
-    echo "OTHER_OPTS='-a pulseaudio -m alsa_seq -r 48000'" >>/etc/conf.d/fluidsynth
-
 # Start/restart PulseAudio.
 killall pulseaudio
 sudo -u "$name" pulseaudio --start
