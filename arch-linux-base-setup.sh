@@ -4,32 +4,32 @@
 sudo pacman -S --noconfirm pacman-contrib curl
 echo "Setting up mirrors for optimal download - GLOBAL"
 sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - >/etc/pacman.d/mirrorlist
+curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sudo sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 - >/etc/pacman.d/mirrorlist
 read -p "[PRESS ANY KEY TO CONTINUE] "
 
 # ------------------------------------------------------------------------
 
 echo "Make pacman and yay colorful and adds eye candy on the progress bar"
-grep -q "^Color" /etc/pacman.conf || sed -i "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 
 # ------------------------------------------------------------------------
 
 echo "Use all cores for compilation"
-sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
 echo "Setup language to en_GB and set locale"
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
-timedatectl --no-ask-password set-ntp 1
+sudo timedatectl --no-ask-password set-ntp 1
 localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
 
 # ------------------------------------------------------------------------
 
 echo "Add sudo rights"
-sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 echo "Add sudo no password rights"
 sudo sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
@@ -199,49 +199,11 @@ echo -e "\nDone!\n"
 
 echo -e "\nFINAL SETUP AND CONFIGURATION"
 
-echo -e "\nGenaerating .xinitrc file"
-
-# Generate the .xinitrc file so we can launch Awesome from the
-# terminal using the "startx" command
-sudo cat <<EOF >${HOME}/.xinitrc
-#!/bin/bash
-# Disable bell
-xset -b
-
-# Disable all Power Saving Stuff
-xset -dpms
-xset s off
-
-# X Root window color
-xsetroot -solid darkgrey
-
-# Merge resources (optional)
-#xrdb -merge $HOME/.Xresources
-
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
-    for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-        [ -x "\$f" ] && . "\$f"
-    done
-    unset f
-fi
-
-exit 0
-EOF
-
-# ------------------------------------------------------------------------
-
-echo -e "\nUpdating /bin/startx to use the correct path"
-
-# By default, startx incorrectly looks for the .serverauth file in our HOME folder.
-sudo sed -i 's|xserverauthfile=\$HOME/.serverauth.\$\$|xserverauthfile=\$XAUTHORITY|g' /bin/startx
-
 # ------------------------------------------------------------------------
 
 echo -e "\nConfiguring vconsole.conf to set a larger font for login shell"
 
-sudo cat <<EOF >/etc/vconsole.conf
-FONT=ter-v32b
-EOF
+echo -e 'FONT=ter-v32b' | sudo tee -a /etc/vconsole.conf
 
 # ------------------------------------------------------------------------
 
@@ -260,7 +222,7 @@ sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esoun
 
 # Start/restart PulseAudio.
 killall pulseaudio
-sudo -u "$name" pulseaudio --start
+sudo -u $USER pulseaudio --start
 
 # ------------------------------------------------------------------------
 
@@ -278,13 +240,13 @@ sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
 
 # Prevent stupid error beeps
 rmmod pcspkr
-echo "blacklist pcspkr" >/etc/modprobe.d/nobeep.conf
+echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
 # Make zsh the default shell for the user.
-chsh -s /bin/zsh "$name" >/dev/null 2>&1
-sudo -u "$name" mkdir -p "/home/$name/.cache/zsh/"
+chsh -s /bin/zsh $USER >/dev/null 2>&1
+sudo -u $USER mkdir -p "/home/$USER/.cache/zsh/"
 
 # ------------------------------------------------------------------------
 
