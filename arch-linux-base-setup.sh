@@ -197,36 +197,6 @@ echo -e "\nDone!\n"
 
 # ------------------------------------------------------------------------
 
-echo -e "\nINSTALLING AUR SOFTWARE\n"
-
-YAYPKGS=(
-
-    # UTILITIES -----------------------------------------------------------
-    \
-    'i3lock-fancy' # Screen locker
-    'freeoffice'   # Office Alternative
-
-    # MEDIA ---------------------------------------------------------------
-    \
-    'screenkey'    # Screencast your keypresses
-    'lbry-app-bin' # LBRY Linux Application
-
-    # THEMES --------------------------------------------------------------
-    \
-    'lightdm-webkit-theme-aether' # Lightdm Login Theme
-    'materia-gtk-theme'           # Desktop Theme
-    'papirus-icon-theme'          # Desktop Icons
-    'capitaine-cursors'           # Cursor Themes
-)
-
-for YAYPKG in "${YAYPKGS[@]}"; do
-    yay -S --noconfirm --needed $YAYPKG
-done
-
-echo -e "\nDone!\n"
-
-# ------------------------------------------------------------------------
-
 echo -e "\nFINAL SETUP AND CONFIGURATION"
 
 echo -e "\nGenaerating .xinitrc file"
