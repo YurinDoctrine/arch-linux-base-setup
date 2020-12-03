@@ -63,10 +63,6 @@ PKGS=(
     'blueberry'            # Bluetooth configuration tool
     'pulseaudio-bluetooth' # Bluetooth support for PulseAudio
 
-    # --- PostScript
-    \
-    'ghostscript' # PostScript interpreter
-
     # TERMINAL UTILITIES --------------------------------------------------
     \
     'cronie'          # cron jobs
