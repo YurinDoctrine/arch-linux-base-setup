@@ -4,7 +4,7 @@
 
 sudo pacman -S --noconfirm base-devel pacman-contrib curl
 echo "Setting up mirrors for optimal download - GLOBAL"
-sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sudo sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 - >/etc/pacman.d/mirrorlist
 read -p "[PRESS ANY KEY TO CONTINUE] "
 
@@ -26,7 +26,6 @@ PKGS=(
 
     # --- Setup Desktop
     \
-    'awesome'             # Awesome Desktop
     'xfce4-power-manager' # Power Manager
     'rofi'                # Menu System
     'picom'               # Translucent Windows
