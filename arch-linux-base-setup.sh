@@ -4,7 +4,6 @@
 
 sudo pacman -S --noconfirm base-devel pacman-contrib curl
 echo "Setting up mirrors for optimal download...{GLOBAL}"
-sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
