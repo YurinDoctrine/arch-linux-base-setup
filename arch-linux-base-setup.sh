@@ -2,7 +2,7 @@
 
 # ------------------------------------------------------------------------
 
-sudo pacman -S --noconfirm pacman-contrib curl
+sudo pacman -S --noconfirm base-devel pacman-contrib curl
 echo "Setting up mirrors for optimal download - GLOBAL"
 sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sudo sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 - >/etc/pacman.d/mirrorlist
