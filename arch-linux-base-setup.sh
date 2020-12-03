@@ -5,7 +5,8 @@
 sudo pacman -S --noconfirm base-devel pacman-contrib curl
 echo "Setting up mirrors for optimal download...{GLOBAL}"
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 - >mirrorlist | sudo mv mirrorlist /etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
+sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
 echo -e "\nInstalling Base System\n"
