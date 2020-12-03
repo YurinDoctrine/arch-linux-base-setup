@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#/usr/bin/bash
+
 # ------------------------------------------------------------------------
 
 sudo pacman -S --noconfirm pacman-contrib curl
@@ -8,33 +9,6 @@ curl -s "https://www.archlinux.org/mirrorlist/all/https/" | sudo sed -e 's/^#Ser
 read -p "[PRESS ANY KEY TO CONTINUE] "
 
 # ------------------------------------------------------------------------
-
-echo "Make pacman and yay colorful and adds eye candy on the progress bar"
-grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-
-# ------------------------------------------------------------------------
-
-echo "Use all cores for compilation"
-sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
-
-# ------------------------------------------------------------------------
-
-echo "Setup language to en_GB and set locale"
-sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
-sudo locale-gen
-sudo timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
-
-# ------------------------------------------------------------------------
-
-echo "Add sudo rights"
-sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
-echo "Add sudo no password rights"
-sudo sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
-
-# ------------------------------------------------------------------------
-
 echo -e "\nInstalling Base System\n"
 
 PKGS=(
@@ -63,7 +37,6 @@ PKGS=(
     # --- Login Display Manager
     \
     'lightdm'                 # Base Login Manager
-    'lightdm-webkit2-greeter' # Framework for Awesome Login Themes
 
     # --- Networking Setup
     \
@@ -97,24 +70,18 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
-    'bash-completion' # Tab completion for Bash
-    'bleachbit'       # File deletion utility
     'cronie'          # cron jobs
-    'curl'            # Remote content retrieval
     'file-roller'     # Archive utility
     'gtop'            # System monitoring via terminal
-    'gufw'            # Firewall manager
     'hardinfo'        # Hardware info app
     'htop'            # Process viewer
     'neofetch'        # Shows system info when you launch terminal
     'ntp'             # Network Time Protocol to set time via network.
-    'numlockx'        # Turns on numlock in X11
     'openssh'         # SSH connectivity tools
     'p7zip'           # 7z compression program
     'rsync'           # Remote file sync utility
     'speedtest-cli'   # Internet speed via terminal
     'terminus-font'   # Font package with some bigger fonts for login terminal
-    'tlp'             # Advanced laptop power management
     'unrar'           # RAR compression program
     'unzip'           # Zip compression program
     'wget'            # Remote content retrieval
@@ -156,7 +123,6 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
     \
-    'gedit'    # Text editor
     'clang'    # C Lang compiler
     'cmake'    # Cross-platform open-source make system
     'code'     # Visual Studio Code
@@ -194,6 +160,32 @@ for PKG in "${PKGS[@]}"; do
 done
 
 echo -e "\nDone!\n"
+
+# ------------------------------------------------------------------------
+
+echo "Make pacman and yay colorful and adds eye candy on the progress bar"
+grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+
+# ------------------------------------------------------------------------
+
+echo "Use all cores for compilation"
+sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+
+# ------------------------------------------------------------------------
+
+echo "Setup language to en_GB and set locale"
+sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
+locale-gen
+sudo timedatectl --no-ask-password set-ntp 1
+localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
+
+# ------------------------------------------------------------------------
+
+echo "Add sudo rights"
+sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+echo "Add sudo no password rights"
+sudo sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
 # ------------------------------------------------------------------------
 
@@ -293,4 +285,3 @@ final() {
     fi
 }
 final
-# ------------------------------------------------------------------------
