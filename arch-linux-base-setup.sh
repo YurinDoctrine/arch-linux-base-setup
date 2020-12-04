@@ -1,10 +1,10 @@
-#/usr/bin/bash
+#!/bin/bash
 
 # ------------------------------------------------------------------------
 
 sudo pacman -S --noconfirm base-devel pacman-contrib curl
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-echo "Setting up mirrors for optimal download...{GLOBAL}"
+echo -e "Setting up mirrors for optimal download...{GLOBAL}"
 cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
@@ -118,6 +118,7 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
     \
+    'ccache'   # Compiler cacher
     'clang'    # C Lang compiler
     'cmake'    # Cross-platform open-source make system
     'code'     # Visual Studio Code
@@ -150,7 +151,7 @@ PKGS=(
 )
 
 for PKG in "${PKGS[@]}"; do
-    echo "INSTALLING: ${PKG}"
+    echo -e "INSTALLING: ${PKG}"
     sudo pacman -S "$PKG" --noconfirm --needed
 done
 
@@ -158,18 +159,18 @@ echo -e "\nDone!\n"
 
 # ------------------------------------------------------------------------
 
-echo "Make pacman and yay colorful and adds eye candy on the progress bar"
+echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
 grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
 grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 
 # ------------------------------------------------------------------------
 
-echo "Use all cores for compilation"
+echo -e "Use all cores for compilation"
 sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
-echo "Setup language to en_GB and set locale"
+echo -e "Setup language to en_GB and set locale"
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 sudo timedatectl --no-ask-password set-ntp 1
@@ -177,9 +178,9 @@ localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
 
 # ------------------------------------------------------------------------
 
-echo "Add sudo rights"
+echo -e "Add sudo rights"
 sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
-echo "Add sudo no password rights"
+echo -e "Add sudo no password rights"
 sudo sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
 # ------------------------------------------------------------------------
@@ -243,9 +244,9 @@ echo "
 ###############################################################################
 "
 
-echo "Remove no password sudo rights"
+echo -e "Remove no password sudo rights"
 sudo sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
-echo "Clean orphans pkg"
+echo -e "Clean orphans pkg"
 if [[ ! -n $(pacman -Qdt) ]]; then
     echo "No orphans to remove."
 else
@@ -254,9 +255,9 @@ fi
 
 # ------------------------------------------------------------------------
 
-echo "
+echo -e "
 ###############################################################################
-# All Done! Would you like to also run the author's ultra-gaming-setup-wizard? 
+# All done! Would you also mind to run the author's ultra-gaming-setup-wizard? 
 ###############################################################################
 "
 
@@ -269,13 +270,13 @@ extra() {
 final() {
     read -p "yes\no>: " ans
     if [[ "$ans" == "yes" ]]; then
-        printf 'RUNNING...\n' && clear
+        printf 'RUNNING...\n'
         extra
     elif [[ "$ans" == "no" ]]; then
         printf 'LEAVING...\n'
-        exit
+        exit 1
     else
-        printf 'INVALID VALUE!(yes or no?)\n'
+        printf 'INVALID VALUE!\n'
         final
     fi
 }
