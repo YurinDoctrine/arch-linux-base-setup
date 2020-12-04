@@ -3,7 +3,6 @@
 # ------------------------------------------------------------------------
 
 sudo pacman -S --noconfirm base-devel pacman-contrib curl
-sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo "Setting up mirrors for optimal download...{GLOBAL}"
 cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
@@ -226,7 +225,7 @@ sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
 # ------------------------------------------------------------------------
 
 # Prevent stupid error beeps
-rmmod pcspkr
+sudo rmmod pcspkr
 echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
@@ -234,7 +233,7 @@ echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 # Make zsh the default shell for the user.
 chsh -s /bin/zsh $USER >/dev/null 2>&1
 sudo -u $USER mkdir -p "/home/$USER/.cache/zsh/"
-
+read -p 'PRESS [ENTER] TO CONTINUE ' && clear
 # ------------------------------------------------------------------------
 
 echo "
