@@ -35,7 +35,7 @@ PKGS=(
 
     # --- Login Display Manager
     \
-    'lightdm'                 # Base Login Manager
+    'lightdm' # Base Login Manager
 
     # --- Networking Setup
     \
