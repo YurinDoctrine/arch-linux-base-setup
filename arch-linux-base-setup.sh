@@ -33,10 +33,6 @@ PKGS=(
     'gnome-polkit'        # Elevate Applications
     'lxappearance'        # Set System Themes
 
-    # --- Login Display Manager
-    \
-    'lightdm' # Base Login Manager
-
     # --- Networking Setup
     \
     'wpa_supplicant'         # Key negotiation for WPA wireless networks
