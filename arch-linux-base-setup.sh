@@ -4,7 +4,7 @@
 
 sudo pacman -S --noconfirm base-devel pacman-contrib curl
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-echo -e "Setting up mirrors for optimal download...{GLOBAL}"
+echo -e "Setting up mirrors for optimal download ..."
 cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
@@ -266,10 +266,10 @@ extra() {
 final() {
     read -p $'yes\no>: ' ans
     if [[ "$ans" == "yes" ]]; then
-        printf 'RUNNING...\n'
+        printf 'RUNNING ...\n'
         extra
     elif [[ "$ans" == "no" ]]; then
-        printf 'LEAVING...\n'
+        printf 'LEAVING ...\n'
         exit 1
     else
         printf 'INVALID VALUE!\n'
