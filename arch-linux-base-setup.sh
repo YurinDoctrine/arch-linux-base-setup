@@ -266,13 +266,13 @@ extra() {
 final() {
     read -p $'yes\no>: ' ans
     if [[ "$ans" == "yes" ]]; then
-        printf 'RUNNING ...\n'
+        echo -e 'RUNNING ...\n'
         extra
     elif [[ "$ans" == "no" ]]; then
-        printf 'LEAVING ...\n'
+        echo -e 'LEAVING ...\n'
         exit 1
     else
-        printf 'INVALID VALUE!\n'
+        echo -e 'INVALID VALUE!\n'
         final
     fi
 }
