@@ -231,7 +231,8 @@ echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 # Make zsh the default shell for the user.
 chsh -s /bin/zsh $USER >/dev/null 2>&1
 sudo -u $USER mkdir -p "/home/$USER/.cache/zsh/"
-read -p $'PRESS [ENTER] TO CONTINUE ' && clear
+read -p $'PRESS [ENTER] TO CONTINUE ' &&
+    clear
 # ------------------------------------------------------------------------
 
 echo "
@@ -251,6 +252,7 @@ fi
 
 # ------------------------------------------------------------------------
 
+clear
 echo -e "
 ###############################################################################
 # All done! Would you also mind to run the author's ultra-gaming-setup-wizard? 
@@ -264,7 +266,7 @@ extra() {
 }
 
 final() {
-    read -p $'yes\no>: ' ans
+    read -p $'yes/no >_: ' ans
     if [[ "$ans" == "yes" ]]; then
         echo -e 'RUNNING ...\n'
         extra
