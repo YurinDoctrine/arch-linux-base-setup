@@ -194,7 +194,8 @@ echo -e 'FONT=ter-v32b' | sudo tee -a /etc/vconsole.conf
 echo -e "\nIncreasing file watcher count"
 
 # This prevents a "too many files" error in Visual Studio Code
-echo -e fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf && sudo sysctl --system
+echo -e fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf &&
+    sudo sysctl --system
 
 # ------------------------------------------------------------------------
 
