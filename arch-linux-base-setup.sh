@@ -2,14 +2,63 @@
 
 # ------------------------------------------------------------------------
 
-sudo pacman -S --noconfirm base-devel pacman-contrib curl
+# Before hop in
+sudo pacman -S --needed --noconfirm base-devel pacman-contrib curl
+
+# ------------------------------------------------------------------------
+
+# Ranking mirrors
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
 cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
-echo -e "\nInstalling Base System\n"
+
+# Install yay
+sudo pacman -S --needed --noconfirm yay
+which yay >/dev/null 2>&1
+if [ $? != 0 ]; then
+	git clone https://aur.archlinux.org/yay.git
+	cd yay
+	makepkg -si
+	cd
+fi
+
+# ------------------------------------------------------------------------
+
+# Colorful progress bar
+echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
+grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+
+# ------------------------------------------------------------------------
+
+# All cores for compilation
+echo -e "Use all cores for compilation"
+sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+
+# ------------------------------------------------------------------------
+
+# Setting up locales
+echo -e "Setup language to en_GB and set locale"
+sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
+locale-gen
+sudo timedatectl --no-ask-password set-ntp 1
+localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
+
+# ------------------------------------------------------------------------
+
+# Sudo rights
+echo -e "Add sudo rights"
+sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+echo -e "Add sudo no password rights"
+sudo sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+
+# ------------------------------------------------------------------------
+
+# This may take time
+echo -e "Installing Base System"
 
 PKGS=(
 
@@ -148,50 +197,21 @@ PKGS=(
 
 for PKG in "${PKGS[@]}"; do
     echo -e "INSTALLING: ${PKG}"
-    sudo pacman -S "$PKG" --noconfirm --needed
+    yay -S --noconfirm --needed "$PKG"
 done
 
-echo -e "\nDone!\n"
+echo -e "Done!"
 
 # ------------------------------------------------------------------------
 
-echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
-grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+echo -e "FINAL SETUP AND CONFIGURATION"
+
+echo -e "Configuring vconsole.conf to set a larger font for login shell"
+echo -e "FONT=ter-v32b" | sudo tee -a /etc/vconsole.conf
 
 # ------------------------------------------------------------------------
 
-echo -e "Use all cores for compilation"
-sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
-
-# ------------------------------------------------------------------------
-
-echo -e "Setup language to en_GB and set locale"
-sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
-sudo timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
-
-# ------------------------------------------------------------------------
-
-echo -e "Add sudo rights"
-sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
-echo -e "Add sudo no password rights"
-sudo sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
-
-# ------------------------------------------------------------------------
-
-echo -e "\nFINAL SETUP AND CONFIGURATION"
-
-# ------------------------------------------------------------------------
-
-echo -e "\nConfiguring vconsole.conf to set a larger font for login shell"
-
-echo -e 'FONT=ter-v32b' | sudo tee -a /etc/vconsole.conf
-
-# ------------------------------------------------------------------------
-
-echo -e "\nIncreasing file watcher count"
+echo -e "Increasing file watcher count"
 
 # This prevents a "too many files" error in Visual Studio Code
 echo -e fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf &&
@@ -199,25 +219,17 @@ echo -e fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-us
 
 # ------------------------------------------------------------------------
 
-echo -e "\nDisabling Pulse .esd_auth module"
-
+echo -e "Disabling Pulse .esd_auth module"
+sudo killall -9 pulseaudio
 # Pulse audio loads the `esound-protocol` module, which best I can tell is rarely needed.
 # That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
 sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
-
 # Start/restart PulseAudio.
-killall pulseaudio
 sudo -u $USER pulseaudio --start
 
 # ------------------------------------------------------------------------
 
-echo -e "\nEnabling Login Display Manager"
-
-sudo systemctl enable --now lightdm.service
-
-# ------------------------------------------------------------------------
-
-echo -e "\nDisabling bluetooth daemon by comment it"
+echo -e "Disabling bluetooth daemon by comment it"
 
 sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
 
@@ -229,7 +241,7 @@ echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-# Make zsh the default shell for the user.
+# Make zsh the default shell for the user
 chsh -s /bin/zsh $USER >/dev/null 2>&1
 sudo -u $USER mkdir -p "/home/$USER/.cache/zsh/"
 read -p $'PRESS [ENTER] TO CONTINUE ' &&
@@ -243,10 +255,13 @@ echo "
 "
 
 echo -e "Remove no password sudo rights"
+
 sudo sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+
 echo -e "Clean orphans pkg"
+
 if [[ ! -n $(pacman -Qdt) ]]; then
-    echo "No orphans to remove."
+    echo -e "No orphans to remove"
 else
     sudo pacman -Rns $(pacman -Qdtq)
 fi
@@ -254,6 +269,7 @@ fi
 # ------------------------------------------------------------------------
 
 clear
+
 echo -e "
 ###############################################################################
 # All done! Would you also mind to run the author's ultra-gaming-setup-wizard? 
@@ -269,13 +285,13 @@ extra() {
 final() {
     read -p $'yes/no >_: ' ans
     if [[ "$ans" == "yes" ]]; then
-        echo -e 'RUNNING ...\n'
+        echo -e "RUNNING ..."
         extra
     elif [[ "$ans" == "no" ]]; then
-        echo -e 'LEAVING ...\n'
+        echo -e "LEAVING ..."
         exit 1
     else
-        echo -e 'INVALID VALUE!\n'
+        echo -e "INVALID VALUE!"
         final
     fi
 }
