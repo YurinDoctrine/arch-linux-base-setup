@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------
 
 # Before hop in
-sudo pacman -S --needed --noconfirm base-devel pacman-contrib curl
+sudo pacman -S --needed --noconfirm base-devel pacman-contrib git
 
 # ------------------------------------------------------------------------
 
