@@ -242,13 +242,6 @@ echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-# Make zsh the default shell for the user
-chsh -s /bin/zsh $USER >/dev/null 2>&1
-sudo -u $USER mkdir -p "/home/$USER/.cache/zsh/"
-read -p $'PRESS [ENTER] TO CONTINUE ' &&
-    clear
-# ------------------------------------------------------------------------
-
 echo "
 ###############################################################################
 # Cleaning
