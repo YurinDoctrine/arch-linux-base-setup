@@ -242,23 +242,9 @@ echo -e "blacklist pcspkr" | sudo tee -a /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-echo "
-###############################################################################
-# Cleaning
-###############################################################################
-"
-
 echo -e "Remove no password sudo rights"
 
 sudo sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
-
-echo -e "Clean orphans pkg"
-
-if [[ ! -n $(pacman -Qdt) ]]; then
-    echo -e "No orphans to remove"
-else
-    sudo pacman -Rns $(pacman -Qdtq)
-fi
 
 # ------------------------------------------------------------------------
 
