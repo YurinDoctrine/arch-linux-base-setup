@@ -44,7 +44,7 @@ sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 # Setting up locales
 echo -e "Setup language to en_GB and set locale"
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
-locale-gen
+sudo locale-gen
 sudo timedatectl --no-ask-password set-ntp 1
 localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
 
@@ -65,134 +65,133 @@ PKGS=(
 
     # --- XORG Display Rendering
     \
-    'xorg'         # Base Package
-    'xorg-drivers' # Display Drivers
-    'xterm'        # Terminal for TTY
-    'xorg-server'  # XOrg server
-    'xorg-apps'    # XOrg apps group
-    'xorg-xinit'   # XOrg init
-    'xorg-xinput'  # Xorg xinput
-    'mesa'         # Open source version of OpenGL
+    'xorg'         	# Base Package
+    'xorg-drivers' 	# Display Drivers
+    'xterm'        	# Terminal for TTY
+    'xorg-server'  	# XOrg server
+    'xorg-apps'    	# XOrg apps group
+    'xorg-xinit'   	# XOrg init
+    'xorg-xinput'  	# Xorg xinput
+    'mesa'         	# Open source version of OpenGL
 
     # --- Setup Desktop
     \
-    'xfce4-power-manager' # Power Manager
-    'rofi'                # Menu System
-    'picom'               # Translucent Windows
-    'xclip'               # System Clipboard
-    'gnome-polkit'        # Elevate Applications
-    'lxappearance'        # Set System Themes
+    'xfce4-power-manager' 	# Power Manager
+    'rofi'                	# Menu System
+    'picom'               	# Translucent Windows
+    'xclip'               	# System Clipboard
+    'lxappearance'        	# Set System Themes
 
     # --- Networking Setup
     \
-    'wpa_supplicant'         # Key negotiation for WPA wireless networks
-    'dialog'                 # Enables shell scripts to trigger dialog boxex
-    'openvpn'                # Open VPN support
-    'networkmanager-openvpn' # Open VPN plugin for NM
-    'network-manager-applet' # System tray icon/utility for network connectivity
-    'libsecret'              # Library for storing passwords
+    'wpa_supplicant'         	# Key negotiation for WPA wireless networks
+    'dialog'                 	# Enables shell scripts to trigger dialog boxex
+    'openvpn'                	# Open VPN support
+    'networkmanager-openvpn' 	# Open VPN plugin for NM
+    'network-manager-applet' 	# System tray icon/utility for network connectivity
+    'libsecret'              	# Library for storing passwords
 
     # --- Audio
     \
-    'alsa-utils'      # Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
-    'alsa-plugins'    # ALSA plugins
-    'pulseaudio'      # Pulse Audio sound components
-    'pulseaudio-alsa' # ALSA configuration for pulse audio
-    'pavucontrol'     # Pulse Audio volume control
-    'pnmixer'         # System tray volume control
+    'alsa-utils'      	# Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
+    'alsa-plugins'    	# ALSA plugins
+    'pulseaudio'      	# Pulse Audio sound components
+    'pulseaudio-alsa' 	# ALSA configuration for pulse audio
+    'pavucontrol'     	# Pulse Audio volume control
+    'pnmixer'         	# System tray volume control
 
     # --- Bluetooth
     \
-    'bluez'                # Daemons for the bluetooth protocol stack
-    'bluez-utils'          # Bluetooth development and debugging utilities
-    'bluez-firmware'       # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
-    'blueberry'            # Bluetooth configuration tool
-    'pulseaudio-bluetooth' # Bluetooth support for PulseAudio
+    'bluez'                	# Daemons for the bluetooth protocol stack
+    'bluez-utils'          	# Bluetooth development and debugging utilities
+    'bluez-firmware'       	# Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
+    'blueberry'            	# Bluetooth configuration tool
+    'pulseaudio-bluetooth' 	# Bluetooth support for PulseAudio
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
-    'cronie'          # cron jobs
-    'file-roller'     # Archive utility
-    'gtop'            # System monitoring via terminal
-    'hardinfo'        # Hardware info app
-    'htop'            # Process viewer
-    'neofetch'        # Shows system info when you launch terminal
-    'ntp'             # Network Time Protocol to set time via network.
-    'openssh'         # SSH connectivity tools
-    'p7zip'           # 7z compression program
-    'rsync'           # Remote file sync utility
-    'speedtest-cli'   # Internet speed via terminal
-    'terminus-font'   # Font package with some bigger fonts for login terminal
-    'unrar'           # RAR compression program
-    'unzip'           # Zip compression program
-    'wget'            # Remote content retrieval
-    'terminator'      # Terminal emulator
-    'vim'             # Terminal Editor
-    'zenity'          # Display graphical dialog boxes via shell scripts
-    'zip'             # Zip compression program
-    'zsh'             # ZSH shell
-    'zsh-completions' # Tab completion for ZSH
+    'cronie'          	# cron jobs
+    'file-roller'     	# Archive utility
+    'gtop'            	# System monitoring via terminal
+    'hardinfo'        	# Hardware info app
+    'htop'            	# Process viewer
+    'neofetch'        	# Shows system info when you launch terminal
+    'ntp'             	# Network Time Protocol to set time via network.
+    'openssh'         	# SSH connectivity tools
+    'p7zip'           	# 7z compression program
+    'rsync'           	# Remote file sync utility
+    'speedtest-cli'   	# Internet speed via terminal
+    'terminus-font'   	# Font package with some bigger fonts for login terminal
+    'unrar'           	# RAR compression program
+    'unzip'           	# Zip compression program
+    'wget'            	# Remote content retrieval
+    'terminator'      	# Terminal emulator
+    'vim'             	# Terminal Editor
+    'zenity'          	# Display graphical dialog boxes via shell scripts
+    'zip'             	# Zip compression program
+    'zsh'             	# ZSH shell
+    'zsh-completions' 	# Tab completion for ZSH
 
     # DISK UTILITIES ------------------------------------------------------
     \
-    'android-tools'         # ADB for Android
-    'android-file-transfer' # Android File Transfer
-    'autofs'                # Auto-mounter
-    'btrfs-progs'           # BTRFS Support
-    'dosfstools'            # DOS Support
-    'exfat-utils'           # Mount exFat drives
-    'gparted'               # Disk utility
-    'gvfs-mtp'              # Read MTP Connected Systems
-    'gvfs-smb'              # More File System Stuff
-    'nautilus-share'        # File Sharing in Nautilus
-    'ntfs-3g'               # Open source implementation of NTFS file system
-    'parted'                # Disk utility
-    'samba'                 # Samba File Sharing
-    'smartmontools'         # Disk Monitoring
-    'smbclient'             # SMB Connection
-    'xfsprogs'              # XFS Support
+    'android-tools'         	# ADB for Android
+    'android-file-transfer' 	# Android File Transfer
+    'autofs'                	# Auto-mounter
+    'btrfs-progs'           	# BTRFS Support
+    'dosfstools'            	# DOS Support
+    'exfat-utils'           	# Mount exFat drives
+    'gparted'               	# Disk utility
+    'gvfs-mtp'              	# Read MTP Connected Systems
+    'gvfs-smb'              	# More File System Stuff
+    'nautilus-share'        	# File Sharing in Nautilus
+    'ntfs-3g'               	# Open source implementation of NTFS file system
+    'parted'                	# Disk utility
+    'samba'                 	# Samba File Sharing
+    'smartmontools'         	# Disk Monitoring
+    'smbclient'             	# SMB Connection
+    'xfsprogs'              	# XFS Support
 
     # GENERAL UTILITIES ---------------------------------------------------
     \
-    'flameshot'    # Screenshots
-    'freerdp'      # RDP Connections
-    'libvncserver' # VNC Connections
-    'nautilus'     # Filesystem browser
-    'remmina'      # Remote Connection
-    'veracrypt'    # Disc encryption utility
-    'variety'      # Wallpaper changer
+    'flameshot'    	# Screenshots
+    'freerdp'      	# RDP Connections
+    'libvncserver' 	# VNC Connections
+    'nautilus'     	# Filesystem browser
+    'remmina'      	# Remote Connection
+    'veracrypt'    	# Disc encryption utility
+    'variety'      	# Wallpaper changer
 
     # DEVELOPMENT ---------------------------------------------------------
     \
-    'ccache'   # Compiler cacher
-    'clang'    # C Lang compiler
-    'cmake'    # Cross-platform open-source make system
-    'code'     # Visual Studio Code
-    'electron' # Cross-platform development using Javascript
-    'git'      # Version control system
-    'gcc'      # C/C++ compiler
-    'glibc'    # C libraries
-    'meld'     # File/directory comparison
-    'nodejs'   # Javascript runtime environment
-    'npm'      # Node package manager
-    'python'   # Scripting language
-    'yarn'     # Dependency management (Hyper needs this)
+    'ccache'   	# Compiler cacher
+    'clang'    	# C Lang compiler
+    'cmake'    	# Cross-platform open-source make system
+    'code'     	# Visual Studio Code
+    'electron' 	# Cross-platform development using Javascript
+    'git'      	# Version control system
+    'gcc'      	# C/C++ compiler
+    'glibc'    	# C libraries
+    'meld'     	# File/directory comparison
+    'nodejs'   	# Javascript runtime environment
+    'npm'      	# Node package manager
+    'python'   	# Scripting language
+    'yarn'     	# Dependency management (Hyper needs this)
 
     # MEDIA ---------------------------------------------------------------
     \
-    'kdenlive'   # Movie Render
-    'obs-studio' # Record your screen
-    'celluloid'  # Video player
+    'kdenlive'   	# Movie Render
+    'obs-studio' 	# Record your screen
+    'celluloid'  	# Video player
 
     # GRAPHICS AND DESIGN -------------------------------------------------
     \
-    'gcolor2'   # Colorpicker
-    'gimp'      # GNU Image Manipulation Program
-    'ristretto' # Multi image viewer
+    'gcolor2'   	# Colorpicker
+    'gimp'      	# GNU Image Manipulation Program
+    'ristretto' 	# Multi image viewer
 
     # PRODUCTIVITY --------------------------------------------------------
     \
-    'xpdf' # PDF viewer
+    'xpdf' 	# PDF viewer
 
 )
 
@@ -226,7 +225,7 @@ sudo killall -9 pulseaudio
 # That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
 sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
 # Start/restart PulseAudio.
-sudo -u $USER pulseaudio --start
+sudo killall -HUP pulseaudio
 
 # ------------------------------------------------------------------------
 
@@ -252,7 +251,7 @@ clear
 
 echo -e "
 ###############################################################################
-# All done! Would you also mind to run the author's ultra-gaming-setup-wizard? 
+# All done! Would you also mind to run the author's ultra-gaming-setup-wizard?
 ###############################################################################
 "
 
