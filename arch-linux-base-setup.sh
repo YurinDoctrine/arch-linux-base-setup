@@ -85,7 +85,7 @@ PKGS=(
     # --- Networking Setup
     \
     'wpa_supplicant'         # Key negotiation for WPA wireless networks
-    'dialog'                 # Enables shell scripts to trigger dialog boxex
+    'dialog'                 # Enables shell scripts to trigger dialog boxes
     'openvpn'                # Open VPN support
     'networkmanager-openvpn' # Open VPN plugin for NM
     'network-manager-applet' # System tray icon/utility for network connectivity
