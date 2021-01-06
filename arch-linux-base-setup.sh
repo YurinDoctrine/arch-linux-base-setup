@@ -63,7 +63,7 @@ echo -e "Installing Base System"
 
 PKGS=(
 
-    # --- XORG Display Rendering
+    # --- Importants
     \
     'xorg'         # Base Package
     'xorg-drivers' # Display Drivers
@@ -191,7 +191,13 @@ PKGS=(
 
     # PRODUCTIVITY --------------------------------------------------------
     \
-    'xpdf' # PDF viewer
+    'xpdf' 		    # PDF viewer
+    'cups'                  # Open source printer drivers
+    'cups-pdf'              # PDF support for cups
+    'ghostscript'           # PostScript interpreter
+    'gsfonts'               # Adobe Postscript replacement fonts
+    'hplip'                 # HP Drivers
+    'system-config-printer' # Printer setup  utility
 
 )
 
@@ -211,8 +217,21 @@ echo -e "FONT=ter-v32b" | sudo tee -a /etc/vconsole.conf
 
 # ------------------------------------------------------------------------
 
-echo -e "Increasing file watcher count"
+echo -e "Setting laptop lid close to suspend"
+sudo sed -i -e 's|[# ]*HandleLidSwitch[ ]*=[ ]*.*|HandleLidSwitch=suspend|g' /etc/systemd/logind.conf
 
+# ------------------------------------------------------------------------
+
+echo "Disabling buggy cursor inheritance"
+# When you boot with multiple monitors the cursor can look huge. This fixes it.
+sudo cat <<EOF > /usr/share/icons/default/index.theme
+[Icon Theme]
+#Inherits=Theme
+EOF
+
+# ------------------------------------------------------------------------
+
+echo -e "Increasing file watcher count"
 # This prevents a "too many files" error in Visual Studio Code
 echo -e fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.d/40-max-user-watches.conf &&
     sudo sysctl --system
@@ -230,8 +249,13 @@ sudo killall -HUP pulseaudio
 # ------------------------------------------------------------------------
 
 echo -e "Disabling bluetooth daemon by comment it"
-
 sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
+
+# ------------------------------------------------------------------------
+
+echo "Enabling the cups service daemon so we can print"
+sudo service org.cups.cupsd.service start
+sudo service org.cups.cupsd.service enable
 
 # ------------------------------------------------------------------------
 
