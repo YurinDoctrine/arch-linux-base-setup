@@ -4,7 +4,7 @@
 
 # Before hop in
 sudo pacman -Sy
-sudo pacman -S --needed --noconfirm base-devel pacman-contrib git
+sudo pacman -S --needed --noconfirm base-devel pacman-contrib git yay
 
 # ------------------------------------------------------------------------
 
@@ -16,8 +16,7 @@ sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
 
-# Install yay
-sudo pacman -S --needed --noconfirm yay
+# Install yay if its still not
 which yay >/dev/null 2>&1
 if [ $? != 0 ]; then
     git clone https://aur.archlinux.org/yay.git
@@ -41,23 +40,6 @@ sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
-# Setting up locales
-echo -e "Setup language to en_GB and set locale"
-sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
-sudo locale-gen
-sudo timedatectl set-ntp 1
-sudo localectl set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
-
-# ------------------------------------------------------------------------
-
-# Sudo rights
-echo -e "Add sudo rights"
-sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
-echo -e "Remove no password sudo rights"
-sudo sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
-
-# ------------------------------------------------------------------------
-
 # This may take time
 echo -e "Installing Base System"
 
@@ -77,6 +59,7 @@ PKGS=(
     # --- Setup Desktop
     \
     'xfce4-power-manager' # Power Manager
+    'xfce4-goodies'       # All the extras
     'rofi'                # Menu System
     'picom'               # Translucent Windows
     'xclip'               # System Clipboard
@@ -84,12 +67,15 @@ PKGS=(
 
     # --- Networking Setup
     \
-    'wpa_supplicant'         # Key negotiation for WPA wireless networks
+    'wpasupplicant'          # Key negotiation for WPA wireless networks
     'dialog'                 # Enables shell scripts to trigger dialog boxes
     'openvpn'                # Open VPN support
     'networkmanager-openvpn' # Open VPN plugin for NM
     'network-manager-applet' # System tray icon/utility for network connectivity
     'libsecret'              # Library for storing passwords
+    'networkmanager-vpnc'    # Open VPN plugin for NM. Probably not needed if networkmanager-openvpn is installed.
+    'network-manager-applet' # System tray icon/utility for network connectivity
+    'dhclient'               # DHCP client
 
     # --- Audio
     \
@@ -99,6 +85,7 @@ PKGS=(
     'pulseaudio-alsa' # ALSA configuration for pulse audio
     'pavucontrol'     # Pulse Audio volume control
     'pnmixer'         # System tray volume control
+    'volumeicon'      # System tray volume control
 
     # --- Bluetooth
     \
@@ -107,6 +94,7 @@ PKGS=(
     'bluez-firmware'       # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
     'blueberry'            # Bluetooth configuration tool
     'pulseaudio-bluetooth' # Bluetooth support for PulseAudio
+    'pulseaudio-module-bluetooth' # Bluetooth support for PulseAudio
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
@@ -118,6 +106,8 @@ PKGS=(
     'neofetch'        # Shows system info when you launch terminal
     'ntp'             # Network Time Protocol to set time via network.
     'openssh'         # SSH connectivity tools
+    'hyper'               # Terminal emulator built on Electron
+    'irssi'               # Terminal based IIRC
     'p7zip'           # 7z compression program
     'rsync'           # Remote file sync utility
     'speedtest-cli'   # Internet speed via terminal
@@ -156,8 +146,11 @@ PKGS=(
     'flameshot'    # Screenshots
     'freerdp'      # RDP Connections
     'libvncserver' # VNC Connections
+    'filezilla'    # FTP Client
+    'apache2'      # HTTP server
     'nautilus'     # Filesystem browser
     'remmina'      # Remote Connection
+    'net-tools'    # Network utilities
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
 
@@ -166,6 +159,7 @@ PKGS=(
     'ccache'   # Compiler cacher
     'clang'    # C Lang compiler
     'cmake'    # Cross-platform open-source make system
+    'ninja'    # Small build system with a focus on speed
     'electron' # Cross-platform development using Javascript
     'git'      # Version control system
     'gcc'      # C/C++ compiler
@@ -181,6 +175,7 @@ PKGS=(
     'kdenlive'   # Movie Render
     'obs-studio' # Record your screen
     'celluloid'  # Video player
+    'screenkey'  # Screencast your keypresses
 
     # GRAPHICS AND DESIGN -------------------------------------------------
     \
@@ -198,6 +193,11 @@ PKGS=(
     'hplip'                 # HP Drivers
     'system-config-printer' # Printer setup  utility
 
+    # POST PRODUCTION -----------------------------------------------------
+    \
+    'menulibre' # Menu editor
+    'gtkhash'   # Checksum verifier
+
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -210,6 +210,23 @@ echo -e "Done!"
 # ------------------------------------------------------------------------
 
 echo -e "FINAL SETUP AND CONFIGURATION"
+
+# Setting up locales
+echo -e "Setup language to en_GB and set locale"
+sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+sudo timedatectl set-ntp 1
+sudo localectl set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
+
+# ------------------------------------------------------------------------
+
+# Sudo rights
+echo -e "Add sudo rights"
+sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+echo -e "Remove no password sudo rights"
+sudo sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+
+# ------------------------------------------------------------------------
 
 echo -e "Configuring vconsole.conf to set a larger font for login shell"
 echo -e "FONT=ter-v32b" | sudo tee /etc/vconsole.conf
