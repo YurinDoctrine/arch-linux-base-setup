@@ -45,8 +45,8 @@ sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 echo -e "Setup language to en_GB and set locale"
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
-sudo timedatectl --no-ask-password set-ntp 1
-localectl --no-ask-password set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
+sudo timedatectl set-ntp 1
+sudo localectl set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
 
 # ------------------------------------------------------------------------
 
@@ -191,7 +191,7 @@ PKGS=(
 
     # PRODUCTIVITY --------------------------------------------------------
     \
-    'xpdf' 		    # PDF viewer
+    'xpdf'                  # PDF viewer
     'cups'                  # Open source printer drivers
     'cups-pdf'              # PDF support for cups
     'ghostscript'           # PostScript interpreter
