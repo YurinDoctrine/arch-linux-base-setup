@@ -67,7 +67,7 @@ PKGS=(
 
     # --- Networking Setup
     \
-    'wpa_supplicant'          # Key negotiation for WPA wireless networks
+    'wpa_supplicant'         # Key negotiation for WPA wireless networks
     'dialog'                 # Enables shell scripts to trigger dialog boxes
     'openvpn'                # Open VPN support
     'networkmanager-openvpn' # Open VPN plugin for NM
@@ -89,11 +89,11 @@ PKGS=(
 
     # --- Bluetooth
     \
-    'bluez'                # Daemons for the bluetooth protocol stack
-    'bluez-utils'          # Bluetooth development and debugging utilities
-    'bluez-firmware'       # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
-    'blueberry'            # Bluetooth configuration tool
-    'pulseaudio-bluetooth' # Bluetooth support for PulseAudio
+    'bluez'                       # Daemons for the bluetooth protocol stack
+    'bluez-utils'                 # Bluetooth development and debugging utilities
+    'bluez-firmware'              # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
+    'blueberry'                   # Bluetooth configuration tool
+    'pulseaudio-bluetooth'        # Bluetooth support for PulseAudio
     'pulseaudio-module-bluetooth' # Bluetooth support for PulseAudio
 
     # TERMINAL UTILITIES --------------------------------------------------
@@ -106,8 +106,8 @@ PKGS=(
     'neofetch'        # Shows system info when you launch terminal
     'ntp'             # Network Time Protocol to set time via network.
     'openssh'         # SSH connectivity tools
-    'hyper'               # Terminal emulator built on Electron
-    'irssi'               # Terminal based IIRC
+    'hyper'           # Terminal emulator built on Electron
+    'irssi'           # Terminal based IIRC
     'p7zip'           # 7z compression program
     'rsync'           # Remote file sync utility
     'speedtest-cli'   # Internet speed via terminal
@@ -159,7 +159,7 @@ PKGS=(
     'ccache'   # Compiler cacher
     'clang'    # C Lang compiler
     'cmake'    # Cross-platform open-source make system
-    'ninja'    # Small build system with a focus on speed
+    'meson'    # Build system that use python as a front-end language and Ninja as a building backend
     'electron' # Cross-platform development using Javascript
     'git'      # Version control system
     'gcc'      # C/C++ compiler
