@@ -3,16 +3,16 @@
 # ------------------------------------------------------------------------
 
 # Before hop in
-sudo pacman -Sy
-sudo pacman -S --needed --noconfirm base-devel pacman-contrib git 
-sudo pacman -S --needed --noconfirm yay
+sudo pacman -Sy &&
+	sudo pacman -S --needed --noconfirm base-devel pacman-contrib git &&
+	sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
 
 # Ranking mirrors
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
-cat /etc/pacman.d/mirrorlist | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
+cat /etc/pacman.d/mirrorlist | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
