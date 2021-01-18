@@ -4,7 +4,8 @@
 
 # Before hop in
 sudo pacman -Sy
-sudo pacman -S --needed --noconfirm base-devel pacman-contrib git yay
+sudo pacman -S --needed --noconfirm base-devel pacman-contrib git 
+sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
 
@@ -47,22 +48,10 @@ PKGS=(
 
     # --- Importants
     \
-    'xorg'         # Base Package
-    'xorg-drivers' # Display Drivers
-    'xterm'        # Terminal for TTY
-    'xorg-server'  # XOrg server
-    'xorg-apps'    # XOrg apps group
-    'xorg-xinit'   # XOrg init
-    'xorg-xinput'  # Xorg xinput
-    'mesa'         # Open source version of OpenGL
-
-    # --- Setup Desktop
-    \
     'xfce4-power-manager' # Power Manager
     'xfce4-goodies'       # All the extras
     'rofi'                # Menu System
     'picom'               # Translucent Windows
-    'xclip'               # System Clipboard
     'lxappearance'        # Set System Themes
 
     # --- Networking Setup
@@ -106,7 +95,6 @@ PKGS=(
     'neofetch'        # Shows system info when you launch terminal
     'ntp'             # Network Time Protocol to set time via network.
     'openssh'         # SSH connectivity tools
-    'hyper'           # Terminal emulator built on Electron
     'irssi'           # Terminal based IIRC
     'p7zip'           # 7z compression program
     'rsync'           # Remote file sync utility
@@ -151,6 +139,7 @@ PKGS=(
     'net-tools'    # Network utilities
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
+    'gtkhash'      # Checksum verifier
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -158,8 +147,6 @@ PKGS=(
     'clang'    # C Lang compiler
     'cmake'    # Cross-platform open-source make system
     'meson'    # Build system that use python as a front-end language and Ninja as a building backend
-    'electron' # Cross-platform development using Javascript
-    'git'      # Version control system
     'gcc'      # C/C++ compiler
     'glibc'    # C libraries
     'glslang'  # OpenGL and OpenGL ES shader front end and validator
@@ -167,22 +154,15 @@ PKGS=(
     'nodejs'   # Javascript runtime environment
     'npm'      # Node package manager
     'python'   # Scripting language
-    'yarn'     # Dependency management (Hyper needs this)
 
-    # MEDIA ---------------------------------------------------------------
-    \
-    'kdenlive'   # Movie Render
-    'obs-studio' # Record your screen
-    'celluloid'  # Video player
-    'screenkey'  # Screencast your keypresses
-
-    # GRAPHICS AND DESIGN -------------------------------------------------
+    # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
     'gcolor2'   # Colorpicker
     'gimp'      # GNU Image Manipulation Program
     'ristretto' # Multi image viewer
+    'kdenlive'  # Movie Render
 
-    # PRODUCTIVITY --------------------------------------------------------
+    # PRINTING --------------------------------------------------------
     \
     'xpdf'                  # PDF viewer
     'cups'                  # Open source printer drivers
@@ -191,11 +171,6 @@ PKGS=(
     'gsfonts'               # Adobe Postscript replacement fonts
     'hplip'                 # HP Drivers
     'system-config-printer' # Printer setup  utility
-
-    # POST PRODUCTION -----------------------------------------------------
-    \
-    'menulibre' # Menu editor
-    'gtkhash'   # Checksum verifier
 
 )
 
