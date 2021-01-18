@@ -79,6 +79,7 @@ PKGS=(
     # --- Bluetooth
     \
     'bluez'                       # Daemons for the bluetooth protocol stack
+    'bluez-libs'                  # Daemons for the bluetooth libraries
     'bluez-utils'                 # Bluetooth development and debugging utilities
     'bluez-firmware'              # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
     'blueberry'                   # Bluetooth configuration tool
@@ -103,7 +104,6 @@ PKGS=(
     'unrar'           # RAR compression program
     'unzip'           # Zip compression program
     'wget'            # Remote content retrieval
-    'terminator'      # Terminal emulator
     'vim'             # Terminal Editor
     'zenity'          # Display graphical dialog boxes via shell scripts
     'zip'             # Zip compression program
