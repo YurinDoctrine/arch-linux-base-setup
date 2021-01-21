@@ -149,7 +149,7 @@ PKGS=(
     'glibc'          # C libraries
     'glslang'        # OpenGL and OpenGL ES shader front end and validator
     'meld'     	     # File/directory comparison
-    'mariadb-server' # Commercially supported fork of the MySQL
+    'mariadb'	     # Commercially supported fork of the MySQL
     'nodejs'   	     # Javascript runtime environment
     'npm'            # Node package manager
     'php'            # Scripting language
