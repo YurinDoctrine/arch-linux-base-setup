@@ -88,9 +88,7 @@ PKGS=(
     # TERMINAL UTILITIES --------------------------------------------------
     \
     'cronie'          # Cron jobs
-    'file-roller'     # Archive utility
     'fish'            # The friendly interactive shell
-    'gtop'            # System monitoring via terminal
     'hardinfo'        # Hardware info app
     'htop'            # Process viewer
     'neofetch'        # Shows system info when you launch terminal
@@ -119,7 +117,6 @@ PKGS=(
     'gparted'               # Disk utility
     'gvfs-mtp'              # Read MTP Connected Systems
     'gvfs-smb'              # More File System Stuff
-    'nautilus-share'        # File Sharing in Nautilus
     'ntfs-3g'               # Open source implementation of NTFS file system
     'parted'                # Disk utility
     'samba'                 # Samba File Sharing
