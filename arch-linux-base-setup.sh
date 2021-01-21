@@ -49,7 +49,6 @@ PKGS=(
     # --- Importants
     \
     'xfce4-power-manager' # Power Manager
-    'xfce4-goodies'       # All the extras
     'rofi'                # Menu System
     'picom'               # Translucent Windows
     'lxappearance'        # Set System Themes
@@ -267,7 +266,19 @@ final() {
         extra
     elif [[ "$ans" == "no" ]]; then
         echo -e "LEAVING ..."
-        exit 1
+	echo -e ""
+        echo -e "FINAL: DO YOU ALSO WANT TO RUN THE AUTHOR'S secure-linux?"
+        read -p $'yes/no >_: ' noc
+        if [[ "$noc" == "yes" ]]; then
+                echo -e "RUNNING ...\n"
+                extra2
+        elif [[ "$noc" == "no" ]]; then
+                echo -e "LEAVING ...\n"
+                exit 1
+        else
+                echo -e "INVALID VALUE!\n"
+                final
+        fi
     else
         echo -e "INVALID VALUE!"
         final
