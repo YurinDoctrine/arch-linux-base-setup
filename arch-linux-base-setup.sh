@@ -4,8 +4,8 @@
 
 # Before hop in
 sudo pacman -Sy &&
-	sudo pacman -S --needed --noconfirm base-devel pacman-contrib git &&
-	sudo pacman -S --needed --noconfirm yay
+    sudo pacman -S --needed --noconfirm base-devel pacman-contrib git &&
+    sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
 
@@ -87,25 +87,25 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
-    'cronie'          # Cron jobs
-    'fish'            # The friendly interactive shell
-    'ftp'             # File transfer protocol
-    'hardinfo'        # Hardware info app
-    'htop'            # Process viewer
-    'neofetch'        # Shows system info when you launch terminal
-    'ntp'             # Network Time Protocol to set time via network.
-    'openssh'         # SSH connectivity tools
-    'irssi'           # Terminal based IIRC
-    'p7zip'           # 7z compression program
-    'rsync'           # Remote file sync utility
-    'speedtest-cli'   # Internet speed via terminal
-    'terminus-font'   # Font package with some bigger fonts for login terminal
-    'unrar'           # RAR compression program
-    'unzip'           # Zip compression program
-    'wget'            # Remote content retrieval
-    'vim'             # Terminal Editor
-    'zenity'          # Display graphical dialog boxes via shell scripts
-    'zip'             # Zip compression program
+    'cronie'        # Cron jobs
+    'fish'          # The friendly interactive shell
+    'ftp'           # File transfer protocol
+    'hardinfo'      # Hardware info app
+    'htop'          # Process viewer
+    'neofetch'      # Shows system info when you launch terminal
+    'ntp'           # Network Time Protocol to set time via network.
+    'openssh'       # SSH connectivity tools
+    'irssi'         # Terminal based IIRC
+    'p7zip'         # 7z compression program
+    'rsync'         # Remote file sync utility
+    'speedtest-cli' # Internet speed via terminal
+    'terminus-font' # Font package with some bigger fonts for login terminal
+    'unrar'         # RAR compression program
+    'unzip'         # Zip compression program
+    'wget'          # Remote content retrieval
+    'vim'           # Terminal Editor
+    'zenity'        # Display graphical dialog boxes via shell scripts
+    'zip'           # Zip compression program
 
     # DISK UTILITIES ------------------------------------------------------
     \
@@ -141,18 +141,18 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
     \
-    'ccache'         # Compiler cacher
-    'clang'          # C Lang compiler
-    'cmake'          # Cross-platform open-source make system
-    'meson'          # Build system that use python as a front-end language and Ninja as a building backend
-    'gcc'            # C/C++ compiler
-    'glibc'          # C libraries
-    'glslang'        # OpenGL and OpenGL ES shader front end and validator
-    'meld'     	     # File/directory comparison
-    'mariadb'	     # Commercially supported fork of the MySQL
-    'nodejs'   	     # Javascript runtime environment
-    'npm'            # Node package manager
-    'php'            # Scripting language
+    'ccache'  # Compiler cacher
+    'clang'   # C Lang compiler
+    'cmake'   # Cross-platform open-source make system
+    'meson'   # Build system that use python as a front-end language and Ninja as a building backend
+    'gcc'     # C/C++ compiler
+    'glibc'   # C libraries
+    'glslang' # OpenGL and OpenGL ES shader front end and validator
+    'meld'    # File/directory comparison
+    'mariadb' # Commercially supported fork of the MySQL
+    'nodejs'  # Javascript runtime environment
+    'npm'     # Node package manager
+    'php'     # Scripting language
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
@@ -263,24 +263,24 @@ final() {
     read -p $'yes/no >_: ' ans
     if [[ "$ans" == "yes" ]]; then
         echo -e "RUNNING ..."
-	chsh -s /usr/bin/fish # Change default shell before leaving.
+        chsh -s /usr/bin/fish # Change default shell before leaving.
         extra
     elif [[ "$ans" == "no" ]]; then
         echo -e "LEAVING ..."
-	echo -e ""
+        echo -e ""
         echo -e "FINAL: DO YOU ALSO WANT TO RUN THE AUTHOR'S secure-linux?"
         read -p $'yes/no >_: ' noc
         if [[ "$noc" == "yes" ]]; then
-                echo -e "RUNNING ...\n"
-		chsh -s /usr/bin/fish # Change default shell before leaving.
-                extra2
+            echo -e "RUNNING ...\n"
+            chsh -s /usr/bin/fish # Change default shell before leaving.
+            extra2
         elif [[ "$noc" == "no" ]]; then
-                echo -e "LEAVING ...\n"
-                chsh -s /usr/bin/fish # Change default shell before leaving.
-		exit 1
+            echo -e "LEAVING ...\n"
+            chsh -s /usr/bin/fish # Change default shell before leaving.
+            exit 1
         else
-                echo -e "INVALID VALUE!\n"
-                final
+            echo -e "INVALID VALUE!\n"
+            final
         fi
     else
         echo -e "INVALID VALUE!"
