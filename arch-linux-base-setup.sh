@@ -248,8 +248,8 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-# Let network-manager handle all network interfaces.
-sudo echo -e "managed=true" | sudo tee -a /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
+# Don't let network-manager handle all network interfaces.
+sudo echo -e "managed=false" | sudo tee -a /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
 
 # ------------------------------------------------------------------------
 
