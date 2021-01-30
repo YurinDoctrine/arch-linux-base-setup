@@ -138,6 +138,7 @@ PKGS=(
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
     'gtkhash'      # Checksum verifier
+    'systemd-zram' # Systemd zRAM loader
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -244,6 +245,16 @@ sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
 # Prevent stupid error beeps*
 sudo rmmod pcspkr
 echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
+
+# ------------------------------------------------------------------------
+
+# Let network-manager handle all network interfaces.
+sudo echo -e "managed=true" | sudo tee -a /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
+
+# ------------------------------------------------------------------------
+
+echo -e "Increase zRAM size"
+sudo sed -i 's/totalmem\ \/\ 2/totalmem\ \/\ 4/' /usr/bin/init-zram-swapping
 
 # ------------------------------------------------------------------------
 
