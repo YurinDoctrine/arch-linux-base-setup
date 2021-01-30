@@ -128,6 +128,7 @@ PKGS=(
     # GENERAL UTILITIES ---------------------------------------------------
     \
     'flameshot'    # Screenshots
+    'file-roller'  # Create and modify archives
     'freerdp'      # RDP Connections
     'libvncserver' # VNC Connections
     'filezilla'    # FTP Client
