@@ -253,11 +253,6 @@ sudo echo -e "managed=true" | sudo tee -a /etc/NetworkManager/conf.d/10-globally
 
 # ------------------------------------------------------------------------
 
-echo -e "Increase zRAM size"
-sudo sed -i 's/totalmem\ \/\ 2/totalmem\ \/\ 4/' /usr/bin/init-zram-swapping
-
-# ------------------------------------------------------------------------
-
 echo -e "
 ###############################################################################
 # All done! Would you also mind to run the author's ultra-gaming-setup-wizard?
