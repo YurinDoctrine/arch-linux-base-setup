@@ -139,7 +139,6 @@ PKGS=(
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
     'gtkhash'      # Checksum verifier
-    'systemd-zram' # Systemd zRAM loader
 
     # DEVELOPMENT ---------------------------------------------------------
     \
