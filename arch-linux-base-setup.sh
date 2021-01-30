@@ -83,7 +83,7 @@ PKGS=(
     'bluez-firmware'              # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
     'blueberry'                   # Bluetooth configuration tool
     'pulseaudio-bluetooth'        # Bluetooth support for PulseAudio
-    'pulseaudio-module-bluetooth' # Bluetooth support for PulseAudio
+    'pulseaudio-modules-bt' # Bluetooth support for PulseAudio
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
