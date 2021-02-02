@@ -214,7 +214,7 @@ sudo sed -i -e 's|[# ]*HandleLidSwitch[ ]*=[ ]*.*|HandleLidSwitch=suspend|g' /et
 
 echo "Disabling buggy cursor inheritance"
 # When you boot with multiple monitors the cursor can look huge. This fixes this...
-sudo echo -e "[Icon Theme]
+echo -e "[Icon Theme]
 #Inherits=Theme
 " | sudo tee /usr/share/icons/default/index.theme
 
@@ -253,6 +253,7 @@ sudo pacman -Sc
 sudo pacman -Scc
 sudo pacman -Qtdq &&
     sudo pacman -Rns $(pacman -Qtdq)
+
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
 sudo systemctl disable --now snapd
