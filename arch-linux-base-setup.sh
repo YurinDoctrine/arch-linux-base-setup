@@ -248,6 +248,11 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
+echo -e "Clear pacman cache, orphans"
+sudo pacman -Sc
+sudo pacman -Scc
+sudo pacman -Qtdq &&
+    sudo pacman -Rns $(pacman -Qtdq)
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
 sudo systemctl disable --now snapd
@@ -260,7 +265,7 @@ sudo systemctl disable snapd.apparmor.service
 sudo rm -rf /etc/apparmor.d/usr.lib.snapd.snap-confine.real
 sudo systemctl start apparmor.service
 
-sudo pacman -Rs snapd -y
+sudo pacman -Rns snapd -y
 
 sudo rm -rf ~/snap
 sudo rm -rf /snap
@@ -271,7 +276,7 @@ sudo rm -rf /usr/lib/snapd
 
 flatpak uninstall --all
 
-sudo pacman -Rs flatpak -y
+sudo pacman -Rns flatpak -y
 sync
 
 # ------------------------------------------------------------------------
