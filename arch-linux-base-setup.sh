@@ -248,8 +248,31 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-# Don't let network-manager handle all network interfaces.
-sudo echo -e "managed=false" | sudo tee -a /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
+echo -e "Remove snapd and flatpak garbages"
+sudo snap remove snap-store
+sudo systemctl disable --now snapd
+sudo umount /run/snap/ns
+sudo systemctl disable snapd.service
+sudo systemctl disable snapd.socket
+sudo systemctl disable snapd.seeded.service
+sudo systemctl disable snapd.autoimport.service
+sudo systemctl disable snapd.apparmor.service
+sudo rm -rf /etc/apparmor.d/usr.lib.snapd.snap-confine.real
+sudo systemctl start apparmor.service
+
+sudo pacman -Rs snapd -y
+
+sudo rm -rf ~/snap
+sudo rm -rf /snap
+sudo rm -rf /var/snap
+sudo rm -rf /var/lib/snapd
+sudo rm -rf /var/cache/snapd
+sudo rm -rf /usr/lib/snapd
+
+flatpak uninstall --all
+
+sudo pacman -Rs flatpak -y
+sync
 
 # ------------------------------------------------------------------------
 
