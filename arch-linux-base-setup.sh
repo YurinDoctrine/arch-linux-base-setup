@@ -248,6 +248,7 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
+sudo rm -rf ~/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc
 sudo pacman -Scc
@@ -311,15 +312,15 @@ final() {
         echo -e "FINAL: DO YOU ALSO WANT TO RUN THE AUTHOR'S secure-linux?"
         read -p $'yes/no >_: ' noc
         if [[ "$noc" == "yes" ]]; then
-            echo -e "RUNNING ...\n"
+            echo -e "RUNNING ..."
             chsh -s /usr/bin/fish # Change default shell before leaving.
             extra2
         elif [[ "$noc" == "no" ]]; then
-            echo -e "LEAVING ...\n"
+            echo -e "LEAVING ..."
             chsh -s /usr/bin/fish # Change default shell before leaving.
             exit 0
         else
-            echo -e "INVALID VALUE!\n"
+            echo -e "INVALID VALUE!"
             final
         fi
     else
