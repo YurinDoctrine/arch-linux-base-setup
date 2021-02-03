@@ -137,7 +137,6 @@ PKGS=(
     'net-tools'    # Network utilities
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
-    'gnupg'        # Complete and free implementation of the OpenPGP standard
     'gtkhash'      # Checksum verifier
 
     # DEVELOPMENT ---------------------------------------------------------
