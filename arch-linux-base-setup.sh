@@ -20,6 +20,7 @@ sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 # Install yay if its still not
 which yay >/dev/null 2>&1
 if [ $? != 0 ]; then
+    cd /tmp
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
