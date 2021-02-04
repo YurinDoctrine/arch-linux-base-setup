@@ -266,7 +266,7 @@ sudo systemctl disable snapd.apparmor.service
 sudo rm -rf /etc/apparmor.d/usr.lib.snapd.snap-confine.real
 sudo systemctl start apparmor.service
 
-sudo pacman -Rns snapd -y
+sudo pacman -Rns snapd
 
 sudo rm -rf ~/snap
 sudo rm -rf /snap
@@ -277,7 +277,7 @@ sudo rm -rf /usr/lib/snapd
 
 flatpak uninstall --all
 
-sudo pacman -Rns flatpak -y
+sudo pacman -Rns flatpak
 sync
 
 # ------------------------------------------------------------------------
