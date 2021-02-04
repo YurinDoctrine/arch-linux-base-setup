@@ -9,6 +9,14 @@ sudo pacman -Sy &&
 
 # ------------------------------------------------------------------------
 
+# Setting up locales
+echo -e "Setup language to en_GB and set locale"
+sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
+sudo locale-gen
+localectl set-locale LANG="en_GB.UTF-8 UTF-8" LC_TIME="en_GB.UTF-8 UTF-8"
+
+# ------------------------------------------------------------------------
+
 # Ranking mirrors
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
@@ -184,14 +192,6 @@ echo -e "Done!"
 # ------------------------------------------------------------------------
 
 echo -e "FINAL SETUP AND CONFIGURATION"
-
-# Setting up locales
-echo -e "Setup language to en_GB and set locale"
-sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
-localectl set-locale LANG="en_GB.UTF-8 UTF-8" LC_TIME="en_GB.UTF-8 UTF-8"
-sudo locale-gen
-
-# ------------------------------------------------------------------------
 
 # Sudo rights
 echo -e "Add sudo rights"
