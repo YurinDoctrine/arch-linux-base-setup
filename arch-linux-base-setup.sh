@@ -13,14 +13,14 @@ sudo pacman -Sy &&
 echo -e "Setup language to en_GB and set locale"
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen
-localectl set-locale LANG="en_GB.UTF-8 UTF-8" LC_TIME="en_GB.UTF-8 UTF-8"
+localectl set-locale LANG="en_GB.UTF-8" LC_TIME="en_GB.UTF-8"
 
 # ------------------------------------------------------------------------
 
 # Ranking mirrors
 sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
-cat /etc/pacman.d/mirrorlist | rankmirrors -n 8 -m 6 - >$HOME/mirrorlist
+cat /etc/pacman.d/mirrorlist | rankmirrors -n 5 -m 3 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
@@ -61,6 +61,21 @@ PKGS=(
     'rofi'                # Menu System
     'picom'               # Translucent Windows
     'lxappearance'        # Set System Themes
+
+    # DEVELOPMENT ---------------------------------------------------------
+    \
+    'ccache'  # Compiler cacher
+    'clang'   # C Lang compiler
+    'cmake'   # Cross-platform open-source make system
+    'gcc'     # C/C++ compiler
+    'glibc'   # C libraries
+    'glslang' # OpenGL and OpenGL ES shader front end and validator
+    'meld'    # File/directory comparison
+    'mariadb' # Commercially supported fork of the MySQL
+    'meson'   # Build system that use python as a front-end language and Ninja as a building backend
+    'nodejs'  # Javascript runtime environment
+    'npm'     # Node package manager
+    'php'     # Scripting language
 
     # --- Networking Setup
     \
@@ -147,21 +162,6 @@ PKGS=(
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
     'gtkhash'      # Checksum verifier
-
-    # DEVELOPMENT ---------------------------------------------------------
-    \
-    'ccache'  # Compiler cacher
-    'clang'   # C Lang compiler
-    'cmake'   # Cross-platform open-source make system
-    'gcc'     # C/C++ compiler
-    'glibc'   # C libraries
-    'glslang' # OpenGL and OpenGL ES shader front end and validator
-    'meld'    # File/directory comparison
-    'mariadb' # Commercially supported fork of the MySQL
-    'meson'   # Build system that use python as a front-end language and Ninja as a building backend
-    'nodejs'  # Javascript runtime environment
-    'npm'     # Node package manager
-    'php'     # Scripting language
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
