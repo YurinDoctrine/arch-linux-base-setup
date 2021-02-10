@@ -58,11 +58,10 @@ PKGS=(
     # --- Importants
     \
     'xfce4-power-manager' # Power Manager
-    'xbacklight' 	    # RandR-based backlight control application
+    'xbacklight'          # RandR-based backlight control application
     'rofi'                # Menu System
     'picom'               # Translucent Windows
     'lxappearance'        # Set System Themes
-
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -123,7 +122,7 @@ PKGS=(
     'irssi'         # Terminal based IRC
     'p7zip'         # 7z compression program
     'rsync'         # Remote file sync utility
-    'ttf-roboto'      # Font package
+    'ttf-roboto'    # Font package
     'speedtest-cli' # Internet speed via terminal
     'terminus-font' # Font package with some bigger fonts for login terminal
     'unrar'         # RAR compression program
@@ -161,7 +160,7 @@ PKGS=(
     'apache2'      # HTTP server
     'playerctl'    # Utility to control media players via MPRIS
     'remmina'      # Remote Connection
-    'transmission'   # BitTorrent client
+    'transmission' # BitTorrent client
     'net-tools'    # Network utilities
     'veracrypt'    # Disc encryption utility
     'variety'      # Wallpaper changer
