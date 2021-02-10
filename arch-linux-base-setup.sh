@@ -59,6 +59,7 @@ PKGS=(
     'xbacklight'          # RandR-based backlight control application
     'rofi'                # Menu System
     'picom'               # Translucent Windows
+    'polkit-gnome'        # A toolkit for defining and handling authorizations
     'lxappearance'        # Set System Themes
 
     # DEVELOPMENT ---------------------------------------------------------
@@ -84,8 +85,6 @@ PKGS=(
     'networkmanager-openvpn' # Open VPN plugin for NM
     'network-manager-applet' # System tray icon/utility for network connectivity
     'libsecret'              # Library for storing passwords
-    'networkmanager-vpnc'    # Open VPN plugin for NM. Probably not needed if networkmanager-openvpn is installed.
-    'network-manager-applet' # System tray icon/utility for network connectivity
     'dhclient'               # DHCP client
 
     # --- Audio
