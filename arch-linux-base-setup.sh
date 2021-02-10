@@ -1,7 +1,4 @@
 #!/bin/bash
-
-# ------------------------------------------------------------------------
-
 # Before hop in
 sudo pacman -Sy &&
     sudo pacman -S --needed --noconfirm base-devel pacman-contrib git &&
