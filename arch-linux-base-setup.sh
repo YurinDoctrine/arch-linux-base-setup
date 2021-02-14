@@ -296,7 +296,7 @@ sync
 # Implement .config/ files of the openbox
 cd /tmp &&
     git clone https://github.com/YurinDoctrine/.config.git &&
-    sudo mv .config/* ~.config/ &&
+    sudo mv .config/* ~/.config/ &&
     cd
 
 # ------------------------------------------------------------------------
