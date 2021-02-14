@@ -62,6 +62,7 @@ PKGS=(
     'xbacklight'              # RandR-based backlight control application
     'dmenu'                   # Generic menu for X
     'gmrun'                   # A lightweight application launcher
+    'gsimplecal'              # A simple, lightweight calendar
     'ibus'                    # An input method framework
     'compton'                 # A compositor for X11
     'conky'                   # A system monitor software for the X Window System
