@@ -56,11 +56,16 @@ PKGS=(
     # --- Importants
     \
     'xfce4-power-manager' # Power Manager
+    'xfce4-notifyd'       # Notification indicator
     'xbacklight'          # RandR-based backlight control application
-    'rofi'                # Menu System
-    'picom'               # Translucent Windows
-    'polkit-gnome'        # A toolkit for defining and handling authorizations
+    'dmenu'               # Generic menu for X
+    'compton'             # A compositor for X11
+    'conky'               # A system monitor software for the X Window System
+    'nitrogen'            # A fast and lightweight desktop background browser and setter for X Window
+    'openbox'             # A lightweight, powerful, and highly configurable stacking window manager
+    'lxsession'           # A toolkit for defining and handling authorizations
     'lxappearance'        # Set System Themes
+    'qt5-styleplugins'    # Additional style plugins for Qt5
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -247,6 +252,12 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
+# Same theme for Qt/KDE applications and GTK applications, and fix missing indicators
+echo -e "XDG_CURRENT_DESKTOP=Unity
+QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
+
+# ------------------------------------------------------------------------
+
 sudo rm -rf ~/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc
@@ -279,6 +290,14 @@ flatpak uninstall --all
 
 sudo pacman -Rns flatpak
 sync
+
+# ------------------------------------------------------------------------
+
+# Implement .config/ files of the openbox
+cd /tmp &&
+    git clone https://github.com/YurinDoctrine/.config.git &&
+    sudo mv .config/* ~.config/ &&
+    cd
 
 # ------------------------------------------------------------------------
 
