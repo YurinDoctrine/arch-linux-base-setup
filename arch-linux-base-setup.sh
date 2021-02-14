@@ -55,17 +55,22 @@ PKGS=(
 
     # --- Importants
     \
-    'xfce4-power-manager' # Power Manager
-    'xfce4-notifyd'       # Notification indicator
-    'xbacklight'          # RandR-based backlight control application
-    'dmenu'               # Generic menu for X
-    'compton'             # A compositor for X11
-    'conky'               # A system monitor software for the X Window System
-    'nitrogen'            # A fast and lightweight desktop background browser and setter for X Window
-    'openbox'             # A lightweight, powerful, and highly configurable stacking window manager
-    'lxsession'           # A toolkit for defining and handling authorizations
-    'lxappearance'        # Set System Themes
-    'qt5-styleplugins'    # Additional style plugins for Qt5
+    'xscreensaver'            # A screen saver and locker for the X
+    'xfce4-power-manager'     # Power Manager
+    'xfce4-notifyd'           # Notification indicator
+    'xfce4-pulseaudio-plugin' # Xfce4 panel plugin icon to control Pulseaudio
+    'xbacklight'              # RandR-based backlight control application
+    'dmenu'                   # Generic menu for X
+    'gmrun'                   # A lightweight application launcher
+    'ibus'                    # An input method framework
+    'compton'                 # A compositor for X11
+    'conky'                   # A system monitor software for the X Window System
+    'nitrogen'                # A fast and lightweight desktop background browser and setter for X Window
+    'openbox'                 # A lightweight, powerful, and highly configurable stacking window manager
+    'tint2'                   # A simple, unobtrusive and light panel for Xorg
+    'lxsession'               # A toolkit for defining and handling authorizations
+    'lxappearance'            # Set System Themes
+    'qt5-styleplugins'        # Additional style plugins for Qt5
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -99,8 +104,7 @@ PKGS=(
     'pulseaudio'      # Pulse Audio sound components
     'pulseaudio-alsa' # ALSA configuration for pulse audio
     'pavucontrol'     # Pulse Audio volume control
-    'pnmixer'         # System tray volume control
-    'volumeicon'      # System tray volume control
+    'pasystray'       # PulseAudio system tray
 
     # --- Bluetooth
     \
@@ -126,6 +130,7 @@ PKGS=(
     'rsync'         # Remote file sync utility
     'ttf-roboto'    # Font package
     'speedtest-cli' # Internet speed via terminal
+    'terminator'    # A terminal emulator
     'terminus-font' # Font package with some bigger fonts for login terminal
     'unrar'         # RAR compression program
     'unzip'         # Zip compression program
@@ -296,7 +301,19 @@ sync
 # Implement .config/ files of the openbox
 cd /tmp &&
     git clone https://github.com/YurinDoctrine/.config.git &&
-    sudo mv .config/* ~/.config/ &&
+    sudo cp -R .config/* ~/.config/ &&
+    git clone --branch 10 https://github.com/CBPP/cbpp-icon-theme.git &&
+    sudo cp -R cbpp-icon-theme/cbpp-icon-theme/data/usr/share/icons/* /usr/share/icons &&
+    git clone --branch 10 https://github.com/CBPP/cbpp-ui-theme.git &&
+    sudo cp -R cbpp-ui-theme/cbpp-ui-theme/data/usr/share/themes/* /usr/share/themes &&
+    git clone --branch 10 https://github.com/CBPP/cbpp-wallpapers.git &&
+    sudo cp -R cbpp-wallpapers/cbpp-wallpapers/data/usr/share/backgrounds/* /usr/share/backgrounds &&
+    git clone --branch 10 https://github.com/CBPP/cbpp-slim.git &&
+    sudo cp -R cbpp-slim/cbpp-slim/data/usr/bin/* /usr/bin &&
+    git clone --branch 10 https://github.com/CBPP/cbpp-exit.git &&
+    sudo cp -R cbpp-exit/cbpp-exit/data/usr/bin/* /usr/bin &&
+    git clone --branch 10 https://github.com/CBPP/cbpp-pipmenus.git &&
+    sudo cp -R cbpp-pipemenus/cbpp-pipemenus/data/usr/bin/* /usr/bin &&
     cd
 
 # ------------------------------------------------------------------------
