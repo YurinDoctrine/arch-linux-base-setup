@@ -56,6 +56,7 @@ PKGS=(
     # --- Importants
     \
     'xscreensaver'            # A screen saver and locker for the X
+    'xfce4-goodies'           # Enhancements for the Xfce4
     'xfce4-power-manager'     # Power Manager
     'xfce4-notifyd'           # Notification indicator
     'xfce4-pulseaudio-plugin' # Xfce4 panel plugin icon to control Pulseaudio
@@ -75,18 +76,19 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
     \
-    'ccache'  # Compiler cacher
-    'clang'   # C Lang compiler
-    'cmake'   # Cross-platform open-source make system
-    'gcc'     # C/C++ compiler
-    'glibc'   # C libraries
-    'glslang' # OpenGL and OpenGL ES shader front end and validator
-    'meld'    # File/directory comparison
-    'mariadb' # Commercially supported fork of the MySQL
-    'meson'   # Build system that use python as a front-end language and Ninja as a building backend
-    'nodejs'  # Javascript runtime environment
-    'npm'     # Node package manager
-    'php'     # Scripting language
+    'ccache'      # Compiler cacher
+    'clang'       # C Lang compiler
+    'cmake'       # Cross-platform open-source make system
+    'gcc'         # C/C++ compiler
+    'glibc'       # C libraries
+    'glslang'     # OpenGL and OpenGL ES shader front end and validator
+    'meld'        # File/directory comparison
+    'mariadb'     # Commercially supported fork of the MySQL
+    'meson'       # Build system that use python as a front-end language and Ninja as a building backend
+    'nodejs'      # Javascript runtime environment
+    'npm'         # Node package manager
+    'php'         # Scripting language
+    'python3-pip' # The official package installer for Python
 
     # --- Networking Setup
     \
