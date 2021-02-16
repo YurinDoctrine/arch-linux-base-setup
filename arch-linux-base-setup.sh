@@ -127,7 +127,7 @@ PKGS=(
     'hardinfo'      # Hardware info app
     'htop'          # Process viewer
     'neofetch'      # Shows system info when you launch terminal
-    'openssh'       # SSH connectivity tools
+    'openssh-server'       # SSH connectivity tools
     'irssi'         # Terminal based IRC
     'p7zip'         # 7z compression program
     'rsync'         # Remote file sync utility
@@ -162,35 +162,40 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
     \
+    'catfish'           # Versatile file searching tool
     'flameshot'    # Screenshots
     'file-roller'  # Create and modify archives
     'freerdp'      # RDP Connections
     'libvncserver' # VNC Connections
     'filezilla'    # FTP Client
     'apache2'      # HTTP server
+    'arandr'             # Provide a simple visual front end for XRandR
     'playerctl'    # Utility to control media players via MPRIS
+    'putty'             # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
     'remmina'      # Remote Connection
     'transmission' # BitTorrent client
     'net-tools'    # Network utilities
     'veracrypt'    # Disc encryption utility
-    'variety'      # Wallpaper changer
+    'galculator'             # A simple, elegant calculator
     'gtkhash'      # Checksum verifier
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
-    'gcolor2'   # Colorpicker
     'gimp'      # GNU Image Manipulation Program
-    'ristretto' # Multi image viewer
+    'viewnior'           # A simple, fast and elegant image viewer
+    'vlc' # A free and open source cross-platform multimedia player and framework
     'kdenlive'  # Movie Render
 
     # PRINTING --------------------------------------------------------
     \
-    'xpdf'                  # PDF viewer
+    'abiword'                  # Fully-featured word processor
+    'atril'                  # PDF viewer
     'cups'                  # Open source printer drivers
     'cups-pdf'              # PDF support for cups
     'ghostscript'           # PostScript interpreter
     'gsfonts'               # Adobe Postscript replacement fonts
     'hplip'                 # HP Drivers
+    'gnumeric'                 # A powerful spreadsheet application
     'system-config-printer' # Printer setup  utility
 
 )
