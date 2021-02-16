@@ -172,7 +172,6 @@ PKGS=(
     'arandr'             # Provide a simple visual front end for XRandR
     'playerctl'    # Utility to control media players via MPRIS
     'putty'             # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
-    'remmina'      # Remote Connection
     'transmission' # BitTorrent client
     'net-tools'    # Network utilities
     'veracrypt'    # Disc encryption utility
