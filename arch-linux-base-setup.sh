@@ -343,12 +343,6 @@ cd /tmp &&
 
 # ------------------------------------------------------------------------
 
-echo -e "
-###############################################################################
-# All done! Would you also mind to run the author's ultra-gaming-setup-wizard?
-###############################################################################
-"
-
 extra() {
     curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh &&
         chmod 755 ultra-gaming-setup-wizard.sh &&
@@ -361,6 +355,12 @@ extra2() {
 }
 
 final() {
+    echo -e "
+###############################################################################
+# All Done! Would you also mind to run the author's ultra-gaming-setup-wizard?
+###############################################################################
+"
+
     read -p $'yes/no >_: ' ans
     if [[ "$ans" == "yes" ]]; then
         echo -e "RUNNING ..."
