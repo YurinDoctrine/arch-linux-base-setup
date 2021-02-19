@@ -264,12 +264,6 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-# Same theme for Qt/KDE applications and GTK applications, and fix missing indicators
-echo -e "XDG_CURRENT_DESKTOP=Unity
-QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
-
-# ------------------------------------------------------------------------
-
 sudo rm -rf ~/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc
