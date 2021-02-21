@@ -73,7 +73,6 @@ PKGS=(
     'lxdm'                    # A lightweight display manager
     'lxsession'               # A toolkit for defining and handling authorizations
     'lxappearance'            # Set System Themes
-    'qt5-styleplugins'        # Additional style plugins for Qt5
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -112,8 +111,6 @@ PKGS=(
     # --- Bluetooth
     \
     'bluez'                 # Daemons for the bluetooth protocol stack
-    'bluez-libs'            # Daemons for the bluetooth libraries
-    'bluez-utils'           # Bluetooth development and debugging utilities
     'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
     'blueberry'             # Bluetooth configuration tool
     'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
@@ -165,8 +162,6 @@ PKGS=(
     'catfish'      # Versatile file searching tool
     'flameshot'    # Screenshots
     'file-roller'  # Create and modify archives
-    'freerdp'      # RDP Connections
-    'libvncserver' # VNC Connections
     'filezilla'    # FTP Client
     'apache2'      # HTTP server
     'arandr'       # Provide a simple visual front end for XRandR
@@ -224,7 +219,7 @@ echo -e "FONT=ter-v32b" | sudo tee /etc/vconsole.conf
 # ------------------------------------------------------------------------
 
 echo -e "Setting laptop lid close to suspend"
-sudo sed -i -e 's|[# ]*HandleLidSwitch[ ]*=[ ]*.*|HandleLidSwitch=suspend|g' /etc/systemd/logind.conf
+sudo sed -i -e 's|#HandleLidSwitch=suspend|HandleLidSwitch=suspend|g' /etc/systemd/logind.conf
 
 # ------------------------------------------------------------------------
 
@@ -248,13 +243,13 @@ sudo killall -9 pulseaudio
 # Pulse audio loads the `esound-protocol` module, which best I can tell is rarely needed.
 # That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
 sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
-# Start/restart PulseAudio.
+# Restart PulseAudio.
 sudo killall -HUP pulseaudio
 
 # ------------------------------------------------------------------------
 
 echo -e "Disabling bluetooth daemon by comment it"
-sudo sed -i 's|AutoEnable|#AutoEnable|g' /etc/bluetooth/main.conf
+sudo sed -i 's|AutoEnable=true|AutoEnable=false|g' /etc/bluetooth/main.conf
 
 # ------------------------------------------------------------------------
 
