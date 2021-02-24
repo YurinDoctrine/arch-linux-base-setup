@@ -59,7 +59,6 @@ PKGS=(
     'xfce4-goodies'       # Enhancements for the Xfce4
     'xfce4-power-manager' # Power Manager
     'lxqt-notificationd'  # Notification indicator
-    'xbacklight'          # RandR-based backlight control application
     'dmenu'               # Generic menu for X
     'gmrun'               # A lightweight application launcher
     'gsimplecal'          # A simple, lightweight calendar
@@ -118,6 +117,7 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
+    'android-tools'  # ADB for Android
     'cronie'         # Cron jobs
     'fish'           # The friendly interactive shell
     'vsftpd'         # File transfer protocol
@@ -135,43 +135,40 @@ PKGS=(
     'unrar'          # RAR compression program
     'unzip'          # Zip compression program
     'wget'           # Remote content retrieval
-    'vim'            # Terminal Editor
+    'nano'           # A simple console based text editor
     'zenity'         # Display graphical dialog boxes via shell scripts
     'zip'            # Zip compression program
 
     # DISK UTILITIES ------------------------------------------------------
     \
-    'android-tools'         # ADB for Android
-    'android-file-transfer' # Android File Transfer
-    'autofs'                # Auto-mounter
-    'btrfs-progs'           # BTRFS Support
-    'dosfstools'            # DOS Support
-    'exfat-utils'           # Mount exFat drives
-    'gparted'               # Disk utility
-    'gvfs-mtp'              # Read MTP Connected Systems
-    'gvfs-smb'              # More File System Stuff
-    'ntfs-3g'               # Open source implementation of NTFS file system
-    'parted'                # Disk utility
-    'samba'                 # Samba File Sharing
-    'smartmontools'         # Disk Monitoring
-    'smbclient'             # SMB Connection
-    'xfsprogs'              # XFS Support
+    'autofs'        # Auto-mounter
+    'btrfs-progs'   # BTRFS Support
+    'dosfstools'    # DOS Support
+    'exfat-utils'   # Mount exFat drives
+    'gparted'       # Disk utility
+    'gvfs-mtp'      # Read MTP Connected Systems
+    'gvfs-smb'      # More File System Stuff
+    'ntfs-3g'       # Open source implementation of NTFS file system
+    'parted'        # Disk utility
+    'samba'         # Samba File Sharing
+    'smartmontools' # Disk Monitoring
+    'xfsprogs'      # XFS Support
 
     # GENERAL UTILITIES ---------------------------------------------------
     \
-    'catfish'      # Versatile file searching tool
-    'flameshot'    # Screenshots
-    'file-roller'  # Create and modify archives
-    'filezilla'    # FTP Client
-    'apache2'      # HTTP server
-    'arandr'       # Provide a simple visual front end for XRandR
-    'playerctl'    # Utility to control media players via MPRIS
-    'putty'        # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
-    'transmission' # BitTorrent client
-    'net-tools'    # Network utilities
-    'veracrypt'    # Disc encryption utility
-    'galculator'   # A simple, elegant calculator
-    'gtkhash'      # Checksum verifier
+    'android-file-transfer' # Android File Transfer
+    'catfish'               # Versatile file searching tool
+    'flameshot'             # Screenshots
+    'file-roller'           # Create and modify archives
+    'filezilla'             # FTP Client
+    'apache2'               # HTTP server
+    'arandr'                # Provide a simple visual front end for XRandR
+    'playerctl'             # Utility to control media players via MPRIS
+    'putty'                 # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
+    'transmission-qt'       # BitTorrent client
+    'net-tools'             # Network utilities
+    'veracrypt'             # Disc encryption utility
+    'galculator'            # A simple, elegant calculator
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
@@ -261,10 +258,10 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 sudo rm -rf ~/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
-sudo pacman -Sc
-sudo pacman -Scc
+sudo pacman -Sc --noconfirm
+sudo pacman -Scc --noconfirm
 sudo pacman -Qtdq &&
-    sudo pacman -Rns $(pacman -Qtdq)
+    sudo pacman -Rns --noconfirm $(pacman -Qtdq)
 
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
@@ -278,7 +275,7 @@ sudo systemctl disable snapd.apparmor.service
 sudo rm -rf /etc/apparmor.d/usr.lib.snapd.snap-confine.real
 sudo systemctl start apparmor.service
 
-sudo pacman -Rns snapd
+sudo pacman -Rns --noconfirm snapd
 
 sudo rm -rf ~/snap
 sudo rm -rf /snap
@@ -289,7 +286,7 @@ sudo rm -rf /usr/lib/snapd
 
 flatpak uninstall --all
 
-sudo pacman -Rns flatpak
+sudo pacman -Rns --noconfirm flatpak
 sync
 
 # ------------------------------------------------------------------------
@@ -322,15 +319,15 @@ cd /tmp &&
     sudo cp -R cbpp-pipemenus/cbpp-pipemenus/data/usr/bin/* /usr/bin &&
     sudo mv ~/.config/cbpp-exit /usr/bin &&
     sudo mv ~/.config/cbpp-help-pipemenu /usr/bin &&
-    git clone --branch 10 https://github.com/CBPP/cbpp-lxdm-theme.git &&
-    sudo rm -rf /etc/lxdm/*.conf &&
-    sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm &&
-    sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/usr/share/lxdm/themes/* /usr/share/lxdm/themes &&
     git clone --branch 10 https://github.com/CBPP/cbpp-configs.git &&
     sudo cp -R cbpp-configs/cbpp-configs/data/usr/bin/* /usr/bin &&
     touch cbpp-configs/cbpp-configs/data/root/DELETEME.md &&
     sudo cp -R cbpp-configs/cbpp-configs/data/root/* /root &&
-    cd
+    git clone --branch 10 https://github.com/CBPP/cbpp-lxdm-theme.git &&
+    sudo rm -rf /etc/lxdm/*.conf &&
+    sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm &&
+    sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/usr/share/lxdm/themes/* /usr/share/lxdm/themes
+cd
 
 # ------------------------------------------------------------------------
 
