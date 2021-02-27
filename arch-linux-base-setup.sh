@@ -146,11 +146,7 @@ PKGS=(
     'dosfstools'    # DOS Support
     'exfat-utils'   # Mount exFat drives
     'gparted'       # Disk utility
-    'gvfs-mtp'      # Read MTP Connected Systems
-    'gvfs-smb'      # More File System Stuff
     'ntfs-3g'       # Open source implementation of NTFS file system
-    'parted'        # Disk utility
-    'samba'         # Samba File Sharing
     'smartmontools' # Disk Monitoring
     'xfsprogs'      # XFS Support
 
