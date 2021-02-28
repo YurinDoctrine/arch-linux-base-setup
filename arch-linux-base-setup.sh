@@ -160,7 +160,6 @@ PKGS=(
     'gimp'     # GNU Image Manipulation Program
     'viewnior' # A simple, fast and elegant image viewer
     'vlc'      # A free and open source cross-platform multimedia player and framework
-    'kdenlive' # Movie Render
 
     # PRINTING --------------------------------------------------------
     \
