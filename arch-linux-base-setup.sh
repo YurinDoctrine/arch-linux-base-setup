@@ -143,6 +143,7 @@ PKGS=(
     \
     'android-file-transfer' # Android File Transfer
     'catfish'               # Versatile file searching tool
+    'dialog'                # A tool to display dialog boxes from shell scripts
     'flameshot'             # Screenshots
     'file-roller'           # Create and modify archives
     'filezilla'             # FTP Client
