@@ -155,6 +155,8 @@ PKGS=(
     'net-tools'             # Network utilities
     'veracrypt'             # Disc encryption utility
     'galculator'            # A simple, elegant calculator
+    'gnupg'                 # Complete and free implementation of the OpenPGP standard
+    'preload'               # Makes applications run faster by prefetching binaries and shared objects
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
