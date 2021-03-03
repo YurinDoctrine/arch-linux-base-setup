@@ -78,7 +78,6 @@ PKGS=(
     'gcc'         # C/C++ compiler
     'glibc'       # C libraries
     'glslang'     # OpenGL and OpenGL ES shader front end and validator
-    'mariadb'     # Commercially supported fork of the MySQL
     'meson'       # Build system that use python as a front-end language and Ninja as a building backend
     'nodejs'      # Javascript runtime environment
     'npm'         # Node package manager
@@ -96,11 +95,10 @@ PKGS=(
 
     # --- Bluetooth
     \
-    'bluez'                 # Daemons for the bluetooth protocol stack
-    'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
-    'blueberry'             # Bluetooth configuration tool
-    'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
-    'pulseaudio-modules-bt' # Bluetooth support for PulseAudio
+    'bluez'                # Daemons for the bluetooth protocol stack
+    'bluez-firmware'       # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
+    'blueman'              # GTK+ Bluetooth Manager
+    'pulseaudio-bluetooth' # Bluetooth support for PulseAudio
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
