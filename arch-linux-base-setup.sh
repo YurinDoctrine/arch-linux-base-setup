@@ -306,14 +306,14 @@ QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
 # ------------------------------------------------------------------------
 
 extra() {
-    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh &&
-        chmod 755 ultra-gaming-setup-wizard.sh &&
-        ./ultra-gaming-setup-wizard.sh
+    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh && \
+    chmod 755 ultra-gaming-setup-wizard.sh && \
+    ./ultra-gaming-setup-wizard.sh
 }
 extra2() {
-    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/secure-linux/master/secure.sh >secure.sh &&
-        chmod 755 secure.sh &&
-        ./secure.sh
+    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/secure-linux/master/secure.sh >secure.sh && \
+    chmod 755 secure.sh && \
+    ./secure.sh
 }
 
 final() {
