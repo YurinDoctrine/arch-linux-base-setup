@@ -69,6 +69,7 @@ PKGS=(
     'tint2'               # A simple, unobtrusive and light panel for Xorg
     'lxappearance'        # Set System Themes
     'lxsession'           # LXDE PolicyKit authentication agent
+    'xfce4-notifyd'       # Notification Daemon
 
     # DEVELOPMENT ---------------------------------------------------------
     \
@@ -108,7 +109,7 @@ PKGS=(
     'hardinfo'       # Hardware info app
     'htop'           # Process viewer
     'neofetch'       # Shows system info when you launch terminal
-    'openssh-server' # SSH connectivity tools
+    'openssh' 	     # SSH connectivity tools
     'irssi'          # Terminal based IRC
     'p7zip'          # 7z compression program
     'rsync'          # Remote file sync utility
