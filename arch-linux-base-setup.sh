@@ -1,6 +1,6 @@
 #!/bin/bash
 # Before hop in
-sudo pacman -Sy &&
+sudo pacman -Syy &&
     sudo pacman -S --needed --noconfirm base-devel pacman-contrib git go &&
     sudo pacman -S --needed --noconfirm yay
 
@@ -103,30 +103,30 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
-    'android-tools'  # ADB for Android
-    'cronie'         # Cron jobs
-    'fish'           # The friendly interactive shell
-    'vsftpd'         # File transfer protocol
-    'hardinfo'       # Hardware info app
-    'htop'           # Process viewer
-    'neofetch'       # Shows system info when you launch terminal
-    'openssh' 	     # SSH connectivity tools
-    'irssi'          # Terminal based IRC
-    'p7zip'          # 7z compression program
-    'rsync'          # Remote file sync utility
-    'speedtest-cli'  # Internet speed via terminal
-    'terminator'     # A terminal emulator
-    'terminus-font'  # Font package with some bigger fonts for login terminal
-    'unrar'          # RAR compression program
-    'unzip'          # Zip compression program
-    'wget'           # Remote content retrieval
-    'nano'           # A simple console based text editor
-    'zenity'         # Display graphical dialog boxes via shell scripts
-    'zip'            # Zip compression program
+    'android-tools' # ADB for Android
+    'cronie'        # Cron jobs
+    'fish'          # The friendly interactive shell
+    'vsftpd'        # File transfer protocol
+    'hardinfo'      # Hardware info app
+    'htop'          # Process viewer
+    'neofetch'      # Shows system info when you launch terminal
+    'openssh'       # SSH connectivity tools
+    'irssi'         # Terminal based IRC
+    'p7zip'         # 7z compression program
+    'rsync'         # Remote file sync utility
+    'speedtest-cli' # Internet speed via terminal
+    'terminator'    # A terminal emulator
+    'terminus-font' # Font package with some bigger fonts for login terminal
+    'unrar'         # RAR compression program
+    'unzip'         # Zip compression program
+    'wget'          # Remote content retrieval
+    'nano'          # A simple console based text editor
+    'zenity'        # Display graphical dialog boxes via shell scripts
+    'zip'           # Zip compression program
 
     # DISK UTILITIES ------------------------------------------------------
     \
-    'gparted'       # Disk utility
+    'gparted' # Disk utility
 
     # GENERAL UTILITIES ---------------------------------------------------
     \
@@ -275,8 +275,8 @@ cd /tmp &&
     sudo cp -R .config/.xscreensaver ~ &&
     sudo cp -R .config/.fonts.conf ~ &&
     sudo cp -R .config/* ~/.config &&
-sudo mkdir /root/.config
-    sudo cp -R .config/* /root/.config &&
+    sudo mkdir /root/.config
+sudo cp -R .config/* /root/.config &&
     sudo chmod 755 ~/.config/dmenu/dmenu-bind.sh &&
     sudo chmod 755 ~/.config/cbpp-exit &&
     sudo chmod 755 ~/.config/cbpp-help-pipemenu &&
@@ -306,14 +306,14 @@ QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
 # ------------------------------------------------------------------------
 
 extra() {
-    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh && \
-    chmod 755 ultra-gaming-setup-wizard.sh && \
-    ./ultra-gaming-setup-wizard.sh
+    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh &&
+        chmod 755 ultra-gaming-setup-wizard.sh &&
+        ./ultra-gaming-setup-wizard.sh
 }
 extra2() {
-    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/secure-linux/master/secure.sh >secure.sh && \
-    chmod 755 secure.sh && \
-    ./secure.sh
+    curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/secure-linux/master/secure.sh >secure.sh &&
+        chmod 755 secure.sh &&
+        ./secure.sh
 }
 
 final() {
