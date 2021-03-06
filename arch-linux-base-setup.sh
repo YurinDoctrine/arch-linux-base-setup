@@ -66,6 +66,7 @@ PKGS=(
     'conky'               # A system monitor software for the X Window System
     'nitrogen'            # A fast and lightweight desktop background browser and setter for X Window
     'openbox'             # A lightweight, powerful, and highly configurable stacking window manager
+    'udiskie'             # An udisks2 front-end written in python
     'tint2'               # A simple, unobtrusive and light panel for Xorg
     'lxappearance'        # Set System Themes
     'lxsession'           # LXDE PolicyKit authentication agent
