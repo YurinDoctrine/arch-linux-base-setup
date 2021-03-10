@@ -103,17 +103,14 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
     \
-    'android-tools' # ADB for Android
     'cronie'        # Cron jobs
     'fish'          # The friendly interactive shell
     'vsftpd'        # File transfer protocol
-    'hardinfo'      # Hardware info app
     'htop'          # Process viewer
     'neofetch'      # Shows system info when you launch terminal
     'openssh'       # SSH connectivity tools
     'irssi'         # Terminal based IRC
     'p7zip'         # 7z compression program
-    'rsync'         # Remote file sync utility
     'speedtest-cli' # Internet speed via terminal
     'terminator'    # A terminal emulator
     'terminus-font' # Font package with some bigger fonts for login terminal
@@ -130,7 +127,6 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
     \
-    'android-file-transfer' # Android File Transfer
     'catfish'               # Versatile file searching tool
     'dialog'                # A tool to display dialog boxes from shell scripts
     'earlyoom'              # Early OOM Daemon for Linux
@@ -235,7 +231,6 @@ sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
 sudo pacman -Qtdq &&
     sudo pacman -Rns --noconfirm $(pacman -Qtdq)
-
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
 sudo systemctl disable --now snapd
