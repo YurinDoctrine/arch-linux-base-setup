@@ -127,22 +127,22 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
     \
-    'catfish'               # Versatile file searching tool
-    'dialog'                # A tool to display dialog boxes from shell scripts
-    'earlyoom'              # Early OOM Daemon for Linux
-    'flameshot'             # Screenshots
-    'file-roller'           # Create and modify archives
-    'filezilla'             # FTP Client
-    'apache2'               # HTTP server
-    'arandr'                # Provide a simple visual front end for XRandR
-    'playerctl'             # Utility to control media players via MPRIS
-    'putty'                 # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
-    'transmission-qt'       # BitTorrent client
-    'net-tools'             # Network utilities
-    'galculator'            # A simple, elegant calculator
-    'gnupg'                 # Complete and free implementation of the OpenPGP standard
-    'preload'               # Makes applications run faster by prefetching binaries and shared objects
-    'simplescreenrecorder'  # A feature-rich screen recorder that supports X11 and OpenGL
+    'catfish'              # Versatile file searching tool
+    'dialog'               # A tool to display dialog boxes from shell scripts
+    'earlyoom'             # Early OOM Daemon for Linux
+    'flameshot'            # Screenshots
+    'file-roller'          # Create and modify archives
+    'filezilla'            # FTP Client
+    'apache2'              # HTTP server
+    'arandr'               # Provide a simple visual front end for XRandR
+    'playerctl'            # Utility to control media players via MPRIS
+    'putty'                # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
+    'transmission-qt'      # BitTorrent client
+    'net-tools'            # Network utilities
+    'galculator'           # A simple, elegant calculator
+    'gnupg'                # Complete and free implementation of the OpenPGP standard
+    'preload'              # Makes applications run faster by prefetching binaries and shared objects
+    'simplescreenrecorder' # A feature-rich screen recorder that supports X11 and OpenGL
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
     \
