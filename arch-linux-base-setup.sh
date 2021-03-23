@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env sh
 # Before hop in
 sudo pacman -Syy &&
     sudo pacman -S --needed --noconfirm base-devel pacman-contrib git go &&
@@ -104,6 +104,8 @@ PKGS=(
     # TERMINAL UTILITIES --------------------------------------------------
     \
     'cronie'        # Cron jobs
+    'dash'          # A POSIX-compliant shell derived from ash
+    'dashbinsh'     # Relink /bin/sh to dash
     'fish'          # The friendly interactive shell
     'vsftpd'        # File transfer protocol
     'htop'          # Process viewer
@@ -322,6 +324,7 @@ final() {
     if [[ "$ans" == "yes" ]]; then
         echo -e "RUNNING ..."
         chsh -s /usr/bin/fish # Change default shell before leaving.
+        ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
         extra
     elif [[ "$ans" == "no" ]]; then
         echo -e "LEAVING ..."
@@ -331,10 +334,12 @@ final() {
         if [[ "$noc" == "yes" ]]; then
             echo -e "RUNNING ..."
             chsh -s /usr/bin/fish # Change default shell before leaving.
+            ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
             extra2
         elif [[ "$noc" == "no" ]]; then
             echo -e "LEAVING ..."
             chsh -s /usr/bin/fish # Change default shell before leaving.
+            ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
             exit 0
         else
             echo -e "INVALID VALUE!"
