@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
     sudo pacman -S --needed --noconfirm base-devel pacman-contrib git go &&
