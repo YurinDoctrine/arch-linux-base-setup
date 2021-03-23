@@ -7,6 +7,7 @@ sudo pacman -Syy &&
 # ------------------------------------------------------------------------
 
 # Setting up locales
+echo -e "LANG=en_GB.UTF8" | sudo tee -a /etc/locale.conf
 echo -e "LANG=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LC_ALL=en_GB.UTF8" | sudo tee -a /etc/environment
 sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
