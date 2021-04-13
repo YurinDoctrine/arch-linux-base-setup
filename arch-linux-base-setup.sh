@@ -55,7 +55,7 @@ echo -e "Installing Base System"
 PKGS=(
 
     # --- Importants
-    \
+
     'xscreensaver'        # A screen saver and locker for the X
     'xfce4-goodies'       # Enhancements for the Xfce4
     'xfce4-power-manager' # Power Manager
@@ -74,7 +74,7 @@ PKGS=(
     'xfce4-notifyd'       # Notification Daemon
 
     # DEVELOPMENT ---------------------------------------------------------
-    \
+
     'ccache'      # Compiler cacher
     'clang'       # C Lang compiler
     'cmake'       # Cross-platform open-source make system
@@ -88,7 +88,7 @@ PKGS=(
     'python3-pip' # The official package installer for Python
 
     # --- Audio
-    \
+
     'alsa-utils'      # Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
     'alsa-plugins'    # ALSA plugins
     'pulseaudio-alsa' # ALSA configuration for pulse audio
@@ -96,14 +96,14 @@ PKGS=(
     'pasystray'       # PulseAudio system tray
 
     # --- Bluetooth
-    \
+
     'bluez'                # Daemons for the bluetooth protocol stack
     'bluez-firmware'       # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
     'blueman'              # GTK+ Bluetooth Manager
     'pulseaudio-bluetooth' # Bluetooth support for PulseAudio
 
     # TERMINAL UTILITIES --------------------------------------------------
-    \
+
     'cronie'        # Cron jobs
     'dash'          # A POSIX-compliant shell derived from ash
     'dashbinsh'     # Relink /bin/sh to dash
@@ -125,11 +125,11 @@ PKGS=(
     'zip'           # Zip compression program
 
     # DISK UTILITIES ------------------------------------------------------
-    \
+
     'gparted' # Disk utility
 
     # GENERAL UTILITIES ---------------------------------------------------
-    \
+
     'catfish'              # Versatile file searching tool
     'dialog'               # A tool to display dialog boxes from shell scripts
     'earlyoom'             # Early OOM Daemon for Linux
@@ -148,13 +148,13 @@ PKGS=(
     'simplescreenrecorder' # A feature-rich screen recorder that supports X11 and OpenGL
 
     # GRAPHICS, VIDEO AND DESIGN -------------------------------------------------
-    \
+
     'pinta'    # A simplified alternative to GIMP
     'viewnior' # A simple, fast and elegant image viewer
     'vlc'      # A free and open source cross-platform multimedia player and framework
 
     # PRINTING --------------------------------------------------------
-    \
+
     'abiword'     # Fully-featured word processor
     'atril'       # PDF viewer
     'ghostscript' # PostScript interpreter
@@ -324,7 +324,7 @@ final() {
     read -p $'yes/no >_: ' ans
     if [[ "$ans" == "yes" ]]; then
         echo -e "RUNNING ..."
-        chsh -s /usr/bin/fish # Change default shell before leaving.
+        chsh -s /usr/bin/fish         # Change default shell before leaving.
         sudo ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
         extra
     elif [[ "$ans" == "no" ]]; then
@@ -334,12 +334,12 @@ final() {
         read -p $'yes/no >_: ' noc
         if [[ "$noc" == "yes" ]]; then
             echo -e "RUNNING ..."
-            chsh -s /usr/bin/fish # Change default shell before leaving.
+            chsh -s /usr/bin/fish         # Change default shell before leaving.
             sudo ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
             extra2
         elif [[ "$noc" == "no" ]]; then
             echo -e "LEAVING ..."
-            chsh -s /usr/bin/fish # Change default shell before leaving.
+            chsh -s /usr/bin/fish         # Change default shell before leaving.
             sudo ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
             exit 0
         else
