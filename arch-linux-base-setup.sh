@@ -76,7 +76,6 @@ PKGS=(
     # DEVELOPMENT ---------------------------------------------------------
 
     'ccache'      # Compiler cacher
-    'clang'       # C Lang compiler
     'cmake'       # Cross-platform open-source make system
     'gcc'         # C/C++ compiler
     'glibc'       # C libraries
