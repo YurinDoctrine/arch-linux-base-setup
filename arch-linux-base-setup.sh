@@ -306,7 +306,7 @@ sudo chmod 755 /etc/skel/.config/dmenu/dmenu-bind.sh
     sudo mv $HOME/.config/cbpp-help-pipemenu /usr/bin
     sudo mv $HOME/.config/cbpp-compositor /usr/bin
     sudo mv $HOME/.config/cbpp-places-pipemenu /usr/bin
-    git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git
+    git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git &&
     sudo rm -rf /usr/share/lxdm/themes/*
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/usr/share/lxdm/themes/* /usr/share/lxdm/themes
