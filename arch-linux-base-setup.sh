@@ -284,6 +284,7 @@ cd /tmp &&
 sudo cp -R .config/* /root/.config
 sudo chmod 755 $HOME/.config/dmenu/dmenu-bind.sh
 sudo chmod 755 /etc/skel/.config/dmenu/dmenu-bind.sh
+    sudo rm -rf /etc/skel/cbpp-*
     sudo chmod 755 $HOME/.config/cbpp-exit
     sudo chmod 755 $HOME/.config/cbpp-help-pipemenu
     sudo chmod 755 $HOME/.config/cbpp-compositor
