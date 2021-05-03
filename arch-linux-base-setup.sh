@@ -288,10 +288,7 @@ sudo chmod 755 /etc/skel/.config/dmenu/dmenu-bind.sh
     sudo chmod 755 $HOME/.config/cbpp-help-pipemenu
     sudo chmod 755 $HOME/.config/cbpp-compositor
     sudo chmod 755 $HOME/.config/cbpp-places-pipemenu
-    sudo chmod 755 /etc/skel/.config/cbpp-exit
-    sudo chmod 755 /etc/skel/.config/cbpp-help-pipemenu
-    sudo chmod 755 /etc/skel/.config/cbpp-compositor
-    sudo chmod 755 /etc/skel/.config/cbpp-places-pipemenu
+    sudo chmod 755 $HOME/.config/cbpp-welcome
     git clone --branch 11 https://github.com/CBPP/cbpp-icon-theme.git &&
     sudo cp -R cbpp-icon-theme/cbpp-icon-theme/data/usr/share/icons/* /usr/share/icons &&
     git clone --branch 11 https://github.com/CBPP/cbpp-ui-theme.git &&
@@ -306,6 +303,7 @@ sudo chmod 755 /etc/skel/.config/dmenu/dmenu-bind.sh
     sudo mv $HOME/.config/cbpp-help-pipemenu /usr/bin
     sudo mv $HOME/.config/cbpp-compositor /usr/bin
     sudo mv $HOME/.config/cbpp-places-pipemenu /usr/bin
+    sudo mv $HOME/.config/cbpp-welcome /usr/bin
     git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git &&
     sudo rm -rf /usr/share/lxdm/themes/*
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm
