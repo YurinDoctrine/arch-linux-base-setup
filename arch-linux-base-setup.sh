@@ -227,7 +227,7 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-sudo rm -rf /home/$USER/.cache/thumbnails
+sudo rm -rf $HOME/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
@@ -247,7 +247,7 @@ sudo systemctl start apparmor.service
 
 sudo pacman -Rns --noconfirm snapd
 
-sudo rm -rf /home/$USER/snap
+sudo rm -rf $HOME/snap
 sudo rm -rf /snap
 sudo rm -rf /var/snap
 sudo rm -rf /var/lib/snapd
@@ -264,14 +264,14 @@ sync
 # Implement .config/ files of the openbox
 cd /tmp &&
     git clone https://github.com/YurinDoctrine/.config.git &&
-    sudo cp -R .config/.conkyrc /home/$USER
-    sudo cp -R .config/.gmrunrc /home/$USER
-    sudo cp -R .config/.gtkrc-2.0 /home/$USER
-    sudo cp -R .config/.gtkrc-2.0.mine /home/$USER
-    sudo cp -R .config/.Xresources /home/$USER
-    sudo cp -R .config/.xscreensaver /home/$USER
-    sudo cp -R .config/.fonts.conf /home/$USER
-    sudo cp -R .config/* /home/$USER/.config
+    sudo cp -R .config/.conkyrc $HOME
+    sudo cp -R .config/.gmrunrc $HOME
+    sudo cp -R .config/.gtkrc-2.0 $HOME
+    sudo cp -R .config/.gtkrc-2.0.mine $HOME
+    sudo cp -R .config/.Xresources $HOME
+    sudo cp -R .config/.xscreensaver $HOME
+    sudo cp -R .config/.fonts.conf $HOME
+    sudo cp -R .config/* $HOME/.config
     sudo cp -R .config/.conkyrc /etc/skel &&
     sudo cp -R .config/.gmrunrc /etc/skel &&
     sudo cp -R .config/.gtkrc-2.0 /etc/skel &&
@@ -282,12 +282,12 @@ cd /tmp &&
     sudo cp -R .config/* /etc/skel/.config &&
     sudo mkdir /root/.config
 sudo cp -R .config/* /root/.config
-sudo chmod 755 /home/$USER/.config/dmenu/dmenu-bind.sh
+sudo chmod 755 $HOME/.config/dmenu/dmenu-bind.sh
 sudo chmod 755 /etc/skel/.config/dmenu/dmenu-bind.sh &&
-    sudo chmod 755 /home/$USER/.config/cbpp-exit
-    sudo chmod 755 /home/$USER/.config/cbpp-help-pipemenu
-    sudo chmod 755 /home/$USER/.config/cbpp-compositor
-    sudo chmod 755 /home/$USER/.config/cbpp-places-pipemenu
+    sudo chmod 755 $HOME/.config/cbpp-exit
+    sudo chmod 755 $HOME/.config/cbpp-help-pipemenu
+    sudo chmod 755 $HOME/.config/cbpp-compositor
+    sudo chmod 755 $HOME/.config/cbpp-places-pipemenu
     sudo chmod 755 /etc/skel/.config/cbpp-exit &&
     sudo chmod 755 /etc/skel/.config/cbpp-help-pipemenu &&
     sudo chmod 755 /etc/skel/.config/cbpp-compositor &&
@@ -302,10 +302,10 @@ sudo chmod 755 /etc/skel/.config/dmenu/dmenu-bind.sh &&
     sudo cp -R cbpp-pipemenus/cbpp-pipemenus/data/usr/bin/* /usr/bin &&
     git clone --branch 11 https://github.com/CBPP/cbpp-configs.git &&
     sudo cp -R cbpp-configs/cbpp-configs/data/usr/bin/* /usr/bin &&
-    sudo mv /home/$USER/.config/cbpp-exit /usr/bin
-    sudo mv /home/$USER/.config/cbpp-help-pipemenu /usr/bin
-    sudo mv /home/$USER/.config/cbpp-compositor /usr/bin
-    sudo mv /home/$USER/.config/cbpp-places-pipemenu /usr/bin
+    sudo mv $HOME/.config/cbpp-exit /usr/bin
+    sudo mv $HOME/.config/cbpp-help-pipemenu /usr/bin
+    sudo mv $HOME/.config/cbpp-compositor /usr/bin
+    sudo mv $HOME/.config/cbpp-places-pipemenu /usr/bin
     sudo mv /etc/skel/.config/cbpp-exit /usr/bin &&
     sudo mv /etc/skel/.config/cbpp-help-pipemenu /usr/bin &&
     sudo mv /etc/skel/.config/cbpp-compositor /usr/bin &&
