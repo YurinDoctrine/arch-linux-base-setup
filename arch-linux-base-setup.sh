@@ -81,8 +81,6 @@ PKGS=(
     'glibc'       # C libraries
     'glslang'     # OpenGL and OpenGL ES shader front end and validator
     'meson'       # Build system that use python as a front-end language and Ninja as a building backend
-    'nodejs'      # Javascript runtime environment
-    'npm'         # Node package manager
     'php'         # Scripting language
     'python3-pip' # The official package installer for Python
 
