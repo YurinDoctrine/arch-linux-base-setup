@@ -31,7 +31,6 @@ if [ $? != 0 ]; then
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
-    cd
 fi
 
 # ------------------------------------------------------------------------
@@ -307,8 +306,8 @@ git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git &&
     sudo rm -rf /usr/share/lxdm/themes/*
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/usr/share/lxdm/themes/* /usr/share/lxdm/themes
-cd &&
-    echo -e "XDG_CURRENT_DESKTOP=Unity
+
+echo -e "XDG_CURRENT_DESKTOP=Unity
 QT_QPA_PLATFORMTHEME=gtk2" | sudo tee -a /etc/environment
 
 # ------------------------------------------------------------------------
