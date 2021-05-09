@@ -224,7 +224,7 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-sudo rm -f $HOME/.cache/thumbnails
+sudo rm -rf $HOME/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
@@ -239,17 +239,17 @@ sudo systemctl disable snapd.socket
 sudo systemctl disable snapd.seeded.service
 sudo systemctl disable snapd.autoimport.service
 sudo systemctl disable snapd.apparmor.service
-sudo rm -f /etc/apparmor.d/usr.lib.snapd.snap-confine.real
+sudo rm -rf /etc/apparmor.d/usr.lib.snapd.snap-confine.real
 sudo systemctl start apparmor.service
 
 sudo pacman -Rns --noconfirm snapd
 
-sudo rm -f $HOME/snap
-sudo rm -f /snap
-sudo rm -f /var/snap
-sudo rm -f /var/lib/snapd
-sudo rm -f /var/cache/snapd
-sudo rm -f /usr/lib/snapd
+sudo rm -rf $HOME/snap
+sudo rm -rf /snap
+sudo rm -rf /var/snap
+sudo rm -rf /var/lib/snapd
+sudo rm -rf /var/cache/snapd
+sudo rm -rf /usr/lib/snapd
 
 flatpak uninstall --all
 
@@ -312,7 +312,7 @@ git clone --branch 11 https://github.com/CBPP/cbpp-icon-theme.git &&
     git clone --branch 11 https://github.com/CBPP/cbpp-configs.git &&
     sudo cp -R cbpp-configs/cbpp-configs/data/usr/bin/* /usr/bin &&
     git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git &&
-    sudo rm -f /usr/share/lxdm/themes/*
+    sudo rm -rf /usr/share/lxdm/themes/*
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/usr/share/lxdm/themes/* /usr/share/lxdm/themes
 
