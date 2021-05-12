@@ -10,7 +10,7 @@ sudo pacman -Syy &&
 echo -e "LANG=en_GB.UTF8" | sudo tee -a /etc/locale.conf
 echo -e "LANG=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LC_ALL=en_GB.UTF8" | sudo tee -a /etc/environment
-sudo sed -i 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
+sudo sed -i -e 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen en_GB.UTF-8
 localectl set-locale LANG=en_GB.UTF-8 LC_TIME=en_GB.UTF-8
 
@@ -50,14 +50,14 @@ fi
 
 # Colorful progress bar
 echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
-grep -q "^Color" /etc/pacman.conf || sudo sed -i "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+grep -q "^Color" /etc/pacman.conf || sudo sed -i -e "s/^#Color$/Color/" /etc/pacman.conf
+grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 
 # ------------------------------------------------------------------------
 
 # All cores for compilation
 echo -e "Use all cores for compilation"
-sudo sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
@@ -188,9 +188,9 @@ echo -e "FINAL SETUP AND CONFIGURATION"
 
 # Sudo rights
 echo -e "Add sudo rights"
-sudo sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+sudo sed -i -e 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 echo -e "Remove no password sudo rights"
-sudo sed -i 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+sudo sed -i -e 's/^%wheel ALL=(ALL) NOPASSWD: ALL/# %wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
 # ------------------------------------------------------------------------
 
@@ -223,14 +223,14 @@ echo -e "Disabling Pulse .esd_auth module"
 sudo killall -9 pulseaudio
 # Pulse audio loads the `esound-protocol` module, which best I can tell is rarely needed.
 # That module creates a file called `.esd_auth` in the home directory which I'd prefer to not be there. So...
-sudo sed -i 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
+sudo sed -i -e 's|load-module module-esound-protocol-unix|#load-module module-esound-protocol-unix|g' /etc/pulse/default.pa
 # Restart PulseAudio.
 sudo killall -HUP pulseaudio
 
 # ------------------------------------------------------------------------
 
 echo -e "Disabling bluetooth daemon by comment it"
-sudo sed -i 's|AutoEnable=true|AutoEnable=false|g' /etc/bluetooth/main.conf
+sudo sed -i -e 's|AutoEnable=true|AutoEnable=false|g' /etc/bluetooth/main.conf
 
 # ------------------------------------------------------------------------
 
