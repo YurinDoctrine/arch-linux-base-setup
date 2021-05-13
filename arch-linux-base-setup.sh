@@ -66,7 +66,9 @@ PKGS=(
     'conky'               # A system monitor software for the X Window System
     'featherpad'          # Lightweight Qt plain text editor
     'nitrogen'            # A fast and lightweight desktop background browser and setter for X Window
+    'obconf'              # A GTK+ based configuration tool for the Openbox window manager
     'openbox'             # A lightweight, powerful, and highly configurable stacking window manager
+    'scrot'               # Simple command-line screenshot utility
     'udiskie'             # An udisks2 front-end written in python
     'pcmanfm-qt'          # The LXQt file manager
     'tint2'               # A simple, unobtrusive and light panel for Xorg
