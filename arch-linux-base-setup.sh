@@ -64,11 +64,11 @@ PKGS=(
     'ibus'                # An input method framework
     'compton'             # A compositor for X11
     'conky'               # A system monitor software for the X Window System
-    'featherpad'              # Lightweight Qt plain text editor
+    'featherpad'          # Lightweight Qt plain text editor
     'nitrogen'            # A fast and lightweight desktop background browser and setter for X Window
     'openbox'             # A lightweight, powerful, and highly configurable stacking window manager
     'udiskie'             # An udisks2 front-end written in python
-    'pcmanfm-qt'              # The LXQt file manager
+    'pcmanfm-qt'          # The LXQt file manager
     'tint2'               # A simple, unobtrusive and light panel for Xorg
     'lxappearance'        # Set System Themes
     #'lxdm'               # A lightweight display manager
@@ -119,6 +119,7 @@ PKGS=(
     'unrar'         # RAR compression program
     'unzip'         # Zip compression program
     'wget'          # Remote content retrieval
+    'nocache'       # Minimize caching effects
     'nano'          # A simple console based text editor
     'zenity'        # Display graphical dialog boxes via shell scripts
     'zip'           # Zip compression program
