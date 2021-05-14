@@ -73,8 +73,8 @@ PKGS=(
     'tint2'               # A simple, unobtrusive and light panel for Xorg
     'lxappearance'        # Set System Themes
     #'lxdm'               # A lightweight display manager
-    'lxsession'           # LXDE PolicyKit authentication agent
-    'xfce4-notifyd'       # Notification Daemon
+    'lxsession'     # LXDE PolicyKit authentication agent
+    'xfce4-notifyd' # Notification Daemon
 
     # DEVELOPMENT ---------------------------------------------------------
 
