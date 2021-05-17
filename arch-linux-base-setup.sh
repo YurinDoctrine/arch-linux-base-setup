@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel pacman-contrib systemd git go &&
+    sudo pacman -S --needed --noconfirm base-devel pacman-contrib psmisc systemd git go &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
