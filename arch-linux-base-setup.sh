@@ -152,7 +152,6 @@ PKGS=(
     'abiword'     # Fully-featured word processor
     'atril'       # PDF viewer
     'ghostscript' # PostScript interpreter
-    'gsfonts'     # Adobe Postscript replacement fonts
     'gnumeric'    # A powerful spreadsheet application
 
 )
