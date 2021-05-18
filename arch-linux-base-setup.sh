@@ -88,12 +88,12 @@ PKGS=(
 
     # --- Audio
 
-    'pavucontrol-qt'  # Pulse Audio volume control Qt port
-    'pasystray'       # PulseAudio system tray
+    'pavucontrol-qt' # Pulse Audio volume control Qt port
+    'pasystray'      # PulseAudio system tray
 
     # --- Bluetooth
 
-    'blueman'              # GTK+ Bluetooth Manager
+    'blueman' # GTK+ Bluetooth Manager
 
     # TERMINAL UTILITIES --------------------------------------------------
 
