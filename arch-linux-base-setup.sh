@@ -77,11 +77,11 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
 
-    'ccache'      # Compiler cacher
-    'cmake'       # Cross-platform open-source make system
-    'glslang'     # OpenGL and OpenGL ES shader front end and validator
-    'meson'       # Build system that use python as a front-end language and Ninja as a building backend
-    'python3-pip' # The official package installer for Python
+    'ccache'     # Compiler cacher
+    'cmake'      # Cross-platform open-source make system
+    'glslang'    # OpenGL and OpenGL ES shader front end and validator
+    'meson'      # Build system that use python as a front-end language and Ninja as a building backend
+    'python-pip' # The official package installer for Python
 
     # --- Audio
 
@@ -126,7 +126,7 @@ PKGS=(
     'flameshot'            # Screenshots
     'file-roller'          # Create and modify archives
     'filezilla'            # FTP Client
-    'apache2'              # HTTP server
+    'apache'               # HTTP server
     'arandr'               # Provide a simple visual front end for XRandR
     'playerctl'            # Utility to control media players via MPRIS
     'putty'                # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
