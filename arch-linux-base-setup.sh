@@ -221,7 +221,7 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
-sudo rm -rf $HOME/.cache/thumbnails
+sudo rm -rfd $HOME/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
@@ -236,17 +236,17 @@ sudo systemctl disable snapd.socket
 sudo systemctl disable snapd.seeded.service
 sudo systemctl disable snapd.autoimport.service
 sudo systemctl disable snapd.apparmor.service
-sudo rm -rf /etc/apparmor.d/usr.lib.snapd.snap-confine.real
+sudo rm -f /etc/apparmor.d/usr.lib.snapd.snap-confine.real
 sudo systemctl start apparmor.service
 
 sudo pacman -Rns --noconfirm snapd
 
-sudo rm -rf $HOME/snap
-sudo rm -rf /snap
-sudo rm -rf /var/snap
-sudo rm -rf /var/lib/snapd
-sudo rm -rf /var/cache/snapd
-sudo rm -rf /usr/lib/snapd
+sudo rm -rfd $HOME/snap
+sudo rm -rfd /snap
+sudo rm -rfd /var/snap
+sudo rm -rfd /var/lib/snapd
+sudo rm -rfd /var/cache/snapd
+sudo rm -rfd /usr/lib/snapd
 
 flatpak uninstall --all
 
@@ -261,9 +261,9 @@ find /usr/share/doc/ | egrep "\.gz" | xargs sudo rm -f
 find /usr/share/doc/ | egrep "\.pdf" | xargs sudo rm -f
 find /usr/share/doc/ | egrep "\.tex" | xargs sudo rm -f
 find /usr/share/doc/ -empty | xargs sudo rmdir || true
-sudo rm -rf /usr/share/groff/* /usr/share/info/*
-sudo rm -rf /usr/share/lintian/* /usr/share/linda/* /var/cache/man/*
-sudo rm -rf /usr/share/man/*
+sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
+    /usr/share/linda/* /var/cache/man/* /usr/share/man/*
+
 sync
 
 # ------------------------------------------------------------------------
@@ -281,7 +281,7 @@ cd /tmp &&
     git clone --branch 11 https://github.com/CBPP/cbpp-configs.git &&
     sudo cp -R cbpp-configs/cbpp-configs/data/usr/bin/* /usr/bin &&
     git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git &&
-    sudo rm -rf /usr/share/lxdm/themes/*
+    sudo rm -rfd /usr/share/lxdm/themes/*
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/etc/lxdm/* /etc/lxdm
 sudo cp -R cbpp-lxdm-theme/cbpp-lxdm-theme/data/usr/share/lxdm/themes/* /usr/share/lxdm/themes
 git clone https://github.com/YurinDoctrine/.config.git &&
