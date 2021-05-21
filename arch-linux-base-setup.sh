@@ -103,11 +103,11 @@ PKGS=(
     'fish'          # The friendly interactive shell
     'vsftpd'        # File transfer protocol
     'htop'          # Process viewer
+    'kitty'         # A modern, hackable, featureful, OpenGL-based terminal emulator
     'neofetch'      # Shows system info when you launch terminal
     'openssh'       # SSH connectivity tools
     'irssi'         # Terminal based IRC
     'p7zip'         # 7z compression program
-    'terminator'    # A terminal emulator
     'terminus-font' # Font package with some bigger fonts for login terminal
     'unrar'         # RAR compression program
     'unzip'         # Zip compression program
@@ -131,7 +131,6 @@ PKGS=(
     'file-roller'          # Create and modify archives
     'filezilla'            # FTP Client
     'playerctl'            # Utility to control media players via MPRIS
-    'putty'                # A port of the popular GUI SSH, Telnet, Rlogin and serial port connection client
     'transmission-qt'      # BitTorrent client
     'net-tools'            # Network utilities
     'nocache'              # Minimize caching effects
