@@ -97,7 +97,6 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
 
-    'cronie'        # Cron jobs
     'dash'          # A POSIX-compliant shell derived from ash
     'dashbinsh'     # Relink /bin/sh to dash
     'fish'          # The friendly interactive shell
@@ -124,7 +123,6 @@ PKGS=(
 
     'apache'               # HTTP server
     'arandr'               # Provide a simple visual front end for XRandR
-    'catfish'              # Versatile file searching tool
     'dialog'               # A tool to display dialog boxes from shell scripts
     'earlyoom'             # Early OOM Daemon for Linux
     'flameshot'            # Screenshots
