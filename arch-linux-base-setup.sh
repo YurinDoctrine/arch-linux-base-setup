@@ -136,7 +136,6 @@ PKGS=(
     'net-tools'            # Network utilities
     'nocache'              # Minimize caching effects
     'galculator'           # A simple, elegant calculator
-    'gnupg'                # Complete and free implementation of the OpenPGP standard
     'preload'              # Makes applications run faster by prefetching binaries and shared objects
     'simplescreenrecorder' # A feature-rich screen recorder that supports X11 and OpenGL
 
