@@ -86,8 +86,10 @@ PKGS=(
 
     # --- Audio
 
+    'alsa-utils'     # Advanced Linux Sound Architecture - Utilities
     'pavucontrol-qt' # Pulse Audio volume control Qt port
     'pasystray'      # PulseAudio system tray
+    'pulsemixer'     # CLI and curses mixer for pulseaudio
 
     # --- Bluetooth
 
@@ -105,7 +107,6 @@ PKGS=(
     'openssh'       # SSH connectivity tools
     'irssi'         # Terminal based IRC
     'p7zip'         # 7z compression program
-    'speedtest-cli' # Internet speed via terminal
     'terminator'    # A terminal emulator
     'terminus-font' # Font package with some bigger fonts for login terminal
     'unrar'         # RAR compression program
