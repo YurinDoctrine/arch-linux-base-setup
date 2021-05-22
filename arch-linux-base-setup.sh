@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel pacman-contrib psmisc systemd git go &&
+    sudo pacman -S --needed --noconfirm base-devel kitty pacman-contrib psmisc systemd git go &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -102,7 +102,6 @@ PKGS=(
     'fish'          # The friendly interactive shell
     'vsftpd'        # File transfer protocol
     'htop'          # Process viewer
-    'kitty'         # A modern, hackable, featureful, OpenGL-based terminal emulator
     'neofetch'      # Shows system info when you launch terminal
     'openssh'       # SSH connectivity tools
     'irssi'         # Terminal based IRC
