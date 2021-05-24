@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel kitty pacman-contrib psmisc systemd git go &&
+    sudo pacman -S --needed --noconfirm base-devel kitty pacman-contrib psmisc networkmanager systemd git go &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -57,7 +57,6 @@ PKGS=(
     # --- Importants
 
     'xscreensaver'       # A screen saver and locker for the X
-    'xfburn'             # A simple CD/DVD burning tool
     'xfce4-notifyd'      # Notification Daemon
     'xcompmgr'           # A simple composite manager
     'mate-power-manager' # MATE Power Manager
@@ -123,10 +122,10 @@ PKGS=(
     'engrampa'             # Archive manipulator for MATE
     'flameshot'            # Screenshots
     'filezilla'            # FTP Client
+    'mate-calc'            # Calculator for the MATE
+    'nocache'              # Minimize caching effects
     'playerctl'            # Utility to control media players via MPRIS
     'transmission-qt'      # BitTorrent client
-    'nocache'              # Minimize caching effects
-    'galculator'           # A simple, elegant calculator
     'preload'              # Makes applications run faster by prefetching binaries and shared objects
     'simplescreenrecorder' # A feature-rich screen recorder that supports X11 and OpenGL
 
@@ -138,10 +137,11 @@ PKGS=(
 
     # PRINTING ------------------------------------------------------------
 
-    'abiword'     # Fully-featured word processor
-    'atril'       # PDF viewer
-    'ghostscript' # PostScript interpreter
-    'gnumeric'    # A powerful spreadsheet application
+    'abiword'               # Fully-featured word processor
+    'atril'                 # PDF viewer
+    'ghostscript'           # PostScript interpreter
+    'gnumeric'              # A powerful spreadsheet application
+    'system-config-printer' # A CUPS printer configuration tool and status applet
 
 )
 
