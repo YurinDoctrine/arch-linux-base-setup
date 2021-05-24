@@ -56,24 +56,24 @@ PKGS=(
 
     # --- Importants
 
-    'xscreensaver'       # A screen saver and locker for the X
-    'xfce4-notifyd'      # Notification Daemon
-    'xcompmgr'           # A simple composite manager
-    'mate-power-manager' # MATE Power Manager
-    'dmenu'              # Generic menu for X
-    'gmrun'              # A lightweight application launcher
-    'gsimplecal'         # A simple, lightweight calendar
-    'conky'              # A system monitor software for the X Window System
-    'featherpad'         # Lightweight Qt plain text editor
-    'nitrogen'           # A fast and lightweight desktop background browser and setter for X Window
-    'openbox'            # A lightweight, powerful, and highly configurable stacking window manager
-    'scrot'              # Simple command-line screenshot utility
-    'udiskie'            # An udisks2 front-end written in python
-    'pcmanfm-qt'         # The LXQt file manager
-    'tint2'              # A simple, unobtrusive and light panel for Xorg
-    'lxappearance'       # Set System Themes
-    'lxsession'          # LXDE PolicyKit authentication agent
-    #'lxdm'               # A lightweight display manager
+    'xscreensaver'             # A screen saver and locker for the X
+    'mate-notification-daemon' # Notification daemon for MATE
+    'xcompmgr'                 # A simple composite manager
+    'mate-power-manager'       # MATE Power Manager
+    'dmenu'                    # Generic menu for X
+    'gmrun'                    # A lightweight application launcher
+    'gsimplecal'               # A simple, lightweight calendar
+    'conky'                    # A system monitor software for the X Window System
+    'featherpad'               # Lightweight Qt plain text editor
+    'nitrogen'                 # A fast and lightweight desktop background browser and setter for X Window
+    'openbox'                  # A lightweight, powerful, and highly configurable stacking window manager
+    'scrot'                    # Simple command-line screenshot utility
+    'udiskie'                  # An udisks2 front-end written in python
+    'pcmanfm-qt'               # The LXQt file manager
+    'tint2'                    # A simple, unobtrusive and light panel for Xorg
+    'lxappearance'             # Set System Themes
+    'lxsession'                # LXDE PolicyKit authentication agent
+    #'lxdm'                     # A lightweight display manager
 
     # DEVELOPMENT ---------------------------------------------------------
 
