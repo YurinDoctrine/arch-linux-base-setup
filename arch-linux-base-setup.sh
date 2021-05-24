@@ -120,7 +120,6 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'apache'               # HTTP server
     'arandr'               # Provide a simple visual front end for XRandR
     'dialog'               # A tool to display dialog boxes from shell scripts
     'earlyoom'             # Early OOM Daemon for Linux
