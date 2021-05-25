@@ -260,11 +260,14 @@ sync
 cd /tmp &&
     git clone --branch 11 https://github.com/CBPP/cbpp-configs.git &&
     sudo cp -R cbpp-configs/cbpp-configs/data/usr/bin/* /usr/bin &&
-    git clone --branch 11 https://github.com/CBPP/cbpp-icon-theme.git &&
+    sudo rm -rfd /usr/share/icons/CBPP
+git clone --branch 11 https://github.com/CBPP/cbpp-icon-theme.git &&
     sudo cp -R cbpp-icon-theme/cbpp-icon-theme/data/usr/share/icons/* /usr/share/icons &&
-    git clone --branch 11 https://github.com/CBPP/cbpp-ui-theme.git &&
+    sudo rm -rfd /usr/share/themes/CBPP
+git clone --branch 11 https://github.com/CBPP/cbpp-ui-theme.git &&
     sudo cp -R cbpp-ui-theme/cbpp-ui-theme/data/usr/share/themes/* /usr/share/themes &&
-    git clone --branch 11 https://github.com/CBPP/cbpp-wallpapers.git &&
+    sudo rm -rfd /usr/share/backgrounds/*
+git clone --branch 11 https://github.com/CBPP/cbpp-wallpapers.git &&
     sudo cp -R cbpp-wallpapers/cbpp-wallpapers/data/usr/share/backgrounds/* /usr/share/backgrounds &&
     git clone --branch 11 https://github.com/CBPP/cbpp-lxdm-theme.git &&
     sudo rm -rfd /usr/share/lxdm/themes/*
