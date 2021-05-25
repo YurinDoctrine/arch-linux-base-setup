@@ -134,7 +134,7 @@ PKGS=(
 
     'abiword'               # Fully-featured word processor
     'atril'                 # PDF viewer
-    'ghostscript'           # PostScript interpreter
+    'cups'                  # The CUPS Printing System - daemon package
     'gnumeric'              # A powerful spreadsheet application
     'system-config-printer' # A CUPS printer configuration tool and status applet
 
@@ -205,6 +205,11 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # ------------------------------------------------------------------------
 
+echo -e "Disable cups daemon(opt-out)"
+sudo systemctl disable cups.service
+
+# ------------------------------------------------------------------------
+
 sudo rm -rfd $HOME/.cache/thumbnails
 echo -e "Clear pacman cache, orphans"
 sudo pacman -Sc --noconfirm
@@ -221,7 +226,6 @@ sudo systemctl disable snapd.seeded.service
 sudo systemctl disable snapd.autoimport.service
 sudo systemctl disable snapd.apparmor.service
 sudo rm -f /etc/apparmor.d/usr.lib.snapd.snap-confine.real
-sudo systemctl start apparmor.service
 
 sudo pacman -Rns --noconfirm snapd
 
