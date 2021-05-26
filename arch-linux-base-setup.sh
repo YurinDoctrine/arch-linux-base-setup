@@ -79,7 +79,6 @@ PKGS=(
 
     'ccache'     # Compiler cacher
     'cmake'      # Cross-platform open-source make system
-    'glslang'    # OpenGL and OpenGL ES shader front end and validator
     'meson'      # Build system that use python as a front-end language and Ninja as a building backend
     'python-pip' # The official package installer for Python
 
