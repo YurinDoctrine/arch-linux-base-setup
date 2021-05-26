@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go xorg &&
+    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go xorg-server &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -53,7 +53,6 @@ sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 echo -e "Installing Base System"
 
 PKGS=(
-
     # --- Importants
 
     'xwallpaper'         # A lightweight and simple desktop background setter for X Window
