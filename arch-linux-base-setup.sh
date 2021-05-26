@@ -100,7 +100,6 @@ PKGS=(
     'dashbinsh'     # Relink /bin/sh to dash
     'dialog'        # A tool to display dialog boxes from shell scripts
     'fish'          # The friendly interactive shell
-    'htop'          # Process viewer
     'nano'          # A simple console based text editor
     'neofetch'      # Shows system info when you launch terminal
     'irssi'         # Terminal based IRC
