@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go &&
+    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -56,7 +56,6 @@ PKGS=(
 
     # --- Importants
 
-    'xscreensaver'             # A screen saver and locker for the X
     'mate-notification-daemon' # Notification daemon for MATE
     'xcompmgr'                 # A simple composite manager
     'mate-power-manager'       # MATE Power Manager
@@ -68,6 +67,7 @@ PKGS=(
     'nitrogen'                 # A fast and lightweight desktop background browser and setter for X Window
     'openbox'                  # A lightweight, powerful, and highly configurable stacking window manager
     'scrot'                    # Simple command-line screenshot utility
+    'slock'                    # A simple screen locker for X
     'udiskie'                  # An udisks2 front-end written in python
     'pcmanfm-qt'               # The LXQt file manager
     'tint2'                    # A simple, unobtrusive and light panel for Xorg
@@ -118,6 +118,7 @@ PKGS=(
     'filezilla'            # FTP Client
     'mate-calc'            # Calculator for the MATE
     'nocache'              # Minimize caching effects
+    'unclutter'            # A small program for hiding the mouse cursor
     'playerctl'            # Utility to control media players via MPRIS
     'transmission-qt'      # BitTorrent client
     'preload'              # Makes applications run faster by prefetching binaries and shared objects
