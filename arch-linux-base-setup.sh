@@ -210,12 +210,6 @@ sudo systemctl disable cups.service
 
 # ------------------------------------------------------------------------
 
-sudo rm -rfd $HOME/.cache/thumbnails
-echo -e "Clear pacman cache, orphans"
-sudo pacman -Sc --noconfirm
-sudo pacman -Scc --noconfirm
-sudo pacman -Qtdq &&
-    sudo pacman -Rns --noconfirm $(pacman -Qtdq)
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
 sudo systemctl disable --now snapd
@@ -242,6 +236,15 @@ sudo pacman -Rns --noconfirm flatpak
 
 # ------------------------------------------------------------------------
 
+echo -e "Clear the patches"
+sudo rm -rfd $HOME/.cache/thumbnails
+sudo pacman -Sc --noconfirm
+sudo pacman -Scc --noconfirm
+sudo pacman -Qtdq &&
+    sudo pacman -Rns --noconfirm $(pacman -Qtdq)
+
+# ------------------------------------------------------------------------
+
 # Don't reserve space man-pages, locales, licenses.
 echo -e "Remove useless companies"
 find /usr/share/doc/ -depth -type f ! -name copyright | xargs sudo rm -f || true
@@ -251,7 +254,6 @@ find /usr/share/doc/ | egrep "\.tex" | xargs sudo rm -f
 find /usr/share/doc/ -empty | xargs sudo rmdir || true
 sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
     /usr/share/linda/* /var/cache/man/* /usr/share/man/*
-
 sync
 
 # ------------------------------------------------------------------------
