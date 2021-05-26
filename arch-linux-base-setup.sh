@@ -103,7 +103,6 @@ PKGS=(
     'neofetch'      # Shows system info when you launch terminal
     'irssi'         # Terminal based IRC
     'terminus-font' # Font package with some bigger fonts for login terminal
-    'zenity'        # Display graphical dialog boxes via shell scripts
 
     # DISK UTILITIES ------------------------------------------------------
 
@@ -113,7 +112,6 @@ PKGS=(
 
     'arandr'               # Provide a simple visual front end for XRandR
     'engrampa'             # Archive manipulator for MATE
-    'flameshot'            # Screenshots
     'filezilla'            # FTP Client
     'mate-calc'            # Calculator for the MATE
     'nocache'              # Minimize caching effects
