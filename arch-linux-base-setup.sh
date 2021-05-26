@@ -110,9 +110,9 @@ PKGS=(
     # GENERAL UTILITIES ---------------------------------------------------
 
     'arandr'               # Provide a simple visual front end for XRandR
+    'bc'                   # An arbitrary precision calculator language
     'engrampa'             # Archive manipulator for MATE
     'filezilla'            # FTP Client
-    'mate-calc'            # Calculator for the MATE
     'nocache'              # Minimize caching effects
     'unclutter'            # A small program for hiding the mouse cursor
     'playerctl'            # Utility to control media players via MPRIS
