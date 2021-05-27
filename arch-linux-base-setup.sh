@@ -197,12 +197,12 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 # ------------------------------------------------------------------------
 
 echo -e "Disable bluez daemon(opt-out)"
-sudo systemctl disable bluetooth.service
+sudo systemctl disable --now bluetooth.service
 
-# --------------------------------------------------------------------$
+# ------------------------------------------------------------------------
 
 echo -e "Disable cups daemon(opt-out)"
-sudo systemctl disable cups.service
+sudo systemctl disable --now cups.service
 
 # ------------------------------------------------------------------------
 
