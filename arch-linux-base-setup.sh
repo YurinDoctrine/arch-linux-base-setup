@@ -98,6 +98,7 @@ PKGS=(
     'dashbinsh'     # Relink /bin/sh to dash
     'dialog'        # A tool to display dialog boxes from shell scripts
     'fish'          # The friendly interactive shell
+    'htop'           # Interactive process viewer
     'nano'          # A simple console based text editor
     'neofetch'      # Shows system info when you launch terminal
     'irssi'         # Terminal based IRC
@@ -216,9 +217,7 @@ sudo systemctl disable snapd.seeded.service
 sudo systemctl disable snapd.autoimport.service
 sudo systemctl disable snapd.apparmor.service
 sudo rm -f /etc/apparmor.d/usr.lib.snapd.snap-confine.real
-
 sudo pacman -Rns --noconfirm snapd
-
 sudo rm -rfd $HOME/snap
 sudo rm -rfd /snap
 sudo rm -rfd /var/snap
