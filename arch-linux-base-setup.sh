@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go xorg-server &&
+    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go neovim xorg-server &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -99,7 +99,6 @@ PKGS=(
     'dialog'        # A tool to display dialog boxes from shell scripts
     'fish'          # The friendly interactive shell
     'htop'          # Interactive process viewer
-    'nano'          # A simple console based text editor
     'neofetch'      # Shows system info when you launch terminal
     'irssi'         # Terminal based IRC
     'terminus-font' # Font package with some bigger fonts for login terminal
