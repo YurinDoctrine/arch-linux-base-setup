@@ -58,6 +58,7 @@ PKGS=(
     'xwallpaper'         # A lightweight and simple desktop background setter for X Window
     'xcompmgr'           # A simple composite manager
     'mate-power-manager' # MATE Power Manager
+    'mksh'               # MirBSD Korn Shell
     'dmenu'              # Generic menu for X
     'gmrun'              # A lightweight application launcher
     'gsimplecal'         # A simple, lightweight calendar
@@ -68,7 +69,7 @@ PKGS=(
     'scrot'              # Simple command-line screenshot utility
     'slock'              # A simple screen locker for X
     'udiskie'            # An udisks2 front-end written in python
-    'pcmanfm-qt'         # The LXQt file manager
+    'ranger'             # A file manager with vi key bindings written in python but with an interface that rocks
     'tint2'              # A simple, unobtrusive and light panel for Xorg
     'lxappearance'       # Set System Themes
     'lxsession'          # LXDE PolicyKit authentication agent
@@ -94,11 +95,9 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
 
-    'dash'          # A POSIX-compliant shell derived from ash
-    'dashbinsh'     # Relink /bin/sh to dash
     'dialog'        # A tool to display dialog boxes from shell scripts
     'fish'          # The friendly interactive shell
-    'htop'           # Interactive process viewer
+    'htop'          # Interactive process viewer
     'nano'          # A simple console based text editor
     'neofetch'      # Shows system info when you launch terminal
     'irssi'         # Terminal based IRC
@@ -117,7 +116,7 @@ PKGS=(
     'nocache'              # Minimize caching effects
     'unclutter'            # A small program for hiding the mouse cursor
     'playerctl'            # Utility to control media players via MPRIS
-    'transmission-qt'      # BitTorrent client
+    'transmission-gtk'     # BitTorrent client
     'preload'              # Makes applications run faster by prefetching binaries and shared objects
     'simplescreenrecorder' # A feature-rich screen recorder that supports X11 and OpenGL
 
@@ -344,7 +343,7 @@ final() {
     if [[ "$ans" == "yes" ]]; then
         echo -e "RUNNING ..."
         chsh -s /usr/bin/fish         # Change default shell before leaving.
-        sudo ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
+        sudo ln -sfT mksh /usr/bin/sh # Link mksh to /usr/bin/sh
         extra
     elif [[ "$ans" == "no" ]]; then
         echo -e "LEAVING ..."
