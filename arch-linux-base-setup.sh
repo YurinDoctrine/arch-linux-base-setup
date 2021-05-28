@@ -216,8 +216,11 @@ sudo systemctl disable snapd.socket
 sudo systemctl disable snapd.seeded.service
 sudo systemctl disable snapd.autoimport.service
 sudo systemctl disable snapd.apparmor.service
+
 sudo rm -f /etc/apparmor.d/usr.lib.snapd.snap-confine.real
+
 sudo pacman -Rns --noconfirm snapd
+
 sudo rm -rfd $HOME/snap
 sudo rm -rfd /snap
 sudo rm -rfd /var/snap
