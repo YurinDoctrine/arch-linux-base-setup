@@ -69,6 +69,7 @@ PKGS=(
     'scrot'              # Simple command-line screenshot utility
     'slock'              # A simple screen locker for X
     'udiskie'            # An udisks2 front-end written in python
+    'pcmanfm-qt'         # The LXQt file manager
     'ranger'             # A file manager with vi key bindings written in python but with an interface that rocks
     'tint2'              # A simple, unobtrusive and light panel for Xorg
     'lxappearance'       # Set System Themes
