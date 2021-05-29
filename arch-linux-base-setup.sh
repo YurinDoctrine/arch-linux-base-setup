@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go neovim xorg-server &&
+    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go xorg-server &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -100,6 +100,7 @@ PKGS=(
     'fish'          # The friendly interactive shell
     'htop'          # Interactive process viewer
     'neofetch'      # Shows system info when you launch terminal
+    'neovim'        # Fork of Vim aiming to improve user experience, plugins, and GUIs
     'irssi'         # Terminal based IRC
     'terminus-font' # Font package with some bigger fonts for login terminal
 
