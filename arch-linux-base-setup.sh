@@ -91,10 +91,9 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
 
-    'ccache'     # Compiler cacher
-    'cmake'      # Cross-platform open-source make system
-    'meson'      # Build system that use python as a front-end language and Ninja as a building backend
-    'python-pip' # The official package installer for Python
+    'ccache' # Compiler cacher
+    'cmake'  # Cross-platform open-source make system
+    'meson'  # Build system that use python as a front-end language and Ninja as a building backend
 
     # --- Audio
 
