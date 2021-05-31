@@ -172,13 +172,6 @@ echo -e "[Icon Theme]
 
 # ------------------------------------------------------------------------
 
-echo -e "Increasing file watcher count"
-# This prevents a "too many files" error in Visual Studio Code
-echo -e "fs.inotify.max_user_watches=524288" | sudo tee /etc/sysctl.d/40-max-user-watches.conf &&
-    sudo sysctl --system
-
-# ------------------------------------------------------------------------
-
 echo -e "Disabling Pulse .esd_auth module"
 sudo killall -9 pulseaudio
 # Pulse audio loads the `esound-protocol` module, which best I can tell is rarely needed.
