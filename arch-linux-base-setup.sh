@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base base-devel kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go xorg-server &&
+    sudo pacman -S --needed --noconfirm 9base base-devel curl kitty pacman-contrib psmisc pulseaudio networkmanager systemd git go xorg-server &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
