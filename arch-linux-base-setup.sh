@@ -19,7 +19,7 @@ localectl set-locale LANG=en_GB.UTF-8 LC_TIME=en_GB.UTF-8
 # Ranking mirrors
 sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
-cat /etc/pacman.d/mirrorlist | rankmirrors -n 5 -m 3 - >$HOME/mirrorlist
+cat /etc/pacman.d/mirrorlist | rankmirrors -n 5 - >$HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
