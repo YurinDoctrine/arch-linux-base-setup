@@ -207,6 +207,11 @@ sudo btrfs balance start -musage=50 -dusage=50 /
 
 # ------------------------------------------------------------------------
 
+echo -e "Apply disk tweaks"
+sudo sed -i -e 's|defaults |defaults,noatime,commit=60 |g' /etc/fstab
+
+# ------------------------------------------------------------------------
+
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
 sudo systemctl disable --now snapd
