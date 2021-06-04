@@ -211,6 +211,11 @@ sudo sed -i -e 's|defaults |defaults,noatime,commit=60 |g' /etc/fstab
 
 # ------------------------------------------------------------------------
 
+# Change swappiness value
+echo -e "vm.swappiness=10" | sudo tee /etc/sysctl.d/99-swappiness.conf
+
+# ------------------------------------------------------------------------
+
 echo -e "Remove snapd and flatpak garbages"
 sudo snap remove snap-store
 sudo systemctl disable --now snapd
