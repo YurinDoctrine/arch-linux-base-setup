@@ -97,7 +97,6 @@ PKGS=(
 
     'alsaplayer'     # A heavily multi-threaded PCM player
     'pasystray'      # PulseAudio system tray
-    'pavucontrol-qt' # PulseAudio volume control Qt port
     'pulsemixer'     # CLI and curses mixer for PulseAudio
 
     # --- Bluetooth
