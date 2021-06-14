@@ -59,7 +59,7 @@ PKGS=(
     'engrampa'             # Archive manipulator for MATE
     'mate-power-manager'   # MATE Power Manager
     'mksh'                 # MirBSD Korn Shell
-    'dmenu'                # Generic menu for X
+    'dmenu'                # A generic menu for X
     'gmrun'                # A lightweight application launcher
     'gsimplecal'           # A simple, lightweight calendar
     'conky'                # A system monitor software for the X Window System
