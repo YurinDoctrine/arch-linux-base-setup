@@ -99,10 +99,10 @@ PKGS=(
 
     # --- Audio
 
-    'alsaplayer'     # A heavily multi-threaded PCM player
-    'pasystray'      # PulseAudio system tray
-    'playerctl'      # Utility to control media players via MPRIS
-    'pulsemixer'     # CLI and curses mixer for PulseAudio
+    'alsaplayer' # A heavily multi-threaded PCM player
+    'pasystray'  # PulseAudio system tray
+    'playerctl'  # Utility to control media players via MPRIS
+    'pulsemixer' # CLI and curses mixer for PulseAudio
 
     # --- Bluetooth
 
