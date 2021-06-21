@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base base-devel curl kitty pacman-contrib procps-ng psmisc pulseaudio networkmanager systemd git go xorg-server &&
+    sudo pacman -S --needed --noconfirm 9base curl kitty networkmanager pacman-contrib procps-ng psmisc reflector systemd git go xorg-server &&
     sudo pacman -S --needed --noconfirm yay
 
 # ------------------------------------------------------------------------
@@ -19,7 +19,7 @@ localectl set-locale LANG=en_GB.UTF-8 LC_TIME=en_GB.UTF-8
 # Ranking mirrors
 sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
-cat /etc/pacman.d/mirrorlist | rankmirrors -n 5 - >$HOME/mirrorlist
+reflector --latest 3 --sort rate --save $HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
@@ -94,7 +94,6 @@ PKGS=(
     # DEVELOPMENT ---------------------------------------------------------
 
     'ccache' # Compiler cacher
-    'cmake'  # Cross-platform open-source make system
     'meson'  # Build system that use python as a front-end language and Ninja as a building backend
 
     # --- Audio
