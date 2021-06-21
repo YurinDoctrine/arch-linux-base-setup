@@ -224,7 +224,6 @@ final() {
     read -p $'yes/no >_: ' ans
     if [[ "$ans" == "yes" ]]; then
         echo -e "RUNNING ..."
-        chsh -s /usr/bin/fish         # Change default shell before leaving.
         sudo ln -sfT mksh /usr/bin/sh # Link mksh to /usr/bin/sh
         extra
     elif [[ "$ans" == "no" ]]; then
@@ -234,13 +233,11 @@ final() {
         read -p $'yes/no >_: ' noc
         if [[ "$noc" == "yes" ]]; then
             echo -e "RUNNING ..."
-            chsh -s /usr/bin/fish         # Change default shell before leaving.
-            sudo ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
+            sudo ln -sfT mksh /usr/bin/sh # Link mksh to /usr/bin/sh
             extra2
         elif [[ "$noc" == "no" ]]; then
             echo -e "LEAVING ..."
-            chsh -s /usr/bin/fish         # Change default shell before leaving.
-            sudo ln -sfT dash /usr/bin/sh # Link dash to /usr/bin/sh
+            sudo ln -sfT mksh /usr/bin/sh # Link mksh to /usr/bin/sh
             exit 0
         else
             echo -e "INVALID VALUE!"
