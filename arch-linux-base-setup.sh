@@ -67,7 +67,6 @@ PKGS=(
     # DEVELOPMENT ---------------------------------------------------------
 
     'ccache' # Compiler cacher
-    'meson'  # Build system that use python as a front-end language and Ninja as a building backend
 
 )
 
