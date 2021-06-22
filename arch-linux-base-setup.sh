@@ -152,33 +152,6 @@ sudo systemctl enable --now powertop.service
 
 # ------------------------------------------------------------------------
 
-echo -e "Remove snapd and flatpak garbages"
-sudo snap remove snap-store
-sudo systemctl disable --now snapd
-sudo umount /run/snap/ns
-sudo systemctl disable snapd.service
-sudo systemctl disable snapd.socket
-sudo systemctl disable snapd.seeded.service
-sudo systemctl disable snapd.autoimport.service
-sudo systemctl disable snapd.apparmor.service
-
-sudo rm -f /etc/apparmor.d/usr.lib.snapd.snap-confine.real
-
-sudo pacman -Rns --noconfirm snapd
-
-sudo rm -rfd $HOME/snap
-sudo rm -rfd /snap
-sudo rm -rfd /var/snap
-sudo rm -rfd /var/lib/snapd
-sudo rm -rfd /var/cache/snapd
-sudo rm -rfd /usr/lib/snapd
-
-flatpak uninstall --all
-
-sudo pacman -Rns --noconfirm flatpak
-
-# ------------------------------------------------------------------------
-
 echo -e "Clear the patches"
 sudo rm -rfd $HOME/.cache/thumbnails
 sudo pacman -Sc --noconfirm
