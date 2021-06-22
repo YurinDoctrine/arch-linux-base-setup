@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm reflector 
+    sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
 sudo pacman -S --needed --noconfirm 9base curl fakeroot git networkmanager pacman-contrib procps-ng psmisc systemd xorg-server
 
