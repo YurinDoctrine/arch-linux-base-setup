@@ -204,6 +204,7 @@ final
 # ------------------------------------------------------------------------
 
 echo -e "Clear the patches"
+rm -rfd /tmp/*
 sudo rm -rfd $HOME/.cache/thumbnails
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
