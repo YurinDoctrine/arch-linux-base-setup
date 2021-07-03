@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm reflector
+    sudo pacman -S --needed --noconfirm 9base curl git networkmanager pacman-contrib procps-ng psmisc systemd xorg-server
+sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
-sudo pacman -S --needed --noconfirm 9base curl git networkmanager pacman-contrib procps-ng psmisc systemd xorg-server
 
 # ------------------------------------------------------------------------
 
@@ -135,8 +135,8 @@ sudo btrfs balance start -musage=50 -dusage=50 /
 # ------------------------------------------------------------------------
 
 echo -e "Apply disk tweaks"
-sudo sed -i -e 's|defaults |defaults,noatime,commit=60 |g' /etc/fstab
-sudo sed -i -e 's|errors=remount-ro 0 |noatime,commit=60,errors=remount-ro 0 |g' /etc/fstab
+sudo sed -i -e 's| defaults | defaults,noatime,commit=60 |g' /etc/fstab
+sudo sed -i -e 's| errors=remount-ro 0 | noatime,commit=60,errors=remount-ro 0 |g' /etc/fstab
 
 # ------------------------------------------------------------------------
 
