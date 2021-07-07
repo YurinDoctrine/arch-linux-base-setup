@@ -129,7 +129,6 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 # ------------------------------------------------------------------------
 
 # btrfs tweaks if disk is
-sudo btrfs scrub start /
 sudo btrfs balance start -musage=50 -dusage=50 /
 
 # ------------------------------------------------------------------------
