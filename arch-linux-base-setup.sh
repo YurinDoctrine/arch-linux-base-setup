@@ -221,6 +221,6 @@ sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
 # ------------------------------------------------------------------------
 
 echo -e "Clean archived journal"
-journalctl --rotate --vacuum-size=1M
+sudo journalctl --rotate --vacuum-size=1M
 sync
 
