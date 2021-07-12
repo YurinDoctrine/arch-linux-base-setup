@@ -199,7 +199,7 @@ sudo rm -rfd $HOME/.cache/thumbnails
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
 sudo pacman -Qtdq &&
-    sudo pacman -Rns --noconfirm $(pacman -Qtdq)
+    sudo pacman -Rns --noconfirm $(/bin/pacman -Qtdq)
 
 # ------------------------------------------------------------------------
 
