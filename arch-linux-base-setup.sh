@@ -61,8 +61,8 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'nocache'  # Minimize caching effects
-    'preload'  # Makes applications run faster by prefetching binaries and shared objects
+    'nocache' # Minimize caching effects
+    'preload' # Makes applications run faster by prefetching binaries and shared objects
 
     # DEVELOPMENT ---------------------------------------------------------
 
@@ -216,4 +216,3 @@ sudo pacman -Scc --noconfirm
 echo -e "Clean archived journal"
 sudo journalctl --rotate --vacuum-size=1M
 sync
-
