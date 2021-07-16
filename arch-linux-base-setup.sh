@@ -61,7 +61,6 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'nocache' # Minimize caching effects
     'preload' # Makes applications run faster by prefetching binaries and shared objects
 
     # DEVELOPMENT ---------------------------------------------------------
