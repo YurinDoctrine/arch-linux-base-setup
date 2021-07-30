@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base curl git pacman-contrib
+    sudo pacman -S --needed --noconfirm 9base curl git linux-firmware pacman-contrib
 sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
 
@@ -136,6 +136,11 @@ echo -e "vm.swappiness=10" | sudo tee /etc/sysctl.d/99-swappiness.conf
 
 # ------------------------------------------------------------------------
 
+# Enable trim
+sudo systemctl start fstrim.timer
+
+# ------------------------------------------------------------------------
+
 extra() {
     cd /tmp
     curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh &&
@@ -209,6 +214,7 @@ sudo pacman -Qtdq &&
     sudo pacman -Rns --noconfirm $(/bin/pacman -Qtdq)
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
+sudo pacman-optimize
 
 # ------------------------------------------------------------------------
 
