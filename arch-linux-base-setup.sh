@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base curl git linux-firmware pacman-contrib
+    sudo pacman -S --needed --noconfirm 9base curl git pacman-contrib
 sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
 
