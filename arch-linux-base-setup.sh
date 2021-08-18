@@ -141,6 +141,11 @@ sudo systemctl start fstrim.timer
 
 # ------------------------------------------------------------------------
 
+## Mount and FSTAB
+sudo sed -i -e '/floppy/d' /etc/fstab
+
+# ------------------------------------------------------------------------
+
 extra() {
     cd /tmp
     curl -fsSL https://raw.githubusercontent.com/YurinDoctrine/ultra-gaming-setup-wizard/main/ultra-gaming-setup-wizard.sh >ultra-gaming-setup-wizard.sh &&
@@ -205,7 +210,7 @@ sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
 # ------------------------------------------------------------------------
 
 echo -e "Clear the patches"
-rm -rfd /tmp/*
+rm -rfd /{tmp,var/tmp}/{.*,*}
 sudo rm -rfd $HOME/.cache/thumbnails
 sudo pacman -Qtdq &&
     sudo pacman -Rns --noconfirm $(/bin/pacman -Qtdq)
