@@ -62,7 +62,8 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'preload' # Makes applications run faster by prefetching binaries and shared objects
+    'powertop' # A tool to diagnose issues with power consumption and power management
+    'preload'  # Makes applications run faster by prefetching binaries and shared objects
 
     # DEVELOPMENT ---------------------------------------------------------
 
