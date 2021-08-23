@@ -13,7 +13,7 @@ echo -e "LANG=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LC_ALL=en_GB.UTF8" | sudo tee -a /etc/environment
 sudo sed -i -e 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen en_GB.UTF-8
-localectl set-locale LANG=en_GB.UTF-8 LC_TIME=en_GB.UTF-8
+timedatectl set-ntp true
 timedatectl set-timezone Europe/Moscow
 
 # ------------------------------------------------------------------------
@@ -143,8 +143,9 @@ sudo systemctl start fstrim.timer
 
 # ------------------------------------------------------------------------
 
-## Mount and FSTAB
+## Remove floppy cdrom
 sudo sed -i -e '/\/floppy/d' /etc/fstab
+sudo sed -i -e '/\/sr/d' /etc/fstab
 
 # ------------------------------------------------------------------------
 
@@ -227,12 +228,11 @@ sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
 
 echo -e "Clear the patches"
 rm -rfd /{tmp,var/tmp}/{.*,*}
-sudo rm -rfd $HOME/.cache/thumbnails
+sudo pacman-optimize
 sudo pacman -Qtdq &&
     sudo pacman -Rns --noconfirm $(/bin/pacman -Qtdq)
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
-sudo pacman-optimize
 
 # ------------------------------------------------------------------------
 
