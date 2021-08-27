@@ -203,6 +203,7 @@ extra2() {
         echo -e "INVALID VALUE!"
         final
     fi
+cd
 
 # ------------------------------------------------------------------------
 
@@ -230,4 +231,9 @@ sudo pacman -Scc --noconfirm
 
 echo -e "Clean archived journal"
 sudo journalctl --rotate --vacuum-size=1M
+
+# ------------------------------------------------------------------------
+
+## Optimize font cache
+mkfontscale && mkfontdir && fc-cache -fv
 sync
