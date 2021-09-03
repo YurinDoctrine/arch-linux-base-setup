@@ -141,11 +141,6 @@ sudo sed -i -e '/\/sr/d' /etc/fstab
 
 # ------------------------------------------------------------------------
 
-echo -e "Optimize systemd"
-sudo systemctl set-default multi-user.target
-
-# ------------------------------------------------------------------------
-
 ## Set ulimit to unlimited
 ulimit -c unlimited
 
