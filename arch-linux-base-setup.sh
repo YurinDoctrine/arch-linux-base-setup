@@ -141,6 +141,16 @@ sudo sed -i -e '/\/sr/d' /etc/fstab
 
 # ------------------------------------------------------------------------
 
+echo -e "Optimize systemd"
+sudo systemctl set-default multi-user.target
+
+# ------------------------------------------------------------------------
+
+## Set ulimit to unlimited
+ulimit -c unlimited
+
+# ------------------------------------------------------------------------
+
 ## GRUB timeout
 sudo sed -i -e 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/' /etc/default/grub
 sudo update-grub
@@ -221,12 +231,12 @@ sudo pacman -Scc --noconfirm
 
 # ------------------------------------------------------------------------
 
-echo -e "Clean archived journal"
-sudo journalctl --rotate --vacuum-size=1M
-sudo sed -i -e 's/^#ForwardToSyslog=yes/ForwardToSyslog=no/' /etc/systemd/journald.conf
+## Optimize font cache
+mkfontscale && mkfontdir && fc-cache -fv
 
 # ------------------------------------------------------------------------
 
-## Optimize font cache
-mkfontscale && mkfontdir && fc-cache -fv
+echo -e "Clean archived journal"
+sudo journalctl --rotate --vacuum-size=1M
+sudo sed -i -e 's/^#ForwardToSyslog=yes/ForwardToSyslog=no/' /etc/systemd/journald.conf
 sync
