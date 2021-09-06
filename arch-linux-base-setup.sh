@@ -13,8 +13,8 @@ echo -e "LANGUAGE=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LC_ALL=en_GB.UTF8" | sudo tee -a /etc/environment
 sudo sed -i -e 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen en_GB.UTF-8
-timedatectl set-ntp true
-timedatectl set-timezone Europe/Moscow
+sudo timedatectl set-ntp true
+sudo timedatectl set-timezone Europe/Moscow
 
 # ------------------------------------------------------------------------
 
