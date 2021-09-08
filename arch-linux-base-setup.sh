@@ -241,11 +241,13 @@ sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
 
 echo -e "Clear the patches"
 rm -rfd /{tmp,var/tmp}/{.*,*}
+sudo paccache -rk 0
 sudo pacman-optimize
 sudo pacman -Qtdq &&
     sudo pacman -Rns --noconfirm $(/bin/pacman -Qtdq)
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
+yay -Yc --noconfirm
 
 # ------------------------------------------------------------------------
 
