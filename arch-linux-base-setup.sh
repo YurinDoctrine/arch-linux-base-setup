@@ -62,8 +62,9 @@ PKGS=(
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'powertop' # A tool to diagnose issues with power consumption and power management
-    'preload'  # Makes applications run faster by prefetching binaries and shared objects
+    'irqbalance' # IRQ balancing daemon for SMP systems
+    'powertop'   # A tool to diagnose issues with power consumption and power management
+    'preload'    # Makes applications run faster by prefetching binaries and shared objects
 
     # DEVELOPMENT ---------------------------------------------------------
 
@@ -141,6 +142,8 @@ kernel.timer_migration = 0
 kernel.core_uses_pid = 1
 kernel.sched_rt_runtime_us = -1
 kernel.sched_rt_period_us = -1
+kernel.sched_child_runs_first = 1
+kernel.hung_task_timeout_secs = 0
 net.ipv4.tcp_frto=1
 net.ipv4.tcp_frto_response=2
 net.ipv4.tcp_low_latency=1
