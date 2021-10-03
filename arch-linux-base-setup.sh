@@ -148,6 +148,8 @@ kernel.sched_child_runs_first = 1
 kernel.sched_tunable_scaling = 0
 kernel.sched_schedstats = 0
 kernel.numa_balancing = 1
+kernel.panic = 0
+kernel.panic_on_oops = 0
 net.ipv4.tcp_frto=1
 net.ipv4.tcp_frto_response=2
 net.ipv4.tcp_low_latency=1
@@ -179,8 +181,15 @@ sudo sed -i -e '/^\/\/sr/d' /etc/fstab
 
 # ------------------------------------------------------------------------
 
-## Set ulimit to unlimited
-ulimit -c unlimited
+## Set some ulimits to unlimited
+echo -e "* soft nproc unlimited
+* hard nproc unlimited
+root soft nproc unlimited
+root hard nproc unlimited
+* soft core unlimited
+* hard core unlimited
+root soft core unlimited
+root hard core unlimited" | sudo tee /etc/security/limits.conf
 
 # ------------------------------------------------------------------------
 
