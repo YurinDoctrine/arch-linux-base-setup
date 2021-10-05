@@ -182,7 +182,11 @@ sudo sed -i -e '/^\/\/sr/d' /etc/fstab
 # ------------------------------------------------------------------------
 
 ## Set some ulimits to unlimited
-echo -e "* soft nproc unlimited
+echo -e "* soft memlock unlimited
+* hard memlock unlimited
+root soft memlock unlimited
+root hard memlock unlimited
+* soft nproc unlimited
 * hard nproc unlimited
 root soft nproc unlimited
 root hard nproc unlimited
