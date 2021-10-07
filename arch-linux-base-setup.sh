@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base curl git pacman-contrib psmisc ufw wget
+    sudo pacman -S --needed --noconfirm 9base curl git gnupg pacman-contrib psmisc ufw wget
 sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
 
