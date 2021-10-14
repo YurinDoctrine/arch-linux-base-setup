@@ -21,7 +21,7 @@ sudo timedatectl set-timezone Europe/Moscow
 # Ranking mirrors
 sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 echo -e "Setting up mirrors for optimal download ..."
-reflector --latest 3 --sort rate --save $HOME/mirrorlist
+reflector --latest 3 --age 48 --sort rate --save $HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
@@ -49,6 +49,8 @@ grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILo
 # All cores for compilation
 echo -e "Use all cores for compilation"
 sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+echo -e "Use all cores for compression"
+sudo sed -i -e "s/xz -c)/xz -c -T $(nproc))/;s/^#COMPRESSXZ/COMPRESSXZ/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
@@ -95,7 +97,7 @@ echo -e "Defaults        pwfeedback" | sudo tee -a /etc/sudoers
 # ------------------------------------------------------------------------
 
 echo -e "Configuring vconsole.conf to set a larger font for login shell"
-echo -e "FONT=ter-v32b" | sudo tee /etc/vconsole.conf
+echo -e "FONT=ter-v16b" | sudo tee /etc/vconsole.conf
 
 # ------------------------------------------------------------------------
 
