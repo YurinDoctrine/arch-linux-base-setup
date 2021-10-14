@@ -50,7 +50,7 @@ grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILo
 echo -e "Use all cores for compilation"
 sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 echo -e "Use all cores for compression"
-sudo sed -i -e "s/xz -c)/xz -c -T $(nproc))/;s/^#COMPRESSXZ/COMPRESSXZ/" /etc/makepkg.conf
+sudo sed -i -e "s/xz -c/xz -c -T $(nproc)/;s/^#COMPRESSXZ/COMPRESSXZ/" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
