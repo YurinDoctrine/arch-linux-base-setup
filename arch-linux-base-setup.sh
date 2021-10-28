@@ -300,7 +300,7 @@ find /usr/share/doc/ | egrep '\.pdf' | xargs sudo rm -f
 find /usr/share/doc/ | egrep '\.tex' | xargs sudo rm -f
 find /usr/share/doc/ -empty | xargs sudo rmdir || true
 sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
-    /usr/share/linda/* /var/cache/man/* /usr/share/man/*
+/usr/share/linda/* /var/cache/man/* /usr/share/man/*
 
 # ------------------------------------------------------------------------
 
