@@ -70,7 +70,8 @@ PKGS=(
 
     # DEVELOPMENT ---------------------------------------------------------
 
-    'ccache' # Compiler cacher
+    'ccache' # Compiler Cacher
+    'distcc' # Distributed Compilation Service
 
 )
 
