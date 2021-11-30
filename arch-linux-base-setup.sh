@@ -13,7 +13,6 @@ echo -e "LANGUAGE=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LC_ALL=en_GB.UTF8" | sudo tee -a /etc/environment
 sudo sed -i -e 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen en_GB.UTF-8
-sudo timedatectl set-ntp true
 sudo timedatectl set-timezone Europe/Moscow
 
 # ------------------------------------------------------------------------
@@ -238,8 +237,8 @@ sudo systemctl --global enable dbus-broker.service
 echo -e "Disable systemd-timesync daemon"
 sudo systemctl disable systemd-timesyncd.service
 sudo systemctl --global disable systemd-timesyncd.service
-## Enable chronyd instead
-sudo systemctl --global enable chrony
+## Enable chrony instead
+sudo systemctl enable chrony
 
 # ------------------------------------------------------------------------
 
