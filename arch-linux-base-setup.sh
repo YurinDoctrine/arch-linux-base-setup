@@ -18,7 +18,7 @@ sudo timedatectl set-timezone Europe/Moscow
 # ------------------------------------------------------------------------
 
 # Ranking mirrors
-sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 echo -e "Setting up mirrors for optimal download ..."
 reflector --latest 3 --age 48 --sort rate --save $HOME/mirrorlist
 sudo mv $HOME/mirrorlist /etc/pacman.d/mirrorlist
