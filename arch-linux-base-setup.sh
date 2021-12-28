@@ -325,7 +325,7 @@ sudo pacman -Scc --noconfirm
 # ------------------------------------------------------------------------
 
 ## Optimize font cache
-mkfontscale && mkfontdir && fc-cache -fv && fc-cache ~/.fonts
+fc-cache -fv && fc-cache ~/.fonts
 
 # ------------------------------------------------------------------------
 
