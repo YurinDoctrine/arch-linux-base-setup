@@ -30,8 +30,8 @@ which yay >/dev/null 2>&1
 if [ $? != 0 ]; then
     cd /tmp
     sudo pacman -S --needed --noconfirm base-devel
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
+    git clone https://aur.archlinux.org/yay-bin.git
+    cd yay-bin
     makepkg -si
     cd /tmp
 fi
