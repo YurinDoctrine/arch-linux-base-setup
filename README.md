@@ -1,6 +1,6 @@
 # arch-linux-base-setup
 
-## CLONNING and RUNNING
+## RUN
 
 ```sh
 curl --tlsv1.2 -fsSL https://raw.githubusercontent.com/YurinDoctrine/arch-linux-base-setup/main/arch-linux-base-setup.sh >arch-linux-base-setup.sh && \
