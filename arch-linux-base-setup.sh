@@ -18,6 +18,7 @@ sudo timedatectl set-timezone Europe/Moscow
 # ------------------------------------------------------------------------
 
 # Ranking mirrors
+sudo pacman-mirrors --api --protocol https --country all
 sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 echo -e "Setting up mirrors for optimal download ..."
 reflector --protocol https --latest 3 --age 48 --sort rate --save $HOME/mirrorlist
@@ -42,6 +43,11 @@ fi
 echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
 grep -q "^Color" /etc/pacman.conf || sudo sed -i -e "s/^#Color$/Color/" /etc/pacman.conf
 grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+
+# ------------------------------------------------------------------------
+
+# Increase from the default 1 package download at a time to 3.
+sudo sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads=3/"g /etc/pacman.conf
 
 # ------------------------------------------------------------------------
 
@@ -240,6 +246,12 @@ sudo systemctl disable systemd-timesyncd.service
 sudo systemctl --global disable systemd-timesyncd.service
 ## Enable chrony instead
 sudo systemctl enable chrony
+
+# ------------------------------------------------------------------------
+
+echo -e "Optimize writes to the disk"
+sudo sed -i -e s"/\#Storage.*/Storage=volatile/"g /etc/systemd/journald.conf
+sudo sed -i -e s"/\#Seal.*/Seal=no/"g /etc/systemd/journald.conf
 
 # ------------------------------------------------------------------------
 
