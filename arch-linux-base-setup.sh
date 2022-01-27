@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base arch-install-scripts binutils curl fonts-terminus git gnupg pacman-contrib psmisc ufw wget
+    sudo pacman -S --needed --noconfirm 9base arch-install-scripts binutils curl fonts-terminus git gnupg haveged pacman-contrib psmisc ufw wget
 sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
 
