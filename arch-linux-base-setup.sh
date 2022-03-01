@@ -264,6 +264,12 @@ fi
 
 # ------------------------------------------------------------------------
 
+echo -e "Enable NetworkManager powersave on"
+echo -e "[connection]
+wifi.powersave = 1" | sudo tee /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
+
+# ------------------------------------------------------------------------
+
 ## GRUB timeout
 sudo sed -i -e 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
 ## Change GRUB defaults
