@@ -256,10 +256,10 @@ sudo sed -i -e s"/\#Seal.*/Seal=no/"g /etc/systemd/journald.conf
 
 ## Enable ALPM
 if [[ -e /etc/pm/config.d ]]; then
-echo -e "SATA_ALPM_ENABLE=true" | sudo tee /etc/pm/config.d/sata_alpm
+    echo -e "SATA_ALPM_ENABLE=true" | sudo tee /etc/pm/config.d/sata_alpm
 else
-sudo mkdir /etc/pm/config.d
-echo -e "SATA_ALPM_ENABLE=true" | sudo tee /etc/pm/config.d/sata_alpm
+    sudo mkdir /etc/pm/config.d
+    echo -e "SATA_ALPM_ENABLE=true" | sudo tee /etc/pm/config.d/sata_alpm
 fi
 
 # ------------------------------------------------------------------------
@@ -345,7 +345,7 @@ find /usr/share/doc/ | egrep '\.pdf' | xargs sudo rm -f
 find /usr/share/doc/ | egrep '\.tex' | xargs sudo rm -f
 find /usr/share/doc/ -empty | xargs sudo rmdir || true
 sudo rm -rfd /usr/share/groff/* /usr/share/info/* /usr/share/lintian/* \
-    /usr/share/linda/* /var/cache/man/* /usr/share/man/*
+/usr/share/linda/* /var/cache/man/* /usr/share/man/*
 
 # ------------------------------------------------------------------------
 
