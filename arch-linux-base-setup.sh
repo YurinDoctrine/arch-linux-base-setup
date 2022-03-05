@@ -275,12 +275,6 @@ wifi.powersave = 1" | sudo tee /etc/NetworkManager/conf.d/default-wifi-powersave
 
 # ------------------------------------------------------------------------
 
-# Remove GDM config files
-sudo rm -rfd /etc/gdm/custom.conf
-sudo rm -rfd /etc/dconf/db/gdm.d/01-logo
-
-# ------------------------------------------------------------------------
-
 # Suspend when lid is closed
 sudo sed -i -e 's/#HandleLidSwitch=.*/HandleLidSwitch=suspend/' /etc/systemd/logind.conf
 
