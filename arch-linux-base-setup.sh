@@ -39,19 +39,20 @@ fi
 
 # ------------------------------------------------------------------------
 
+# Remove GUI repository
+sudo sed -i -e "/alg_repo/,+2d" /etc/pacman.conf
 # Colorful progress bar
 echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
 grep -q "^Color" /etc/pacman.conf || sudo sed -i -e "s/^#Color$/Color/" /etc/pacman.conf
 grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
-
-# ------------------------------------------------------------------------
-
 # Increase from the default 1 package download at a time to 3.
 sudo sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads=3/"g /etc/pacman.conf
 
 # ------------------------------------------------------------------------
 
 # All cores for compilation
+echo -e "Set arch"
+sudo sed -i -e "s/-march=x86-64 -mtune=generic -O2/-march=native -mtune=native -O3/g" /etc/makepkg.conf
 echo -e "Use all cores for compilation"
 sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 echo -e "Use all cores for compression"
@@ -104,7 +105,8 @@ echo -e "Defaults        pwfeedback" | sudo tee -a /etc/sudoers
 # ------------------------------------------------------------------------
 
 echo -e "Configuring vconsole.conf to set a larger font for login shell"
-echo -e "FONT=ter-v16b" | sudo tee /etc/vconsole.conf
+echo -e "FONT=ter-v16b
+FONT_MAP=8859-2" | sudo tee /etc/vconsole.conf
 
 # ------------------------------------------------------------------------
 
@@ -273,10 +275,21 @@ wifi.powersave = 1" | sudo tee /etc/NetworkManager/conf.d/default-wifi-powersave
 
 # ------------------------------------------------------------------------
 
+# Remove GDM config files
+sudo rm -rfd /etc/gdm/custom.conf
+sudo rm -rfd /etc/dconf/db/gdm.d/01-logo
+
+# ------------------------------------------------------------------------
+
+# Suspend when lid is closed
+sudo sed -i -e 's/#HandleLidSwitch=.*/HandleLidSwitch=suspend/' /etc/systemd/logind.conf
+
+# ------------------------------------------------------------------------
+
 ## GRUB timeout
 sudo sed -i -e 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=1/' /etc/default/grub
 ## Change GRUB defaults
-sudo sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash logo.nologo i915.fastboot=1 i915.enable_fbc=1 i915.enable_guc=2 i915.lvds_downclock=1 drm.vblankoffdelay=1 vt.global_cursor_default=0 scsi_mod.use_blk_mq=1 mitigations=off zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=20 zswap.zpool=z3fold plymouth.ignore-serial-consoles loglevel=0 audit=0 no_timer_check cryptomgr.notests intel_iommu=igfx_off kvm-intel.nested=1 noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable"/' /etc/default/grub
+sudo sed -i -e 's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash logo.nologo i915.fastboot=1 i915.enable_fbc=1 i915.enable_guc=2 i915.lvds_downclock=1 drm.vblankoffdelay=1 vt.global_cursor_default=0 scsi_mod.use_blk_mq=1 mitigations=off zswap.enabled=1 zswap.compressor=lz4 zswap.max_pool_percent=20 zswap.zpool=z3fold plymouth.ignore-serial-consoles loglevel=0 audit=0 no_timer_check cryptomgr.notests intel_iommu=igfx_off kvm-intel.nested=1 noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 tsc=reliable fbcon=nodefer"/' /etc/default/grub
 echo -e "Enable BFQ scheduler"
 echo -e "bfq" | sudo tee /etc/modules-load.d/bfq.conf
 echo -e 'ACTION=="add|change", KERNEL=="sd*[!0-9]|sr*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"' | sudo tee /etc/udev/rules.d/60-scheduler.rules
@@ -358,9 +371,10 @@ yay -Yc --noconfirm
 sudo paccache -rk 0
 sudo pacman-optimize
 sudo pacman -Qtdq &&
-    sudo pacman -Rns --noconfirm $(/bin/pacman -Qtdq)
+    sudo pacman -Rns --noconfirm $(/bin/pacman -Qttdq)
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
+sudo pacman-key --refresh-keys
 
 # ------------------------------------------------------------------------
 
