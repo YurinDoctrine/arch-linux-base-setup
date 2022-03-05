@@ -375,6 +375,7 @@ sudo pacman -Qtdq &&
     sudo pacman -Rns --noconfirm $(/bin/pacman -Qttdq)
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
+sudo pacman-key --populate archlinux
 sudo pacman-key --refresh-keys
 
 # ------------------------------------------------------------------------
