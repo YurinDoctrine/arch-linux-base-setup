@@ -92,6 +92,7 @@ echo -e "Installing Base System"
 PKGS=(
     # --- Importants
 
+    'cronie'      # Daemon that runs specified programs at scheduled times and related tools
     'chrony'      # Versatile implementation of the Network Time Protocol
     'dbus-broker' # Linux D-Bus Message Broker
     'mksh'        # MirBSD Korn Shell
