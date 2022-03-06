@@ -60,6 +60,35 @@ sudo sed -i -e "s/xz -c/xz -c -T $(nproc)/;s/^#COMPRESSXZ/COMPRESSXZ/" /etc/make
 
 # ------------------------------------------------------------------------
 
+# GNOME settings
+sudo rm -rfd /etc/gdm/custom.conf
+sudo rm -rfd /etc/dconf/db/gdm.d/01-logo
+
+# Privacy
+gsettings set org.gnome.system.location enabled false ;
+gsettings set org.gnome.desktop.privacy disable-camera true ;
+gsettings set org.gnome.desktop.privacy disable-microphone true ;
+gsettings set org.gnome.desktop.privacy remember-recent-files false ;
+
+# Security
+gsettings set org.gnome.login-screen allowed-failures 100 ;
+gsettings set org.gnome.desktop.screensaver user-switch-enabled false ;
+
+# Media
+gsettings set org.gnome.desktop.sound event-sounds false ;
+gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 0 ;
+
+# Power
+gsettings set org.gnome.desktop.session idle-delay 0 ;
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing' ;
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing' ;
+gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive' ;
+
+# Theme
+gsettings set org.gnome.shell app-picker-layout "[]" ;
+
+# ------------------------------------------------------------------------
+
 # This may take time
 echo -e "Installing Base System"
 
