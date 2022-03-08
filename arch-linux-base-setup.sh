@@ -42,17 +42,15 @@ fi
 # Remove GUI repository
 sudo sed -i -e "/alg_repo/,+2d" /etc/pacman.conf
 # Colorful progress bar
-echo -e "Make pacman and yay colorful and adds eye candy on the progress bar"
-grep -q "^Color" /etc/pacman.conf || sudo sed -i -e "s/^#Color$/Color/" /etc/pacman.conf
-grep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+egrep -q "^Color" /etc/pacman.conf || sudo sed -i -e "s/^#Color$/Color/" /etc/pacman.conf
+egrep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 # Increase from the default 1 package download at a time to 3.
 sudo sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads=3/"g /etc/pacman.conf
-
-# ------------------------------------------------------------------------
-
-# All cores for compilation
+# Makepkg config
 echo -e "Set arch"
 sudo sed -i -e "s/-march=x86-64 -mtune=generic -O2/-march=native -mtune=native -O3/g" /etc/makepkg.conf
+echo -e "Set BUILDDIR"
+sudo sed -i -e "s|#BUILDDIR.*|BUILDDIR=/tmp/makepkg|g" /etc/makepkg.conf
 echo -e "Use all cores for compilation"
 sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 echo -e "Use all cores for compression"
@@ -262,7 +260,7 @@ sudo sed -i -e 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.desktop
 echo -e "Enable tmpfs ramdisk"
 sudo sed -i -e '/^\/\/tmpfs/d' /etc/fstab
 echo -e "tmpfs /tmp tmpfs nodiratime,nosuid,size=100m 0 0
-tmpfs /var/tmp tmpfs nodiratime,nosuid 0 0
+tmpfs /var/tmp tmpfs nodiratime,noexec,nosuid 0 0
 tmpfs /var/run tmpfs nodiratime,nosuid,size=2m 0 0
 tmpfs /var/log tmpfs nodiratime,nosuid,size=20m 0 0" | sudo tee -a /etc/fstab
 
