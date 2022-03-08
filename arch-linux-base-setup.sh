@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm 9base arch-install-scripts binutils curl fonts-terminus git gnupg haveged kmod pacman-contrib pkgconf psmisc ufw wget xdg-utils
+    sudo pacman -S --needed --noconfirm 9base arch-install-scripts binutils curl fonts-terminus git gnupg haveged kmod pacman-contrib pkgconf psmisc ufw zstd wget xdg-utils
 sudo pacman -S --needed --noconfirm reflector
 sudo pacman -S --needed --noconfirm yay
 
@@ -56,7 +56,7 @@ sudo sed -i -e "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 echo -e "Use all cores for compression"
 sudo sed -i -e "s/xz -c/xz -c -z -q --threads=$(nproc)/;s/^#COMPRESSXZ/COMPRESSXZ/;s/xz -c/zstd -c -z -q --threads=$(nproc)/;s/^#COMPRESSZST/COMPRESSZST/" /etc/makepkg.conf
 echo -e "Use different compression algorithm"
-sudo sed -i -e "s/PKGEXT.*/PKGEXT='.pkg.tar.zst'/g" /etc/makepkg.conf
+sudo sed -i -e "s/PKGEXT.*/PKGEXT='.pkg.tar.lz4'/g" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
