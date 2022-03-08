@@ -155,7 +155,7 @@ echo -e "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 # ------------------------------------------------------------------------
 
 # btrfs tweaks if disk is
-sudo btrfs balance start -musage=50 -dusage=50 /
+sudo btrfs balance start -musage=0 -dusage=50 /
 
 # ------------------------------------------------------------------------
 
