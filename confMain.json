@@ -13,18 +13,18 @@
     "linux"
   ],
   "keyboard-layout": "us",
-  "mirror-region": {
-      "Worldwide": {
-          "https://mirror.rackspace.com/archlinux/$repo/os/$arch": true
-      }
-  },
+  "mirror-region": "Worldwide",
   "nic": {
     "NetworkManager": true,
     "nic": "Use NetworkManager (necessary to configure internet grahically in GNOME and KDE)"
   },
   "ntp": true,
   "packages": [
+    "bash",
+    "binutils",
+    "fakeroot",
     "git",
+    "procs",
     "wget"
   ],
   "profile": "desktop",
