@@ -61,8 +61,8 @@ sudo sed -i -e "s/PKGEXT.*/PKGEXT='.pkg.tar.lz4'/g" /etc/makepkg.conf
 # ------------------------------------------------------------------------
 
 # GNOME settings
-sudo rm -rfd /etc/gdm3/custom.conf
-sudo rm -rfd /etc/dconf/db/gdm3.d/01-logo
+sudo rm -rfd /etc/gdm{3}/custom.conf
+sudo rm -rfd /etc/dconf/db/gdm{3}.d/01-logo
 
 # Privacy
 gsettings set org.gnome.system.location enabled false ;
