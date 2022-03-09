@@ -24,10 +24,14 @@
     "binutils",
     "fakeroot",
     "git",
+    "nano",
     "procs",
-    "wget"
+    "vim",
+  	"wireless_tools",
+  	"wpa_supplicant",
+    "xdg-utils"
   ],
-  "profile": "desktop",
+  "profile": "gnome",
   "script": "guided",
   "services": [],
   "swap": true,
