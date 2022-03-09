@@ -1,0 +1,41 @@
+{
+  "dry-run": false,
+  "audio": "pipewire",
+  "bootloader": "grub-install",
+  "desktop-environment": "gnome",
+  "debug": false,
+  "gfx_driver": "All open-source (default)",
+  "harddrives": [
+    "/dev/sda"
+  ],
+  "hostname": "doctrine",
+  "kernels": [
+    "linux"
+  ],
+  "keyboard-layout": "us",
+  "mirror-region": {
+      "Worldwide": {
+          "https://mirror.rackspace.com/archlinux/$repo/os/$arch": true
+      }
+  },
+  "nic": {
+    "NetworkManager": true,
+    "nic": "Use NetworkManager (necessary to configure internet grahically in GNOME and KDE)"
+  },
+  "ntp": true,
+  "packages": [
+    "git",
+    "wget"
+  ],
+  "profile": "desktop",
+  "script": "guided",
+  "services": [],
+  "swap": true,
+  "sys-encoding": "utf-8",
+  "sys-language": "en_GB",
+  "timezone": "Europe/Moscow",
+  "version": "2.3.2",
+  "custom-commands": [
+      "cd /etc/skel; git clone https://github.com/YurinDoctrine/.config.git"
+  ]
+}
