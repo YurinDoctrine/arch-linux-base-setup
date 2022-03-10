@@ -23,6 +23,7 @@
     "bash",
     "binutils",
     "fakeroot",
+    "firefox",
     "git",
     "nano",
     "procs",
