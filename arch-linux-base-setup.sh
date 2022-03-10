@@ -59,6 +59,8 @@ echo -e "Use all cores for compression"
 sudo sed -i -e "s/xz.*/xz -c -z -q --threads=$(nproc)/;s/^#COMPRESSXZ/COMPRESSXZ/;s/zstd.*/zstd -c -z -q --threads=$(nproc)/;s/^#COMPRESSZST/COMPRESSZST/;s/lz4.*/lz4 -9 -q/;s/^#COMPRESSLZ4/COMPRESSLZ4/" /etc/makepkg.conf
 echo -e "Use different compression algorithm"
 sudo sed -i -e "s/PKGEXT.*/PKGEXT='.pkg.tar.lz4'/g" /etc/makepkg.conf
+echo -e "Set OPTIONS"
+sudo sed -i -e "s|OPTIONS=(strip.*|OPTIONS=(strip docs !libtool !staticlibs emptydirs zipman purge !debug)|g" /etc/makepkg.conf
 
 # ------------------------------------------------------------------------
 
