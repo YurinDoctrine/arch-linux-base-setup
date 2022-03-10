@@ -9,8 +9,8 @@
         },
         "wipe": true,
         "mountpoint": "/boot",
-        "size": "513MB",
-        "start": "5MB",
+        "size": "203MB",
+        "start": "3MB",
         "type": "primary"
       },
       {
@@ -26,7 +26,7 @@
         "wipe": true,
         "mountpoint": "/",
         "size": "100%",
-        "start": "518MB",
+        "start": "206MB",
         "type": "primary"
       }
     ],
