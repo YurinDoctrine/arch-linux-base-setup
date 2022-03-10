@@ -1,8 +1,6 @@
 {
-  "dry-run": false,
   "audio": "pipewire",
   "bootloader": "grub-install",
-  "desktop-environment": "gnome",
   "debug": false,
   "gfx_driver": "All open-source (default)",
   "harddrives": [
