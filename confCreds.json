@@ -1,4 +1,7 @@
 {
+	"!users": {
+		"doctrine": {"!password": "asd"}
+	},
 	"!superusers": {
 		"doctrine": {"!password": "asd"}
 	}
