@@ -26,8 +26,8 @@
     "nano",
     "procs",
     "vim",
-  	"wireless_tools",
-  	"wpa_supplicant",
+    "wireless_tools",
+    "wpa_supplicant",
     "xdg-utils"
   ],
   "profile": "gnome",
@@ -39,6 +39,6 @@
   "timezone": "Europe/Moscow",
   "version": "2.3.2",
   "custom-commands": [
-      "cd /etc/skel; git clone https://github.com/YurinDoctrine/.config.git"
+    "cd /etc/skel; git clone https://github.com/YurinDoctrine/.config.git"
   ]
 }

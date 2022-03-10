@@ -1,8 +1,12 @@
 {
 	"!users": {
-		"doctrine": {"!password": "asd"}
+		"doctrine": {
+			"!password": "asd"
+		}
 	},
 	"!superusers": {
-		"doctrine": {"!password": "asd"}
+		"doctrine": {
+			"!password": "asd"
+		}
 	}
 }
