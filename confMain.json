@@ -19,6 +19,7 @@
   "ntp": true,
   "packages": [
     "ccache",
+    "coreutils",
     "bash",
     "binutils",
     "fakeroot",
