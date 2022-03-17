@@ -96,11 +96,14 @@ gsettings set org.gnome.desktop.interface enable-animations false
 # Display
 gsettings set org.gnome.desktop.interface scaling-factor 1
 gsettings set org.gnome.desktop.interface text-scaling-factor 1.2
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer', 'x11-randr-fractional-scaling']"
+gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling'"', '"'scale-monitor-framebuffer']"
 
 # Keyboard
 gsettings set org.gnome.desktop.peripherals.keyboard delay 500
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 100
+
+# Mouse
+gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat
 
 # ------------------------------------------------------------------------
 
