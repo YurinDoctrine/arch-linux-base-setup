@@ -1,6 +1,7 @@
 # arch-linux-base-setup
 
-## RUN
+## **Already installed?**
+### RUN
 
 ```sh
 curl --tlsv1.2 -fsSL https://raw.githubusercontent.com/YurinDoctrine/arch-linux-base-setup/main/arch-linux-base-setup.sh >arch-linux-base-setup.sh && \
@@ -8,7 +9,7 @@ curl --tlsv1.2 -fsSL https://raw.githubusercontent.com/YurinDoctrine/arch-linux-
  ./arch-linux-base-setup.sh
 
 ```
-
+## **OR**
 ### RUN archinstall BY THIS CONFIG
 
 ```sh
