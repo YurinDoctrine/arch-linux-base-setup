@@ -3,7 +3,7 @@
 sudo pacman -Syy &&
     sudo pacman -S --needed --noconfirm binutils git gnupg haveged kmod libinput pacman-contrib pkgconf psmisc ufw zstd wget xdg-utils
 sudo pacman -S --needed --noconfirm reflector
-sudo pacman -S --needed --noconfirm 9base arch-install-scripts fonts-terminus yay
+sudo pacman -S --needed --noconfirm 9base arch-install-scripts yay
 
 # ------------------------------------------------------------------------
 
@@ -372,6 +372,12 @@ sudo sed -i -e 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=10s/g' /etc/sys
 echo -e "Enable NetworkManager dispatcher"
 sudo systemctl enable NetworkManager-dispatcher.service
 sudo systemctl --global enable NetworkManager-dispatcher.service
+
+# ------------------------------------------------------------------------
+
+echo -e "Disable systemd avahi daemon service"
+sudo systemctl disable avahi-daemon.service
+sudo systemctl --global disable avahi-daemon.service
 
 # ------------------------------------------------------------------------
 
