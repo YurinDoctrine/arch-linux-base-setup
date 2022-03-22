@@ -28,6 +28,7 @@
     "nano",
     "procs",
     "vim",
+    "wget",
     "wireless_tools",
     "wpa_supplicant",
     "xdg-utils"
