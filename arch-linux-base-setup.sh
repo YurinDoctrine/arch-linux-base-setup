@@ -133,6 +133,7 @@ echo -e "Installing Base System"
 PKGS=(
     # --- Importants
 
+    'ccache'      # Compiler Cacher
     'chrony'      # Versatile implementation of the Network Time Protocol
     'dbus-broker' # Linux D-Bus Message Broker
     'mksh'        # MirBSD Korn Shell
@@ -143,10 +144,6 @@ PKGS=(
 
     'irqbalance'  # IRQ balancing daemon for SMP systems
     'wireplumber' # Modular session / policy manager for PipeWire
-
-    # DEVELOPMENT ---------------------------------------------------------
-
-    'ccache' # Compiler Cacher
 
 )
 
