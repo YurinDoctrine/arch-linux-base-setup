@@ -392,10 +392,12 @@ echo -e "bfq" | sudo tee /etc/modules-load.d/bfq.conf
 echo -e 'ACTION=="add|change", KERNEL=="sd*[!0-9]|sr*", ATTR{queue/rotational}=="1", ATTR{queue/iosched/low_latency}="1", ATTR{queue/scheduler}="bfq"' | sudo tee /etc/udev/rules.d/60-scheduler.rules
 echo -e "Enable z3fold"
 echo -e "z3fold" | sudo tee -a /etc/initramfs-tools/modules
-sudo update-initramfs -u
-## Enable lz4 compression on mkinitcpio
+## Enable lz4 compression
 echo -e 'COMPRESSION="lz4"
 COMPRESSION_OPTION="-q --best"' | sudo tee /etc/mkinitcpio.d/12-compression.conf
+sudo sed -i -e 's/MODULES=most/MODULES=dep/g' /etc/initramfs-tools/initramfs.conf
+sudo sed -i -e 's/COMPRESS=gzip/COMPRESS=lz4/g' /etc/initramfs-tools/initramfs.conf
+sudo update-initramfs -u
 sudo mkinitcpio
 
 # ------------------------------------------------------------------------
