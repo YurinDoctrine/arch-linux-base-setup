@@ -19,10 +19,11 @@
   "ntp": true,
   "packages": [
     "arch-install-scripts",
-    "ccache",
-    "coreutils",
+    "base-devel",
     "bash",
     "binutils",
+    "ccache",
+    "coreutils",
     "fakeroot",
     "firefox",
     "nano",
