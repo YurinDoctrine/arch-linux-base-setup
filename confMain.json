@@ -19,7 +19,6 @@
   "ntp": true,
   "packages": [
     "arch-install-scripts",
-    "base-devel",
     "bash",
     "binutils",
     "ccache",
@@ -29,8 +28,6 @@
     "nano",
     "procs",
     "wget",
-    "wireless_tools",
-    "wpa_supplicant",
     "xdg-utils"
   ],
   "profile": "gnome",
