@@ -18,6 +18,7 @@
   },
   "ntp": true,
   "packages": [
+    "arch-install-scripts",
     "ccache",
     "coreutils",
     "bash",
