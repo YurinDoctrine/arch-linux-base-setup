@@ -2,8 +2,7 @@
 # Before hop in
 sudo pacman -Syy &&
     sudo pacman -S --needed --noconfirm binutils git gnupg haveged kmod libinput pacman-contrib pkgconf psmisc ufw zstd wget xdg-utils
-sudo pacman -S --needed --noconfirm reflector
-sudo pacman -S --needed --noconfirm 9base yay
+sudo pacman -S --needed --noconfirm 9base reflector yay
 
 # ------------------------------------------------------------------------
 
