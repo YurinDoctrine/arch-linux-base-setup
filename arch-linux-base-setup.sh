@@ -63,7 +63,6 @@ sudo sed -i -e "s|OPTIONS=(strip.*|OPTIONS=(strip docs !libtool !staticlibs empt
 # ------------------------------------------------------------------------
 
 # GNOME settings
-# GNOME settings
 sudo rm -rfd /etc/gdm{3}/custom.conf
 sudo rm -rfd /etc/dconf/db/gdm{3}.d/01-logo
 sudo rm -rfd /var/lib/gdm{3}/.cache/*
