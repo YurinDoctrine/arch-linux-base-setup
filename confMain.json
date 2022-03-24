@@ -27,6 +27,7 @@
     "firefox",
     "nano",
     "procs",
+    "zstd",
     "wget",
     "xdg-utils"
   ],
