@@ -27,6 +27,7 @@
     "fakeroot",
     "meson",
     "nano",
+    "ninja",
     "procs",
     "zstd",
     "wget",
