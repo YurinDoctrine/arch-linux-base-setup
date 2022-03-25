@@ -144,6 +144,7 @@ PKGS=(
     # GENERAL UTILITIES ---------------------------------------------------
 
     'irqbalance'  # IRQ balancing daemon for SMP systems
+    'numactl'     # Simple NUMA policy support
     'wireplumber' # Modular session / policy manager for PipeWire
 
 )
