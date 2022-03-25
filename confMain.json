@@ -26,6 +26,7 @@
     "coreutils",
     "fakeroot",
     "nano",
+    "ninja",
     "procs",
     "zstd",
     "wget",
