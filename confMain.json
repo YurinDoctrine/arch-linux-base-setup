@@ -29,6 +29,7 @@
     "nano",
     "ninja",
     "procs",
+    "zlib",
     "zstd",
     "wget",
     "xdg-utils"
