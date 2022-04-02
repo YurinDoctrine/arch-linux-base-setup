@@ -17,7 +17,7 @@ sudo timedatectl set-timezone Europe/Moscow
 # ------------------------------------------------------------------------
 
 # Ranking mirrors
-sudo pacman-mirrors --api --protocol https --country all
+sudo pacman-mirrors --api --fasttrack --protocol https --country all
 sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 echo -e "Setting up mirrors for optimal download ..."
 reflector --protocol https --latest 3 --age 48 --sort rate --save $HOME/mirrorlist
