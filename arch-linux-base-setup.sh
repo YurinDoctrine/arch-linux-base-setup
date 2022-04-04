@@ -47,7 +47,7 @@ sudo sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads=3/"g /etc/pacman.conf
 # Makepkg config
 echo -e "Set arch"
 sudo sed -i -e "s/-march=x86-64 -mtune=generic -O2/-march=native -mtune=native -O3/g" /etc/makepkg.conf
-sudo sed -i -e "s/CFLAGS=.*/CFLAGS=-march=native -O3 -pipe -fgraphite-identity -floop-strip-mine -floop-nest-optimize -fno-semantic-interposition -fipa-pta -flto -fdevirtualize-at-ltrans -flto-partition=one/g" /etc/makepkg.conf
+sudo sed -i -e 's/CFLAGS="-march.*/CFLAGS="-march=native -O3 -pipe -fgraphite-identity -floop-strip-mine -floop-nest-optimize -fno-semantic-interposition -fipa-pta -flto -fdevirtualize-at-ltrans -flto-partition=one"/g' /etc/makepkg.conf
 echo -e "Set BUILDENV"
 sudo sed -i -e "s|BUILDENV.*|BUILDENV=(!distcc color ccache check !sign)|g" /etc/makepkg.conf
 echo -e "Set BUILDDIR"
