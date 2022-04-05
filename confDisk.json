@@ -6,7 +6,7 @@
         "filesystem": {
           "format": "fat32"
         },
-        "wipe": true,
+        "format": true,
         "mountpoint": "/boot",
         "size": "203MB",
         "start": "3MB",
@@ -22,7 +22,7 @@
         "filesystem": {
           "format": "btrfs"
         },
-        "wipe": true,
+        "format": true,
         "mountpoint": "/",
         "size": "100%",
         "start": "206MB",
