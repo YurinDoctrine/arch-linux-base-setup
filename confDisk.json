@@ -15,6 +15,7 @@
       {
         "btrfs": {
           "subvolumes": {
+            "@": "/",
             "@home": "/home"
           }
         },
