@@ -153,6 +153,9 @@ PKGS=(
     'numactl'     # Simple NUMA policy support
     'wireplumber' # Modular session / policy manager for PipeWire
 
+    # DEVELOPMENT ---------------------------------------------------------
+    'clang'       # C language family frontend for LLVM
+
 )
 
 for PKG in "${PKGS[@]}"; do
