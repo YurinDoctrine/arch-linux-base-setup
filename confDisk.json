@@ -8,7 +8,7 @@
         },
         "format": true,
         "mountpoint": "/boot",
-        "size": "256MB",
+        "size": "513MB",
         "start": "3MB",
         "type": "primary"
       },
@@ -26,7 +26,7 @@
         "format": true,
         "mountpoint": "/",
         "size": "100%",
-        "start": "259MB",
+        "start": "516MB",
         "type": "primary"
       }
     ],
