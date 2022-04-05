@@ -1,7 +1,11 @@
 {
   "audio": "pipewire",
   "bootloader": "grub-install",
+  "custom-commands": [
+    "cd"
+  ],
   "debug": false,
+  "filesystem": "btrfs",
   "gfx_driver": "All open-source (default)",
   "harddrives": [
     "/dev/sda"
@@ -41,8 +45,5 @@
   "sys-encoding": "utf-8",
   "sys-language": "en_GB",
   "timezone": "Europe/Moscow",
-  "version": "2.3.2",
-  "custom-commands": [
-    "cd /etc/skel; git clone https://github.com/YurinDoctrine/.config.git"
-  ]
+  "version": "2.3.2"
 }
