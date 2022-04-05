@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel binutils git gnupg haveged kmod libinput lz4 pkgconf psmisc ufw wget xdg-utils
+    sudo pacman -S --needed --noconfirm base-devel binutils ccache git gnupg haveged kmod libinput lz4 pkgconf psmisc ufw wget xdg-utils
 sudo pacman -S --needed --noconfirm 9base pacman-contrib reflector
 
 # ------------------------------------------------------------------------
@@ -139,7 +139,6 @@ echo -e "Installing Base System"
 PKGS=(
     # --- Importants
 
-    'ccache'      # Compiler Cacher
     'chrony'      # Versatile implementation of the Network Time Protocol
     'dbus-broker' # Linux D-Bus Message Broker
     'mksh'        # MirBSD Korn Shell
