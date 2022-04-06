@@ -39,7 +39,8 @@
     "zlib",
     "zstd",
     "wget",
-    "xdg-utils"
+    "xdg-utils",
+    "xf86-video-vesa"
   ],
   "profile": "gnome",
   "script": "guided",
