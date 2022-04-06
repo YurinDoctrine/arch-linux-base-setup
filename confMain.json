@@ -40,7 +40,7 @@
     "zstd",
     "wget",
     "xdg-utils",
-    "xf86-video-vesa"
+    "xf86-input-libinput"
   ],
   "profile": "gnome",
   "script": "guided",
