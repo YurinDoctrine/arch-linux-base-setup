@@ -207,8 +207,8 @@ sudo btrfs balance start -musage=0 -dusage=50 /
 # ------------------------------------------------------------------------
 
 echo -e "Apply disk tweaks"
-sudo sed -i -e 's| defaults| rw,lazytime,relatime,commit=600|g' /etc/fstab
-sudo sed -i -e 's| errors=remount-ro| rw,lazytime,relatime,commit=600,errors=remount-ro|g' /etc/fstab
+sudo sed -i -e 's| defaults| rw,lazytime,relatime,commit=600,data=writeback|g' /etc/fstab
+sudo sed -i -e 's| errors=remount-ro| rw,lazytime,relatime,commit=600,data=writeback,errors=remount-ro|g' /etc/fstab
 
 # ------------------------------------------------------------------------
 
