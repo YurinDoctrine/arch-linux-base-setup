@@ -151,6 +151,7 @@ PKGS=(
     'acpid'       # A daemon for delivering ACPI power management events with netlink support
     'irqbalance'  # IRQ balancing daemon for SMP systems
     'numactl'     # Simple NUMA policy support
+    'unscd'       # Micro Name Service Caching Daemon
     'wayland'     # A computer display server protocol
     'wireplumber' # Modular session / policy manager for PipeWire
 
