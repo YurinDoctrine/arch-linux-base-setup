@@ -151,6 +151,7 @@ PKGS=(
     'dbus-broker' # Linux D-Bus Message Broker
     'mksh'        # MirBSD Korn Shell
     'preload'     # Makes applications run faster by prefetching binaries and shared objects
+    'tlp-rdw'     # Linux Advanced Power Management
     'tumbler'     # D-Bus service for applications to request thumbnails
 
     # GENERAL UTILITIES ---------------------------------------------------
@@ -169,7 +170,7 @@ PKGS=(
 
 for PKG in "${PKGS[@]}"; do
     echo -e "INSTALLING: ${PKG}"
-    yay -S --noconfirm --needed "$PKG"
+    yay -S --needed --noconfirm "$PKG"
 done
 
 echo -e "Done!"
