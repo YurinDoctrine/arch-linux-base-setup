@@ -31,6 +31,7 @@
     "efibootmgr",
     "fakeroot",
     "grub-btrfs",
+    "gtk-update-icon-cache",
     "libva",
     "meson",
     "nano",
