@@ -569,6 +569,8 @@ sudo pacman-optimize
 
 ## Optimize font cache
 fc-cache -rfv
+## Optimize icon cache
+gtk-update-icon-cache
 
 # ------------------------------------------------------------------------
 
