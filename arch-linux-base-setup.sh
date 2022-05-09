@@ -283,7 +283,15 @@ sudo sed -i -e '/^\/\/sr/d' /etc/fstab
 # ------------------------------------------------------------------------
 
 ## Set some ulimits to unlimited
-echo -e "* soft memlock unlimited
+echo -e "* soft as unlimited
+* hard as unlimited
+root as core unlimited
+root as core unlimited
+* soft nofile 32768
+* hard nofile 32768
+root soft nofile 32768
+root hard nofile 32768
+* soft memlock unlimited
 * hard memlock unlimited
 root soft memlock unlimited
 root hard memlock unlimited
