@@ -1,9 +1,9 @@
 {
-	"!users": {
-		"doctrine": {
+	"!users": [
+		{
 			"username": "doctrine",
 			"!password": "asd",
 			"sudo": true
 		}
-	}
+	]
 }
