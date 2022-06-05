@@ -1,12 +1,9 @@
 {
 	"!users": {
 		"doctrine": {
-			"!password": "asd"
-		}
-	},
-	"!superusers": {
-		"doctrine": {
-			"!password": "asd"
+			"username": "doctrine",
+			"!password": "asd",
+			"sudo": true
 		}
 	}
 }
