@@ -17,8 +17,7 @@
   "keyboard-layout": "us",
   "mirror-region": "Worldwide",
   "nic": {
-    "NetworkManager": true,
-    "nic": "Use NetworkManager (necessary to configure internet grahically in GNOME and KDE)"
+    "type": "NM"
   },
   "ntp": true,
   "packages": [
