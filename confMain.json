@@ -17,7 +17,7 @@
   "keyboard-layout": "us",
   "mirror-region": "Worldwide",
   "nic": {
-    "type": "NM"
+    "type": "nm"
   },
   "ntp": true,
   "packages": [
