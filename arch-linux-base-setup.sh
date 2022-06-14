@@ -517,7 +517,7 @@ echo -e 'COMPRESSION="lz4"
 COMPRESSION_OPTION="-q --best"' | sudo tee /etc/mkinitcpio.d/12-compression.conf
 sudo sed -i -e 's/MODULES=most/MODULES=dep/g' /etc/initramfs-tools/initramfs.conf
 sudo sed -i -e 's/COMPRESS=.*/COMPRESS=lz4/g' /etc/initramfs-tools/initramfs.conf
-sudo update-initramfs -u
+sudo update-initramfs -u -k all
 sudo mkinitcpio
 
 # ------------------------------------------------------------------------
