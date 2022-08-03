@@ -623,6 +623,7 @@ sudo pacman-key --populate archlinux
 yay -Yc --noconfirm
 sudo paccache -rk 0
 sudo pacman-optimize
+sudo pacman -Dk
 
 # ------------------------------------------------------------------------
 
