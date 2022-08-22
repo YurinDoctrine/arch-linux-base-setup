@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel binutils ccache git glibc gnupg haveged kmod libglvnd libinput libx11 lz4 pkgconf psmisc ufw wget xdg-utils &&
+    sudo pacman -S --needed --noconfirm base-devel binutils ccache git glibc gnupg haveged kmod libglvnd libinput libx11 lz4 pkgconf psmisc ufw wget xdg-utils xf86-video-vesa &&
     sudo pacman -S --needed --noconfirm 9base pacman-contrib reflector
 
 # ------------------------------------------------------------------------
@@ -182,7 +182,9 @@ PKGS=(
     'numactl'                # Simple NUMA policy support
     'pipewire-media-session' # Session Manager for PipeWire
     'unscd'                  # Micro Name Service Caching Daemon
+    'upx'                    # An advanced executable file compressor
     'wayland'                # A computer display server protocol
+    'woff2'                  # Web Open Font Format 2
 
     # DEVELOPMENT ---------------------------------------------------------
     'clang' # C language family frontend for LLVM
@@ -515,6 +517,11 @@ echo -e "write back" | sudo tee /sys/block/*/queue/write_cache
 
 # ------------------------------------------------------------------------
 
+echo -e "Compress .local/bin"
+upx ~/.local/bin/*
+
+# ------------------------------------------------------------------------
+
 ## Default target graphical user
 sudo systemctl set-default graphical.target
 
@@ -629,6 +636,9 @@ sudo pacman -Dk
 
 # ------------------------------------------------------------------------
 
+echo -e "Compress fonts"
+woff2_compress /usr/share/fonts/opentype/*/*ttf
+woff2_compress /usr/share/fonts/truetype/*/*ttf
 ## Optimize font cache
 fc-cache -rfv
 ## Optimize icon cache
