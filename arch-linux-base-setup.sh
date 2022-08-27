@@ -179,6 +179,7 @@ PKGS=(
     # GENERAL UTILITIES ---------------------------------------------------
 
     'acpid'                  # A daemon for delivering ACPI power management events with netlink support
+    'cpupower'               # A tool to examine and tune power saving related features of your processor
     'irqbalance'             # IRQ balancing daemon for SMP systems
     'ksmtuned-git'           # Kernel Samepage Merging
     'numactl'                # Simple NUMA policy support
@@ -506,6 +507,7 @@ echo -e "min_power" | sudo tee /sys/class/scsi_host/*/link_power_management_poli
 echo -e "1" | sudo tee /sys/module/snd_hda_intel/parameters/power_save
 echo -e "auto" | sudo tee /sys/bus/{i2c,pci}/devices/*/power/control
 sudo powertop --auto-tune && sudo powertop --auto-tune
+sudo cpupower frequency-set -g powersave
 
 # ------------------------------------------------------------------------
 
