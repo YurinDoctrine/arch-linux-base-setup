@@ -180,6 +180,7 @@ PKGS=(
 
     'acpid'                  # A daemon for delivering ACPI power management events with netlink support
     'irqbalance'             # IRQ balancing daemon for SMP systems
+    'ksmtuned-git'           # Kernel Samepage Merging
     'numactl'                # Simple NUMA policy support
     'pipewire-media-session' # Session Manager for PipeWire
     'unscd'                  # Micro Name Service Caching Daemon
@@ -253,7 +254,7 @@ vm.overcommit_memory = 1
 vm.overcommit_ratio = 50
 vm.dirty_background_ratio = 5
 vm.dirty_ratio = 20
-vm.stat_interval = 20
+vm.stat_interval = 60
 vm.page-cluster = 0
 vm.dirty_expire_centisecs = 500
 vm.oom_kill_allocating_task = 1
