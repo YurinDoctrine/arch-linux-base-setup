@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel binutils ccache git glibc gnupg haveged kmod libglvnd libinput libx11 lz4 pkgconf psmisc ufw wget xdg-utils xf86-video-vesa &&
+    sudo pacman -S --needed --noconfirm base-devel binutils ccache git glibc gnupg haveged kmod libglvnd libinput libx11 lz4 pkgconf psmisc rtkit ufw wget xdg-utils xf86-video-vesa &&
     sudo pacman -S --needed --noconfirm 9base pacman-contrib reflector
 
 # ------------------------------------------------------------------------
