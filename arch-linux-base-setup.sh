@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel binutils ccache git glibc gnupg haveged kmod libglvnd libinput libx11 lz4 pkgconf psmisc rtkit ufw wget xdg-utils xf86-video-vesa &&
+    sudo pacman -S --needed --noconfirm base-devel binutils ccache git glibc gnupg haveged kmod libglvnd libinput libx11 lm-sensors lz4 pkgconf psmisc rtkit ufw wget xdg-utils xf86-video-vesa &&
     sudo pacman -S --needed --noconfirm 9base pacman-contrib reflector
 
 # ------------------------------------------------------------------------
@@ -10,6 +10,7 @@ sudo pacman -Syy &&
 echo -e "LANG=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LANGUAGE=en_GB.UTF8" | sudo tee -a /etc/environment
 echo -e "LC_ALL=en_GB.UTF8" | sudo tee -a /etc/environment
+echo -e "LC_COLLATE=C" | sudo tee -a /etc/environment
 sudo sed -i -e 's/^#en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 sudo locale-gen en_GB.UTF-8
 sudo localectl set-locale LANG=en_GB.UTF-8
@@ -507,6 +508,7 @@ echo -e "auto" | sudo tee /sys/bus/{i2c,pci}/devices/*/power/control
 sudo powertop --auto-tune && sudo powertop --auto-tune
 sudo cpupower frequency-set -g powersave
 sudo cpupower set --perf-bias 9
+sudo sensors-detect --auto
 
 # ------------------------------------------------------------------------
 
