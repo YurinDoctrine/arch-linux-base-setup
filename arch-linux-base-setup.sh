@@ -238,8 +238,8 @@ blacklist gpio-ich" | sudo tee /etc/modprobe.d/nomisc.conf
 # ------------------------------------------------------------------------
 
 # btrfs tweaks if disk is
-systemctl enable btrfs-scrub@home.timer 
-systemctl enable btrfs-scrub@-.timer 
+sudo systemctl enable btrfs-scrub@home.timer 
+sudo systemctl enable btrfs-scrub@-.timer 
 sudo btrfs balance start -musage=0 -dusage=50 /
 
 # ------------------------------------------------------------------------
