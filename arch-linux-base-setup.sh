@@ -123,7 +123,6 @@ gsettings set org.gnome.desktop.background color-shading-type vertical
 # Set environment variables
 echo -e "LD_TRACE_LOADED_OBJECTS=0
 LD_DEBUG_OUTPUT=0
-LD_BIND_NOW=1
 RTLD_LAZY=1
 KDE_NOUNLOAD=1
 KDE_DEBUG=0
