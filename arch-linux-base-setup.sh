@@ -244,7 +244,6 @@ sudo killall -HUP pulseaudio
 # ------------------------------------------------------------------------
 
 # Prevent stupid feedbacks et cetera
-# Prevent stupid feedbacks et cetera
 echo -e "blacklist pcspkr
 blacklist snd_pcsp
 blacklist lpc_ich
