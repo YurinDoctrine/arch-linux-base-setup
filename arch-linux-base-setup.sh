@@ -785,6 +785,8 @@ yay -Rcc --noconfirm man-pages
 
 # ------------------------------------------------------------------------
 
+echo -e "Clear the caches"
+for n in $(find / -type d \( -name ".tmp" -o -name ".temp" -o -name ".cache" \) 2>/dev/null); do sudo find "$n" -type f -delete; done
 echo -e "Clear the patches"
 rm -rfd /{tmp,var/tmp}/{.*,*}
 sudo pacman -Qtdq &&
