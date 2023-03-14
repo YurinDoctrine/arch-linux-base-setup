@@ -735,8 +735,7 @@ echo -e 'ACTION=="add|change", KERNEL=="sd*[!0-9]|sr*|mmcblk[0-9]*|nvme[0-9]*", 
 sudo sed -i -e 's/HOOKS=.*/HOOKS=(base udev autodetect keyboard keymap modconf block filesystems)/' /etc/mkinitcpio.conf
 ## Enable lz4 compression
 sudo sed -i -e 's/#COMPRESSION="lz4"/COMPRESSION="lz4"/g' /etc/mkinitcpio.conf
-echo -e 'COMPRESSION="lz4"
-COMPRESSION_OPTIONS=("-q --best")' | sudo tee /etc/mkinitcpio.d/12-compression.conf
+sudo sed -i -e 's/#COMPRESSION_OPTIONS=.*/COMPRESSION_OPTIONS=("-q --best")/g' /etc/mkinitcpio.conf
 sudo sed -i -e 's/MODULES=most/MODULES=dep/g' /etc/initramfs-tools/initramfs.conf
 sudo sed -i -e 's/COMPRESS=.*/COMPRESS=lz4/g' /etc/initramfs-tools/initramfs.conf
 sudo update-initramfs -u -k all
