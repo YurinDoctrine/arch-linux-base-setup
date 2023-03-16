@@ -467,6 +467,7 @@ tmpfs /var/run tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
 tmpfs /var/lock tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
 tmpfs /var/cache tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
 tmpfs /var/volatile tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
+tmpfs /var/spool tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
 tmpfs /var/log tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
 tmpfs /dev/shm tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0
 tmpfs /media tmpfs nodiratime,nodev,nosuid,mode=1777,size=300m 0 0" | sudo tee -a /etc/fstab
@@ -555,8 +556,8 @@ sudo sed -i -e 's/resolve [!UNAVAIL=return]/mdns4_minimal [NOTFOUND=return] reso
 # ------------------------------------------------------------------------
 
 echo -e "Reduce systemd timeout"
-sudo sed -i -e 's/#DefaultTimeoutStartSec.*/DefaultTimeoutStartSec=15s/g' /etc/systemd/system.conf
-sudo sed -i -e 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
+sudo sed -i -e 's/#DefaultTimeoutStartSec.*/DefaultTimeoutStartSec=5s/g' /etc/systemd/system.conf
+sudo sed -i -e 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=5s/g' /etc/systemd/system.conf
 
 # ------------------------------------------------------------------------
 
@@ -584,6 +585,9 @@ sudo rm -rfd /var/lib/bluetooth/*
 # ------------------------------------------------------------------------
 
 echo -e "Disable plymouth"
+sudo systemctl mask plymouth-read-write.service >/dev/null 2>&1
+sudo systemctl mask plymouth-start.service >/dev/null 2>&1
+sudo systemctl mask plymouth-quit.service >/dev/null 2>&1
 sudo systemctl mask plymouth-quit-wait.service >/dev/null 2>&1
 
 # ------------------------------------------------------------------------
@@ -634,6 +638,7 @@ upx ~/.local/bin/*
 
 echo -e "Improve I/O throughput"
 echo 32 | sudo tee /sys/block/sd*[!0-9]/queue/iosched/fifo_batch
+echo 32 | sudo tee /sys/block/nvme*/queue/iosched/fifo_batch
 
 # ------------------------------------------------------------------------
 
@@ -657,7 +662,7 @@ fi
 # ------------------------------------------------------------------------
 
 echo -e "Enable HDD write caching"
-sudo hdparm -W 1 /dev/sd*
+sudo hdparm -W 1 /dev/sd*[!0-9]
 
 # ------------------------------------------------------------------------
 
