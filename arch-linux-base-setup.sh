@@ -170,6 +170,7 @@ PKGS=(
 
     'acpid'                  # A daemon for delivering ACPI power management events with netlink support
     'cpupower'               # A tool to examine and tune power saving related features of your processor
+    'ethtool'                # An utility for controlling network drivers and hardware
     'irqbalance'             # IRQ balancing daemon for SMP systems
     'numactl'                # Simple NUMA policy support
     'pipewire-media-session' # Session Manager for PipeWire
