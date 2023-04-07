@@ -1,6 +1,7 @@
 {
   "/dev/sda": {
-    "partitions": [{
+    "partitions": [
+      {
         "boot": true,
         "encrypted": false,
         "filesystem": {
