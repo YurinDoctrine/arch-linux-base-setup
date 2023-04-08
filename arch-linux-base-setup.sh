@@ -161,6 +161,7 @@ PKGS=(
 
     'chrony'      # Versatile implementation of the Network Time Protocol
     'dbus-broker' # Linux D-Bus Message Broker
+    'execstack'   # Makes applications run faster by prefetching ELF shared libraries and executables
     'mksh'        # MirBSD Korn Shell
     'powertop'    # A tool to diagnose issues with power consumption and power management
     'preload'     # Makes applications run faster by prefetching binaries and shared objects
