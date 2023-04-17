@@ -13,7 +13,7 @@ curl --tlsv1.2 -fsSL https://raw.githubusercontent.com/YurinDoctrine/arch-linux-
 
 ### OR
 
-## RUN archinstall BY THIS CONFIG
+## RUN _archinstall_ WITH THIS CONFIG
 
 ```sh
 archinstall --config confMain.json --disk-layouts confDisk.json --creds confCreds.json
