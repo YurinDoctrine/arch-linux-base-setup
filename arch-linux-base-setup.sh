@@ -919,7 +919,7 @@ sudo systemctl mask snapd.apparmor.service >/dev/null 2>&1
 sudo rm -rfd /etc/apparmor.d/usr.lib.snapd.snap-confine.real
 sudo umount /run/snap/ns
 sudo snap remove $(snap list | awk '!/^Name|^bare|^core|^snapd/ {print $1}')
-sudo pacman -Runs --noconfirm snapd
+yay -Runs --noconfirm snapd
 sudo rm -rfd $HOME/snap
 sudo rm -rfd /snap
 sudo rm -rfd /var/snap
