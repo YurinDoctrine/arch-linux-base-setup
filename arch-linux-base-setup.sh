@@ -909,12 +909,29 @@ yay -Rcc --noconfirm man-pages
 
 # ------------------------------------------------------------------------
 
+echo -e "Purge snapd garbage"
+sudo systemctl mask snapd >/dev/null 2>&1
+sudo systemctl mask snapd.service >/dev/null 2>&1
+sudo systemctl mask snapd.socket >/dev/null 2>&1
+sudo systemctl mask snapd.seeded.service >/dev/null 2>&1
+sudo systemctl mask snapd.autoimport.service >/dev/null 2>&1
+sudo systemctl mask snapd.apparmor.service >/dev/null 2>&1
+sudo rm -rfd /etc/apparmor.d/usr.lib.snapd.snap-confine.real
+sudo umount /run/snap/ns
+sudo snap remove $(snap list | awk '!/^Name|^bare|^core|^snapd/ {print $1}')
+sudo pacman -Runs --noconfirm snapd
+sudo rm -rfd $HOME/snap
+sudo rm -rfd /snap
+sudo rm -rfd /var/snap
+sudo rm -rfd /var/lib/snapd
+sudo rm -rfd /var/cache/snapd
+sudo rm -rfd /usr/lib/snapd
 echo -e "Clear the caches"
 for n in $(find / -type d \( -name ".tmp" -o -name ".temp" -o -name ".cache" \) 2>/dev/null); do sudo find "$n" -type f -delete; done
 echo -e "Clear the patches"
 rm -rfd /{tmp,var/tmp}/{.*,*}
 sudo pacman -Qtdq &&
-    sudo pacman -Rns --noconfirm $(/bin/pacman -Qttdq)
+    sudo pacman -Runs --noconfirm $(/bin/pacman -Qttdq)
 sudo pacman -Sc --noconfirm
 sudo pacman -Scc --noconfirm
 sudo pacman-key --refresh-keys
