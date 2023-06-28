@@ -2,7 +2,8 @@
 # Before hop in
 sudo pacman -Syy &&
     sudo pacman -S --needed --noconfirm base-devel binutils ccache faudio git glibc gnupg haveged jemalloc kmod libelf libglvnd libinput libva libx11 lm_sensors lz4 pkgconf psmisc rtkit ufw wget xdg-utils xf86-video-vesa &&
-    sudo pacman -S --needed --noconfirm 9base pacman-contrib reflector
+    sudo pacman -S --needed --noconfirm pacman-contrib
+    sudo pacman -S --needed --noconfirm reflector
 
 # ------------------------------------------------------------------------
 
