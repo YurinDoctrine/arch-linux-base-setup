@@ -177,7 +177,6 @@ PKGS=(
     'ethtool'                # An utility for controlling network drivers and hardware
     'irqbalance'             # IRQ balancing daemon for SMP systems
     'numactl'                # Simple NUMA policy support
-    'pipewire-media-session' # Session Manager for PipeWire
     'unscd'                  # Micro Name Service Caching Daemon
     'upx'                    # An advanced executable file compressor
     'wayland'                # A computer display server protocol
