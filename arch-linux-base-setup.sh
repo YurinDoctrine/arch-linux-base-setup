@@ -179,7 +179,6 @@ PKGS=(
     'numactl'                # Simple NUMA policy support
     'unscd'                  # Micro Name Service Caching Daemon
     'upx'                    # An advanced executable file compressor
-    'wayland'                # A computer display server protocol
     'woff2'                  # Web Open Font Format 2
 
     # DEVELOPMENT ---------------------------------------------------------
