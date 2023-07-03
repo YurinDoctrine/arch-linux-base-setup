@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel binutils ccache faudio git glibc gnupg haveged jemalloc kmod libelf libglvnd libinput libva libx11 lm_sensors lz4 pkgconf psmisc rtkit ufw upower wget xdg-utils xf86-video-vesa &&
+    sudo pacman -S --needed --noconfirm base-devel binutils ccache faudio git glibc gnupg haveged jemalloc kmod libelf libglvnd libinput libva libx11 lm_sensors lz4 pciutils pkgconf psmisc rtkit ufw upower wget xdg-utils xf86-video-vesa &&
     sudo pacman -S --needed --noconfirm pacman-contrib
     sudo pacman -S --needed --noconfirm reflector
 
