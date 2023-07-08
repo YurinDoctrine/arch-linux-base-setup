@@ -145,6 +145,7 @@ kwriteconfig5 --file kwalletrc --group Wallet --key "First Use" --type bool fals
 echo -e "LD_PRELOAD=/usr/lib/libjemalloc.so
 MALLOC_CHECK=0
 MALLOC_TRACE=0
+MESA_DEBUG=0
 LIBGL_DEBUG=0
 LIBGL_NO_DRAWARRAYS=1
 LIBC_FORCE_NOCHECK=1
