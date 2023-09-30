@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Before hop in
 sudo pacman -Syy &&
-    sudo pacman -S --needed --noconfirm base-devel binutils ccache faudio git glibc gnupg haveged jemalloc kmod libelf libglvnd libinput libva libx11 lm_sensors lz4 pciutils pkgconf psmisc rtkit ufw upower wget xdg-utils xf86-video-vesa &&
+    sudo pacman -S --needed --noconfirm base-devel binutils ccache faudio git glibc gnupg haveged kmod libelf libglvnd libinput libva libx11 lm_sensors lz4 pciutils pkgconf psmisc rtkit ufw upower wget xdg-utils xf86-video-vesa &&
     sudo pacman -S --needed --noconfirm pacman-contrib
     sudo pacman -S --needed --noconfirm reflector
 
@@ -142,7 +142,7 @@ kwriteconfig5 --file kwalletrc --group Wallet --key "First Use" --type bool fals
 # ------------------------------------------------------------------------
 
 # Set environment variables
-echo -e "LD_PRELOAD=/usr/lib/libjemalloc.so.2
+echo -e "LD_PRELOAD=/usr/lib/libtcmalloc_minimal.so
 MALLOC_CHECK=0
 MALLOC_TRACE=0
 MESA_DEBUG=0
