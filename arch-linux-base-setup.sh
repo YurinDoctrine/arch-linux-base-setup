@@ -849,7 +849,6 @@ sudo sed -i -e 's/HOOKS=.*/HOOKS=(base udev autodetect modconf block filesystems
 ## Enable lz4 compression
 sudo sed -i -e 's/#COMPRESSION="lz4"/COMPRESSION="lz4"/g' /etc/mkinitcpio.conf
 sudo sed -i -e 's/#COMPRESSION_OPTIONS=.*/COMPRESSION_OPTIONS=("--best")/g' /etc/mkinitcpio.conf
-sudo sed -i -e 's/MODULES=most/MODULES=dep/g' /etc/initramfs-tools/initramfs.conf
 sudo sed -i -e 's/COMPRESS=.*/COMPRESS=lz4/g' /etc/initramfs-tools/initramfs.conf
 sudo update-initramfs -u -k all
 sudo mkinitramfs -c lz4 -o /boot/initrd.img-*
