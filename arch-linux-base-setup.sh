@@ -47,10 +47,13 @@ sudo sed -i -e "/alg_repo/,+2d" /etc/pacman.conf
 # Colorful progress bar
 egrep -q "^Color" /etc/pacman.conf || sudo sed -i -e "s/^#Color$/Color/" /etc/pacman.conf
 egrep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
+sudo sed -i -e s"/\#VerbosePkgLists/VerbosePkgLists/"g /etc/pacman.conf
 # Increase from the default 1 package download at a time to 3.
 sudo sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads = 3/"g /etc/pacman.conf
 # Check how much space left on disk.
 sudo sed -i -e s"/\#CheckSpace/CheckSpace/"g /etc/pacman.conf
+# Disable pacman cache.
+sudo sed -i -e s"/\#CacheDir.*/CacheDir = /"g /etc/pacman.conf
 # Don't extract prescriptions.
 sudo sed -i -e s"/\#NoExtract.*/NoExtract = usr\/share\/doc\/* usr\/share\/gtk-doc\/* usr\/share\/help\/* usr\/share\/man\/*/"g /etc/pacman.conf
 # Disable pacman logging.
