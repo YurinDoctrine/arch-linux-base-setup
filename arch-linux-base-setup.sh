@@ -51,6 +51,10 @@ egrep -q "ILoveCandy" /etc/pacman.conf || sudo sed -i -e "/#VerbosePkgLists/a IL
 sudo sed -i -e s"/\#ParallelDownloads.*/ParallelDownloads = 3/"g /etc/pacman.conf
 # Check how much space left on disk.
 sudo sed -i -e s"/\#CheckSpace/CheckSpace/"g /etc/pacman.conf
+# Don't extract prescriptions.
+sudo sed -i -e s"/\#NoExtract.*/NoExtract = usr\/share\/doc\/* usr\/share\/gtk-doc\/* usr\/share\/help\/* usr\/share\/man\/*/"g /etc/pacman.conf
+# Disable pacman logging.
+sudo sed -i -e s"/\#LogFile.*/LogFile = /"g /etc/pacman.conf
 # Makepkg config
 echo -e "Set arch"
 sudo sed -i -e "s/-march=x86-64 -mtune=generic -O2/-march=native -mtune=native -O3 -pipe -fgraphite-identity -floop-strip-mine -floop-nest-optimize -fno-semantic-interposition -fipa-pta -flto -fdevirtualize-at-ltrans -flto-partition=one/g" /etc/makepkg.conf
@@ -960,7 +964,7 @@ rm -rfd /{tmp,var/tmp}/{.*,*}
 sudo pacman -Qtdq &&
     sudo pacman -Runs --noconfirm $(/bin/pacman -Qttdq)
 sudo pacman -Sc --noconfirm
-sudo pacman -Scc --noconfirm
+sudo pacman -Scc -y
 sudo pacman-key --refresh-keys
 sudo pacman-key --populate archlinux
 yay -Yc --noconfirm
