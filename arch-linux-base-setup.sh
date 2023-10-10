@@ -55,7 +55,7 @@ sudo sed -i -e s"/\#CheckSpace/CheckSpace/"g /etc/pacman.conf
 # Disable pacman cache.
 sudo sed -i -e s"/\#CacheDir.*/CacheDir = /"g /etc/pacman.conf
 # Don't extract prescriptions.
-sudo sed -i -e s"/\#NoExtract.*/NoExtract = usr\/share\/doc\/* usr\/share\/gtk-doc\/* usr\/share\/help\/* usr\/share\/man\/*/"g /etc/pacman.conf
+sudo sed -i -e s"/\#NoExtract.*/NoExtract = usr\/share\/doc\/* usr\/share\/gtk-doc\/* usr\/share\/help\/* usr\/share\/info\/* usr\/share\/man\/*/"g /etc/pacman.conf
 # Disable pacman logging.
 sudo sed -i -e s"/\#LogFile.*/LogFile = /"g /etc/pacman.conf
 # Makepkg config
