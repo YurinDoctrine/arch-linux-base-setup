@@ -267,7 +267,6 @@ blacklist sp5100-tco
 blacklist sp5100_tco
 blacklist pcmcia
 blacklist yenta_socket
-blacklist btusb
 blacklist dccp
 blacklist sctp
 blacklist rds
