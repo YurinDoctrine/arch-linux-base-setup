@@ -66,7 +66,7 @@ sudo sed -i -e "s|BUILDENV.*|BUILDENV=(!distcc color ccache check !sign)|g" /etc
 echo -e "Set BUILDDIR"
 sudo sed -i -e "s|#BUILDDIR.*|BUILDDIR=/tmp/makepkg|g" /etc/makepkg.conf
 echo -e "Use all cores for compilation"
-sudo sed -i -e 's/-j.*/-j$(expr $(nproc) - 1) -l$(nproc)"/;s/^#MAKEFLAGS/MAKEFLAGS/;s/^#RUSTFLAGS/RUSTFLAGS/' /etc/makepkg.conf
+sudo sed -i -e "s/-j.*/-j$(expr $(nproc) - 1) -l$(nproc)\"/;s/^#MAKEFLAGS/MAKEFLAGS/;s/^#RUSTFLAGS/RUSTFLAGS/" /etc/makepkg.conf
 echo -e "Use all cores for compression"
 sudo sed -i -e "s/xz.*/xz -c -z -q - --threads=$(nproc))/;s/^#COMPRESSXZ/COMPRESSXZ/;s/zstd.*/zstd -c -z -q - --threads=$(nproc))/;s/^#COMPRESSZST/COMPRESSZST/;s/lz4.*/lz4 -q --best)/;s/^#COMPRESSLZ4/COMPRESSLZ4/" /etc/makepkg.conf
 echo -e "Use different compression algorithm"
