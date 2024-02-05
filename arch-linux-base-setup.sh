@@ -27,6 +27,8 @@ sudo cp -R /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 echo -e "Setting up mirrors for optimal download ..."
 reflector --latest 3 --age 48 --sort rate --save /home/$USER/mirrorlist
 sudo mv /home/$USER/mirrorlist /etc/pacman.d/mirrorlist
+# Only use https mirrors incase of compromised exit nodes
+sudo sed -i -e 's/Server = http:/#Server = http:/' /etc/pacman.d/mirrorlist
 
 # ------------------------------------------------------------------------
 
