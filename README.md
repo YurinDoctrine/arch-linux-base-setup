@@ -16,6 +16,7 @@ curl --tlsv1.2 -fsSL https://raw.githubusercontent.com/YurinDoctrine/arch-linux-
 ## RUN _archinstall_ WITH THIS CONFIG
 
 ```sh
-archinstall --config confMain.json --disk-layouts confDisk.json --creds confCreds.json
+archinstall --config confMain.json --creds confCreds.json
 
 ```
+`user: arch pass: asd`
