@@ -7,9 +7,6 @@
   "debug": false,
   "filesystem": "btrfs",
   "gfx_driver": "All open-source (default)",
-  "harddrives": [
-    "/dev/sda"
-  ],
   "hostname": "doctrine",
   "kernels": [
     "linux"
