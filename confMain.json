@@ -7,7 +7,7 @@
   "debug": false,
   "filesystem": "btrfs",
   "gfx_driver": "All open-source (default)",
-  "hostname": "doctrine",
+  "hostname": "localhost",
   "kernels": [
     "linux"
   ],
