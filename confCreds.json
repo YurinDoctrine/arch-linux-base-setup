@@ -1,7 +1,7 @@
 {
 	"!users": [
 		{
-			"username": "doctrine",
+			"username": "arch",
 			"!password": "asd",
 			"sudo": true
 		}
