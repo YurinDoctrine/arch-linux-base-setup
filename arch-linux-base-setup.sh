@@ -304,7 +304,6 @@ blacklist jffs2
 blacklist hfs
 blacklist hfsplus
 blacklist squashfs
-blacklist udf
 blacklist wl
 blacklist ssb
 blacklist b43
