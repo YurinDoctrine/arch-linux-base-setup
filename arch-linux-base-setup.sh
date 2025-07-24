@@ -61,7 +61,7 @@ sudo sed -i -e s"/\#NoExtract.*/NoExtract = usr\/share\/doc\/* usr\/share\/gtk-d
 sudo sed -i -e s"/\#LogFile.*/LogFile = /"g /etc/pacman.conf
 # Makepkg config
 echo -e "Set arch"
-sudo sed -i -e "s/-march=x86-64 -mtune=generic -O2/-march=native -mtune=native -O3 -pipe -fgraphite-identity -floop-strip-mine -floop-nest-optimize -fno-semantic-interposition -fipa-pta -flto -fdevirtualize-at-ltrans -flto-partition=one/g" /etc/makepkg.conf
+sudo sed -i -e "s/-march=x86-64 -mtune=generic -O2/-march=native -mtune=native -O3/g" /etc/makepkg.conf
 echo -e "Set BUILDENV"
 sudo sed -i -e "s|BUILDENV.*|BUILDENV=(!distcc color ccache check !sign)|g" /etc/makepkg.conf
 echo -e "Set BUILDDIR"
@@ -398,7 +398,7 @@ net.core.bpf_jit_enable=1
 net.core.bpf_jit_harden=0
 net.core.bpf_jit_kallsyms=0" | sudo tee /etc/sysctl.d/99-swappiness.conf
 echo -e "Drop caches"
-sudo sysctl -w vm.compact_memory=1 && sudo sysctl -w vm.drop_caches=3 && sudo sysctl -w vm.drop_caches=2
+sudo sysctl -w vm.compact_memory=1 && sudo sysctl -w vm.drop_caches=3
 echo -e "Restart swap"
 sudo swapoff -av && sudo swapon -av
 
